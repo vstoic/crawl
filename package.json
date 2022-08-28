@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "server:debug": "nodemon --inspect app.js"
   },
   "author": "Mohammad Rizwan, Tara Oliver, Victor Cheng, Tom Leger",
   "license": "ISC",
