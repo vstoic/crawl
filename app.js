@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 const express = require("express");
 const app = express();
 const db = require('./config/keys').mongoURI;
+const users = require("./routes/api/users");
+const crawls = require("./routes/api/crawls");
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -9,6 +15,9 @@ mongoose
   .catch(err => console.log(err));
 
 app.get("/", (req, res) => res.send("HELLO"));
+
+app.use("/api/users", users);
+app.use("/api/crawls", crawls);
 
 const port = process.env.PORT || 5000;
 
