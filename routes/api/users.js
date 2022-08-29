@@ -14,7 +14,8 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
     res.json({
       id: req.user.id,
       username: req.user.username,
-      email: req.user.email
+      email: req.user.email,
+      createdAt: req.user.createdAt
     });
   })
 
@@ -43,7 +44,7 @@ router.post("/register", (req, res) => {
             newUser
               .save()
               .then(user => {
-                const payload = { id: user.id, username: user.username, email: user.email };
+                const payload = { id: user.id, username: user.username, email: user.email, createdAt: user.createdAt };
   
                 jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                   res.json({
@@ -71,13 +72,13 @@ router.post("/register", (req, res) => {
   
     User.findOne({ email }).then(user => {
       if (!user) {
-        errors.email = "This user does not exist";
+        errors.email = "This email does not have an account assoicated with it";
         return res.status(400).json(errors);
       }
   
       bcrypt.compare(password, user.password).then(isMatch => {
         if (isMatch) {
-          const payload = { id: user.id, username: user.username, email: user.email };
+          const payload = { id: user.id, username: user.username, email: user.email, createdAt: user.createdAt };
   
           jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
             res.json({
