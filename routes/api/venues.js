@@ -104,3 +104,5 @@ router.delete('/:id', (req, res) => {
     .catch(() => res.status(404).json({ error: "Venue not found" })
     )
 });
+
+module.exports = router;
