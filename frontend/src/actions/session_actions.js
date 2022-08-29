@@ -48,7 +48,8 @@ export const login = (user) => (dispatch) =>
       dispatch(receiveCurrentUser(decoded));
     })
     .catch((err) => {
-      dispatch(receiveErrors(err.response.data));
+      // dispatch(receiveErrors(err.response.data));
+      console.lonpg(err);
     });
 
 // We wrote this one earlier

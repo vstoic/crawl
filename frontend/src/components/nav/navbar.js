@@ -49,6 +49,7 @@ class NavBar extends React.Component {
     }
   }
   render() {
+    console.log("Props======>", this.props.loggedIn);
     return (
       <div>
         {this.getLinks()}
