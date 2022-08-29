@@ -12,9 +12,15 @@ export const setAuthToken = (token) => {
 };
 
 export const signup = (userData) => {
-  return axios.post("/api/users/register", userData);
+  return axios.post(
+    "https://f646-184-152-223-68.ngrok.io/api/users/register",
+    userData
+  );
 };
 
 export const login = (userData) => {
-  return axios.post("/api/users/login", userData);
+  return axios.post(
+    "https://f646-184-152-223-68.ngrok.io/api/users/login",
+    userData
+  );
 };
