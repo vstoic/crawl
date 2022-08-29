@@ -3,9 +3,13 @@ const Schema = mongoose.Schema;
 
 const CrawlSchema = new Schema(
   {
-    user: {
+    creator_id: {
       type: Schema.Types.ObjectId,
       ref: 'User'
+    },
+    category: {
+      type: String,
+      required: true
     },
     title: {
       type: String,
