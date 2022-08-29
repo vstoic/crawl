@@ -1,0 +1,89 @@
+.nav-container {
+    display: flex;
+    background-color: transparent;
+    padding: 26px 40px 0;
+    pointer-events: auto;
+    justify-content: space-between;
+    vertical-align: center;
+    align-items: center;
+}
+
+.logo {
+    width: 135px;
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 18px;
+}
+
+.nav-login-button {
+    font-family: 'Quicksand';
+    font-size: 16px;
+    font-weight: 300;
+    vertical-align: center;
+    text-decoration: none;
+    color: #727272;
+    background-image: none;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: none;
+    cursor: pointer;
+    height: 20px;
+    min-width: 40px;
+    padding-bottom: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 6px;
+    border: 1px solid rgb(222, 222, 222);
+    }
+
+.nav-signup-button {
+    font-family: 'Quicksand';
+    font-size: 16px;
+    font-weight: 300;
+    vertical-align: center;
+    text-decoration: none;
+    color: #727272;
+    background-image: none;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: none;
+    cursor: pointer;
+    height: 20px;
+    min-width: 40px;
+    padding-bottom: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 6px;
+    border: 1px solid rgb(222, 222, 222);
+}
+
+.nav-logout-button {
+    font-family: 'Quicksand';
+    font-size: 16px;
+    font-weight: 300;
+    vertical-align: center;
+    text-decoration: none;
+    color: #727272;
+    background-image: none;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: none;
+    cursor: pointer;
+    height: 20px;
+    min-width: 40px;
+    padding-bottom: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 6px;
+    border: 1px solid rgb(222, 222, 222);
+}
