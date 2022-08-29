@@ -1,5 +1,3 @@
-// src/util/session_api_util.js
-
 import axios from "axios";
 
 // We've been using this method in previos steps

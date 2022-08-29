@@ -38,6 +38,7 @@ class NavBar extends React.Component {
   }
 
   render() {
+    console.log("Props======>", this.props.loggedIn);
     return (
       <div>
         <h1>Chirper</h1>

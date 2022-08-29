@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
@@ -7,11 +8,13 @@ const crawls = require("./routes/api/crawls");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
+
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.log(err));
-
+app.use(cors());
 app.use(passport.initialize());
 require("./config/passport")(passport);
 
