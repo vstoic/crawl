@@ -44,7 +44,7 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password,
     };
-
+ 
     this.props.login(user).then((res) => {
       console.log("Response====>", res);
     });
@@ -64,6 +64,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    console.log("Data======>",this.props.venueReducer)
     return (
       <div className="session-background">
         <div className="session-image-container">

@@ -14,7 +14,7 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.props.logout();
   }
-  
+
   getLinks() {
     if (this.props.loggedIn) {
       return (
@@ -52,6 +52,9 @@ class NavBar extends React.Component {
             <div></div>
           </div>
           <div className="nav-right">
+            <Link to={"/Venue"} className="nav-login-button">
+              Venues
+            </Link>
             <Link to={"/login"} className="nav-login-button">
               Login
             </Link>
