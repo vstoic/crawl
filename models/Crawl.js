@@ -31,7 +31,7 @@ const CrawlSchema = new Schema(
       type: String,
       required: true 
     },
-    venues: [{type: Object}],
+    venues: [{type: Object }],
   }, {
   timestamps: true
 })
