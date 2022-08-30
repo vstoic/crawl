@@ -1,7 +1,7 @@
 // src/components/nav/navbar.js
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "../../assets/stylesheets/navbar.css";
 
 class NavBar extends React.Component {
@@ -19,14 +19,20 @@ class NavBar extends React.Component {
       return (
         <div className="nav-container">
           <div className="logo-container">
-            <Link to="/"><img className="logo"
-              src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"/></Link>
+            <Link to="/">
+              <img
+                className="logo"
+                src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
+              />
+            </Link>
           </div>
           <div className="search-container">
             <div></div>
           </div>
           <div className="nav-right">
-            <button onClick={this.logoutUser} className="nav-logout-button">Logout</button>
+            <button onClick={this.logoutUser} className="nav-logout-button">
+              Logout
+            </button>
           </div>
         </div>
       );
@@ -34,15 +40,23 @@ class NavBar extends React.Component {
       return (
         <div className="nav-container">
           <div className="logo-container">
-            <Link to="/"><img className="logo"
-              src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"/></Link>
+            <Link to="/">
+              <img
+                className="logo"
+                src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
+              />
+            </Link>
           </div>
           <div className="search-container">
             <div></div>
           </div>
           <div className="nav-right">
-            <Link to={"/login"} className="nav-login-button">Login</Link>
-            <Link to={"/signup"} className="nav-signup-button">Sign Up</Link>
+            <Link to={"/login"} className="nav-login-button">
+              Login
+            </Link>
+            <Link to={"/signup"} className="nav-signup-button">
+              Sign Up
+            </Link>
           </div>
         </div>
       );
@@ -50,11 +64,7 @@ class NavBar extends React.Component {
   }
   render() {
     console.log("Props======>", this.props.loggedIn);
-    return (
-      <div>
-        {this.getLinks()}
-      </div>
-    );
+    return <div>{this.getLinks()}</div>;
   }
 }
 
