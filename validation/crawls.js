@@ -16,7 +16,7 @@ module.exports = function validateCrawlInput(data) {
     errors.category = 'Invalid Category'
   }
   if (Validator.isEmpty(data.category)) {
-    errors.text = 'Category is required';
+    errors.catergory = 'Category is required';
   }
 
   data.title = validText(data.title) ? data.title : '';
@@ -37,12 +37,14 @@ module.exports = function validateCrawlInput(data) {
     errors.cost = 'Cost is required';
   }
 
+  data.time = validText(data.time) ? data.time : '';
   if (Validator.isEmpty(data.time)) {
-    errors.cost = 'Time is required';
+    errors.time = 'Time is required';
   }
 
+  data.distance = validText(data.distance) ? data.distance : '';
   if (Validator.isEmpty(data.distance)) {
-    errors.cost = 'Distance is required';
+    errors.distance = 'Distance is required';
   }
 
   return {

@@ -24,11 +24,11 @@ const CrawlSchema = new Schema(
       required: true
     },
     time: {
-      type: Number,
+      type: String,
       required: true 
     },
     distance: {
-      type: Number,
+      type: String,
       required: true 
     },
     venues: [{type: Object}],
