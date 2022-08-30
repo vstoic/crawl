@@ -37,6 +37,7 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = {
+      username: this.state.username,
       email: this.state.email,
       username: this.state.handle,
       password: this.state.password,
@@ -75,7 +76,7 @@ class SignupForm extends React.Component {
           <input
             className="username-input"
             type="username"
-            value={this.state.email}
+            value={this.state.username}
             onChange={this.update("username")}
             placeholder="Username"
           />
@@ -111,7 +112,7 @@ class SignupForm extends React.Component {
         </button>
         <br />
         <input className="submit-signup" type="submit" value="Sign Up" />
-        <p className="login-redirect">New to Crawl? <Link to="/login">Sign Up</Link>.</p>
+        <p className="login-redirect">New to Crawl? <Link to="/login">Login</Link>.</p>
         {this.renderErrors()}
 
       </div>
