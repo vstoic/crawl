@@ -10,7 +10,7 @@ class MainPage extends React.Component {
       <div>
         <NavBarContainer />
         <h1>Basic main_page</h1>
-        <footer>Copyright &copy; 2019 Chirper</footer>
+        <footer></footer>
       </div>
     );
   }

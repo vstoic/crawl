@@ -49,7 +49,7 @@ export const login = (user) => (dispatch) =>
     })
     .catch((err) => {
       // dispatch(receiveErrors(err.response.data));
-      console.lonpg(err);
+      console.log(err);
     });
 
 // We wrote this one earlier
