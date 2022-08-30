@@ -52,7 +52,6 @@ export const login = (user) => (dispatch) =>
       console.log(err);
     });
 
-// We wrote this one earlier
 export const logout = () => (dispatch) => {
   localStorage.removeItem("jwtToken");
   APIUtil.setAuthToken(false);
