@@ -11,12 +11,14 @@ module.exports = function validateCrawlInput(data) {
     errors.creator_id = 'Invalid Creator ID'
   }
 
+
+
   data.category = validText(data.category) ? data.category : '';
   if (!categories.includes(data.category)) {
     errors.category = 'Invalid Category'
   }
   if (Validator.isEmpty(data.category)) {
-    errors.catergory = 'Category is required';
+    errors.category = 'Category is required';
   }
 
   data.title = validText(data.title) ? data.title : '';

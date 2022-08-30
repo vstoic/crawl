@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   Comment.find()
     .sort({ date: -1 })
     .then(comments => res.json(comments))
-    .catch(err => res.status(404).json({ nocommentsfound: 'No comments found' }));
+    .catch(err => res.status(404).json({ error: 'No comments found' }));
 });
 
 
@@ -20,7 +20,7 @@ router.get('/:crawl_id', (req, res) => {
     .sort({ createdAt: -1 })
     .then(comments => res.json(comments))
     .catch(err =>
-      res.status(404).json({ nocommentsfound: 'No comments found from that Crawl' }
+      res.status(404).json({ error: 'No comments found from that Crawl' }
       )
     );
 });
@@ -102,7 +102,7 @@ router.delete('/:id', (req, res) => {
 
   const commentFilter = { _id: req.params.id };
   // deletes Crawl
-  Crawl.findOneAndRemove(commentFilter)
+  Comment.findOneAndRemove(commentFilter)
     .then(comment => res.status(200).json(comment))
     .catch(() => res.status(404).json({ error: "Comment not found" })
     )

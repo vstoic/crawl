@@ -7,6 +7,7 @@ const users = require("./routes/api/users");
 const crawls = require("./routes/api/crawls");
 const venues = require("./routes/api/venues");
 const comments = require("./routes/api/comments");
+const votes = require("./routes/api/votes")
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
@@ -27,6 +28,7 @@ app.use("/api/users", users);
 app.use("/api/crawls", crawls);
 app.use("/api/venues", venues);
 app.use("/api/comments", comments);
+app.use("/api/votes", votes);
 
 const port = process.env.PORT || 5000;
 
