@@ -6,6 +6,7 @@ const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
 const crawls = require("./routes/api/crawls");
 const venues = require("./routes/api/venues");
+const comments = require("./routes/api/comments");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/crawls", crawls);
 app.use("/api/venues", venues);
+app.use("/api/comments", comments);
 
 const port = process.env.PORT || 5000;
 
