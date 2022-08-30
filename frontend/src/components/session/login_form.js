@@ -4,8 +4,6 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import "../../assets/stylesheets/session_form.css";
 
-
-
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +21,7 @@ class LoginForm extends React.Component {
   // Once the user has been authenticated, redirect to the main page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push("/");
+      // this.props.history.push("/");
     }
 
     // Set or clear errors
@@ -47,18 +45,21 @@ class LoginForm extends React.Component {
       password: this.state.password,
     };
 
-    this.props.login(user)
-      .then(this.props.history.push("/"));
+    this.props.login(user).then((res) => {
+      console.log("Response====>", res);
+    });
   }
 
   // Render the session errors if there are any
   renderErrors() {
     return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
+      <div className="session-errors">
+        <ul>
+          {Object.keys(this.state.errors).map((error, i) => (
+            <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
@@ -66,14 +67,19 @@ class LoginForm extends React.Component {
     return (
       <div className="session-background">
         <div className="session-image-container">
-          <img className="logo-image" src="https://i.postimg.cc/tRWyZch1/snail-logo.png" />
+          <img
+            className="logo-image"
+            src="https://i.postimg.cc/tRWyZch1/snail-logo.png"
+          />
           {/* <img className="google-image" src="https://i.postimg.cc/02PL3BDw/googlemap.png"/> */}
-          <img className="google-image" src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png" />
-
+          <img
+            className="google-image"
+            src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
+          />
         </div>
         <div className="login-container">
           <div className="login-text">
-            <h1 className="login-text1">Adventures Awaits</h1>
+            <h1 className="login-text1">Adventures Await</h1>
             {/* <h2 className="signup-redirect-main">New to crawl? <Link className="signup-link" to="/signup">Sign Up</Link>.</h2> */}
           </div>
           <form onSubmit={this.handleSubmit}>
@@ -85,7 +91,7 @@ class LoginForm extends React.Component {
                 onChange={this.update("email")}
                 placeholder="Email"
               />
-              <br/>
+              <br />
               <input
                 className="password-input"
                 type="password"
@@ -93,17 +99,16 @@ class LoginForm extends React.Component {
                 onChange={this.update("password")}
                 placeholder="Password"
               />
-              <br/>
-              <button
-                className="demo-button-login"
-                onClick={this.handleDemo}>
-                  Demo User
+              <br />
+              <button className="demo-button-login" onClick={this.handleDemo}>
+                Demo User
               </button>
-              <br/>
+              <br />
               <input className="submit-login" type="submit" value="Login" />
-              <p className="signup-redirect">New to Crawl? <Link to="/signup">Sign Up</Link>.</p>
+              <p className="signup-redirect">
+                New to Crawl? <Link to="/signup">Sign Up</Link>.
+              </p>
               {this.renderErrors()}
-
             </div>
           </form>
         </div>
@@ -113,11 +118,3 @@ class LoginForm extends React.Component {
 }
 
 export default withRouter(LoginForm);
-
-
-
-
-
-
-
-
