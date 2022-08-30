@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const validateVenueInput = require('../../validation/venues');
-const Venue = require('../../models/Venue')
+const Venue = require('../../models/Venue');
+const passport = require("passport");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the venues route" }));
 
@@ -27,7 +28,9 @@ router.get('/:id', (req, res) => {
 });
 
 //Create a venue
-router.post('/', (req, res) => {
+router.post('/', 
+  passport.authenticate("jwt", { session: false }),
+(req, res) => {
   // validates venue information
   const { errors, isValid } = validateVenueInput(req.body);
 
@@ -60,7 +63,9 @@ router.post('/', (req, res) => {
 });
 
 // Updates Venue -- 
-router.patch('/:id', (req, res) => {
+router.patch('/:id',
+passport.authenticate("jwt", { session: false }),
+(req, res) => {
 
   // validates updates
   const { errors, isValid } = validateVenueInput(req.body);
@@ -95,7 +100,9 @@ router.patch('/:id', (req, res) => {
 });
 
 // Delete route for venue
-router.delete('/:id', (req, res) => {
+router.delete('/:id',
+passport.authenticate("jwt", { session: false }),
+(req, res) => {
 
   const venueFilter = { _id: req.params.id };
   // deletes Crawl

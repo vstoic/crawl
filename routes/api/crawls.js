@@ -1,7 +1,8 @@
 const express = require("express");
 const Crawl = require("../../models/Crawl");
 const router = express.Router();
-const validateCrawlInput = require('../../validation/crawls')
+const validateCrawlInput = require('../../validation/crawls');
+const passport = require("passport");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the crawls route" }));
 
@@ -34,7 +35,9 @@ router.get('/:id', (req, res) => {
 })
 
 //Create a crawl
-router.post('/', (req, res) => {
+router.post('/',
+  passport.authenticate("jwt", { session: false }),
+(req, res) => {
   // validates crawl information
   const { errors, isValid } = validateCrawlInput(req.body);
 
@@ -70,7 +73,9 @@ router.post('/', (req, res) => {
 
 // Updates Crawl -- should be used as part of the create page on the front end
 // Set should be created, and then populated with questions
-router.patch('/:id', (req, res) => {
+router.patch('/:id',
+  passport.authenticate("jwt", { session: false }),
+(req, res) => {
 
   // validates updates
   const { errors, isValid } = validateCrawlInput(req.body);
@@ -106,7 +111,9 @@ router.patch('/:id', (req, res) => {
 });
 
 // Delete route for crawl
-router.delete('/:id', (req, res) => {
+router.delete('/:id',
+  passport.authenticate("jwt", { session: false }),
+(req, res) => {
 
   const crawlFilter = { _id: req.params.id };
   // deletes Crawl
