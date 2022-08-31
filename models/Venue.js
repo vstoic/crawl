@@ -28,6 +28,9 @@ const VenueSchema = new Schema(
     },
     image: {
       type: String,
+    },
+    website: {
+      type: String,
     }
   }, {
   timestamps: true

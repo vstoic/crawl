@@ -53,6 +53,7 @@ router.post('/',
   const time = req.body.time;
   const distance = req.body.distance;
   const venues = req.body.venues;
+  const votecount = req.body.votecount;
 
 
   const newCrawl = new Crawl({
@@ -63,7 +64,8 @@ router.post('/',
     cost,
     time,
     distance,
-    venues
+    venues,
+    votecount
   });
 
   newCrawl.save()
@@ -92,6 +94,8 @@ router.patch('/:id',
   const time = req.body.time;
   const distance = req.body.distance;
   const venues = req.body.venues;
+  const votecount = req.body.votecount;
+
 
   const filter = {_id: req.params.id };
   const update = {
@@ -102,7 +106,8 @@ router.patch('/:id',
     cost,
     time,
     distance,
-    venues
+    venues,
+    votecount
   };
 
   Crawl.findOneAndUpdate(filter, update, { new: true })
