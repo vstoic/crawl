@@ -54,6 +54,14 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
+    const { signup, login, history, currentUser } = this.props;
+    const user = Object.assign({}, this.state);
+    signup(user)
+      .then(() => login(user));
+    if (currentUser) {
+      history.push("/");
+    }
     // e.preventDefault();
     // let user = {
     //   email: this.state.email,
@@ -64,10 +72,6 @@ class SignupForm extends React.Component {
 
     // this.props.signup(user, this.props.history);
 
-    e.preventDefault();
-    const { signup, history } = this.props;
-    const user = Object.assign({}, this.state);
-    signup(user);
   }
 
   // renderErrors() {
