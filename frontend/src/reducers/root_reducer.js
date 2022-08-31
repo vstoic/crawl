@@ -6,12 +6,14 @@ import SessionReducer from './session_reducer';
 import EntitiesReducer from './entities_reducer';
 import userSession from './session_api_reducer'
 import venueReducer from './venues_reducer'
+import crawlsReducer from "./crawls_reducer";
 const RootReducer = combineReducers({
   entities: EntitiesReducer,
   session: SessionReducer,
   errors: ErrorsReducer,
   userSession,
-  venueReducer
+  venueReducer,
+  crawlsReducer,
 });
 
 export default RootReducer;
