@@ -5,7 +5,7 @@ import { fetchAllCrawls } from "../../actions/crawl_actions";
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
-    crawlsReducer: state.crawlsReducer,
+    crawlsReducer: state.entities.crawls
   };
 };
 

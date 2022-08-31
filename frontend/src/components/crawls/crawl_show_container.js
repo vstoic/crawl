@@ -6,8 +6,8 @@ import { fetchAllVenues } from "../../actions/venue_actions";
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
-    crawlsReducer: state.crawlsReducer,
-    venueReducer: state.venueReducer,
+    crawlsReducer: state.entities.crawls,
+    venueReducer: state.entities.venues,
   };
 };
 
