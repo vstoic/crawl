@@ -11,7 +11,8 @@ export const fetchCrawl = id => {
 
 export const updateCrawl = (crawl) => {
     return axios.patch(`/api/crawls/${crawl.id}`, crawl);
-    
+}
+
 export const createCrawl = async (crawl) => {
     let crawlAll = await axios.post('/api/crawls');
     console.log("CrawlAll=======>",crawlAll)

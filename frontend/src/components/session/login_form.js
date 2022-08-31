@@ -36,14 +36,14 @@ class LoginForm extends React.Component {
   }
 
   // Once the user has been authenticated, redirect to the main page
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      // this.props.history.push("/");
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.currentUser === true) {
+  //     // this.props.history.push("/");
+  //   }
 
-    // Set or clear errors
-    this.setState({ errors: nextProps.errors });
-  }
+  //   // Set or clear errors
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   // Handle field updates (called in the render method)
   update(field) {
@@ -57,14 +57,20 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    let user = {
+    const user = {
       email: this.state.email,
       password: this.state.password,
     };
+
+    const { login, currentUser, history } = this.props;
  
-    this.props.login(user).then((res) => {
-      console.log("Response====>", res);
-    });
+    login(user);
+      if (currentUser) {
+        history.push("/");
+      }
+    // .then((res) => {
+    //   console.log("Response====>", res);
+    // });
   }
 
   // Render the session errors if there are any
