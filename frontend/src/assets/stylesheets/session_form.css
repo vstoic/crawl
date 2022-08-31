@@ -5,7 +5,7 @@
     vertical-align: center;
     align-items: center;
     justify-content: flex-end;
-    background: linear-gradient(to top, #e6e6e677 0%, #ececec11 100%);
+    /* background: linear-gradient(to top, #e6e6e677 0%, #ececec11 100%); */
 }
 
 .session-image-container {
@@ -18,7 +18,7 @@
 }
 
 .logo-image {
-    width: 200px;
+    width: 50%;
     height: auto;
     /* border-radius: 50%; */
     opacity: 0.7;
@@ -160,6 +160,11 @@
     color: rgb(129, 129, 129);
 }
 
+.link-font:visited {
+    text-decoration: none;
+    font-size: 200%;
+    color: #0D7258;
+}
 /* ---------------------------- */
 
 .signup-container {
@@ -246,4 +251,9 @@
     font-size: 12px;
     font-weight: 200;
     color: rgb(129, 129, 129);
+}
+
+.errors {
+    font-size: 75%;
+    font-weight: 100px;
 }
