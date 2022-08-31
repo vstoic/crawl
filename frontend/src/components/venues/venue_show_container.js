@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
+
 import VenueShow from "./venue_show";
+
 import { fetchVenue } from "../../actions/venue_actions";
 const mapStateToProps = (state) => {
   return {
@@ -10,7 +12,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+
     fetchVenue: (id) => dispatch(fetchVenue(id)),
+
   };
 };
 

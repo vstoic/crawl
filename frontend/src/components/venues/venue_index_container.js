@@ -1,5 +1,8 @@
 import { connect } from "react-redux";
+
 import VenueIndex from "./venue_index";
+
+
 import { fetchAllVenues } from "../../actions/venue_actions";
 const mapStateToProps = (state) => {
   return {

@@ -8,6 +8,8 @@ export const fetchCrawl = id => {
     return axios.get(`/api/crawls/${id}`);
 };
 
-export const createCrawl = (crawl) => {
-    return axios.post('/api/crawls');
+export const createCrawl = async (crawl) => {
+    let crawlAll = await axios.post('/api/crawls');
+    console.log("CrawlAll=======>",crawlAll)
+    return crawlAll
 };
