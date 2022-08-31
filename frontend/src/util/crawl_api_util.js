@@ -9,5 +9,9 @@ export const fetchCrawl = id => {
 };
 
 export const createCrawl = (crawl) => {
-    return axios.post('/api/crawls');
+    return axios.post('/api/crawls', crawl);
+};
+
+export const updateCrawl = (crawl) => {
+    return axios.patch(`/api/crawls/${crawl.id}`, crawl);
 };

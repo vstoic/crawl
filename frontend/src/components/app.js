@@ -10,6 +10,8 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import VenueContainer from "../components/venues/venue_show"
 import VenueDetailsContainer from "../components/venues/venue_show_container"
+import CrawlEditContainer from "./crawls/crawl_edit_container";
+
 const App = () => (
   <div>
     <NavBarContainer />
@@ -18,6 +20,7 @@ const App = () => (
       <Route exact path="/Venue" component={VenueContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route exact path="/crawls/:id/edit" component={CrawlEditContainer} />
 
       <Route path="/" component={MainPage} />
       {/* <Route exact path="/Venue" component={Venue} /> */}

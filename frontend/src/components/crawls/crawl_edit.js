@@ -2,33 +2,26 @@ import React from "react";
 import { withRouter } from 'react-router-dom';
 
 class CrawlEdit extends React.Component {
-   constructor(props){
-    super(props);
+    constructor(props) {
+        super(props);
+        this.state = this.props.crawl;
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleClick = this.handleClick.bind(this)
 
-       this.state = {
-           category: '',
-           title: '',
-           description: '',
-           cost: '',
-           time: '',
-           distance: ''
-       };
+    }
 
-    this.handleSubmit = this.handleClick.bind(this);
-   }
-   
     componentDidMount(){
         this.props.fetchCrawl(this.props.match.params.crawlId)
     }
 
     handleSubmit(e){
-        const { createCrawl, user } = this.props;
+        const { updateCrawl} = this.props;
 
         e.preventDefault();
         const crawl = Object.assign({}, this.state);
 
-        createCrawl(crawl)
-            .then(() => history.push(`/users/${user.id}`));
+        updateCrawl(crawl)
+            // .then(() => history.push(`/users/${user.id}`));
     }
 
     update(field) {
@@ -37,18 +30,35 @@ class CrawlEdit extends React.Component {
         });
     }
 
-    render() {
+    handleClick(e){
+        e.preventDefault();
         return(
+            <h1>Hello</h1>
+        )
+    }
+
+    render() {
+        return (
             <>
                 <form onSubmit={this.handleSubmit}
-                     className='crawl-edit-form-box'>
+                    className='crawl-edit-form-box'
+                >
                     <div className="crawl-edit-">
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             placeholder="Crawl Title"
-                            value={this.state.title}
-                            onChange={this.update('title')}>
+                            // value={this.state.title}
+                            onChange={this.update('title')}/>
+                            <button onClick={this.handleClick}>Create Crawl</button>
                     </div>
+                    <div>
+                         <input
+                            type="text"
+                            placeholder="Crawl Title"
+                            // value={this.state.title}
+                            onChange={this.update('title')}/>
+                    </div>
+                    
                 </form>
             </>
         )
