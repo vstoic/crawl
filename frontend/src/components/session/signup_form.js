@@ -9,7 +9,6 @@ class SignupForm extends React.Component {
     this.state = {
       username: "",
       email: "",
-      handle: "",
       password: "",
       password2: ""
     };
@@ -18,20 +17,19 @@ class SignupForm extends React.Component {
     // this.clearedErrors = false;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push("/login");
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.signedIn === true) {
+  //     this.props.history.push("/login");
+  //   }
 
-    this.setState({ errors: nextProps.errors });
-  }
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   componentDidMount() {
     this.props.clearErrors();
     this.setState({
       username: "",
       email: "",
-      handle: "",
       password: "",
       password2: ""
     })
@@ -42,7 +40,6 @@ class SignupForm extends React.Component {
     this.setState({
       username: "",
       email: "",
-      handle: "",
       password: "",
       password2: ""
     })
