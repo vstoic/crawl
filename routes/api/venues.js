@@ -45,6 +45,7 @@ router.post('/',
   const longitude = req.body.longitude;
   const latitude = req.body.latitude;
   const image = req.body.image;
+  const website = req.body.website;
 
 
   const newVenue = new Venue({
@@ -54,7 +55,8 @@ router.post('/',
     address,
     longitude,
     latitude,
-    image
+    image,
+    website
   });
 
   newVenue.save()
@@ -81,6 +83,7 @@ passport.authenticate("jwt", { session: false }),
   const longitude = req.body.longitude;
   const latitude = req.body.latitude;
   const image = req.body.image;
+  const website = req.body.website;
 
 
   const filter = { _id: req.params.id };
@@ -91,7 +94,8 @@ passport.authenticate("jwt", { session: false }),
     address,
     longitude,
     latitude,
-    image
+    image,
+    website
   };
 
   Venue.findOneAndUpdate(filter, update, { new: true })

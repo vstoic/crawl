@@ -31,6 +31,10 @@ const CrawlSchema = new Schema(
       type: String,
       required: true 
     },
+    votecount: {
+      type: Number,
+      default: 0
+    },
     venues: [{type: Object }],
   }, {
   timestamps: true
