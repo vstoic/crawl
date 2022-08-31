@@ -100,8 +100,9 @@ class LoginForm extends React.Component {
           {/* <img className="google-image" src="https://i.postimg.cc/02PL3BDw/googlemap.png"/> */}
           <img
             className="google-image"
-            src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
+            // src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
           />
+
         </div>
         <div className="login-container">
           <div className="login-text">
@@ -117,8 +118,8 @@ class LoginForm extends React.Component {
                 onChange={this.update("email")}
                 placeholder="Email"
               />
-              <p>{errors.email}</p>
-              <br />
+              <div className="errors">{errors.email}</div>
+
               <input
                 className="password-input"
                 type="password"
@@ -126,15 +127,14 @@ class LoginForm extends React.Component {
                 onChange={this.update("password")}
                 placeholder="Password"
               />
-              <p>{errors.password}</p>
-              <br />
+              <div className="errors">{errors.password}</div>
               <button className="demo-button-login" onClick={this.handleDemo}>
                 Demo User
               </button>
               <br />
               <input className="submit-login" type="submit" value="Login" />
               <p className="signup-redirect">
-                New to Crawl? <Link to="/signup">Sign Up</Link>.
+                New to Crawl? <Link to="/signup" className="linkfont">Sign Up</Link>.
               </p>
               {/* {this.renderErrors()} */}
             </div>
