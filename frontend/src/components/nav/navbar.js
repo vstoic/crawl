@@ -34,6 +34,9 @@ class NavBar extends React.Component {
             <Link to={"/Venue"} className="nav-login-button">
               Venues
             </Link>
+            <Link to={"/crawls"} className="nav-login-button">
+              Crawls
+            </Link>
             <button onClick={this.logoutUser} className="nav-logout-button">
               Logout
             </button>
@@ -57,6 +60,9 @@ class NavBar extends React.Component {
           <div className="nav-right">
             <Link to={"/venues"} className="nav-login-button">
               Venues
+            </Link>
+            <Link to={"/crawls"} className="nav-login-button">
+              Crawls
             </Link>
             <Link to={"/login"} className="nav-login-button">
               Login

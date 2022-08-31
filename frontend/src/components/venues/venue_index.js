@@ -12,13 +12,13 @@ class VenueIndex extends Component {
   }
   render() {
     // this.props.fetchAllVenues()
-    if (this.props.venueReducer?.venues?.length > 0) {
-      console.log("PropsVenue======>", this.props.venueReducer);
+    if (this.props.venues.venues?.length > 0) {
+      console.log("PropsVenue======>", this.props.venues.venues);
     }
 
     return (
       <div>
-        {(this.props.venueReducer.venues || []).map((item) => (
+        {this.props.venues.venues.map((item) => (
         <Link to={`/venueDetail/${item._id}`}> {item.name} </Link>
         ))}
       </div>
