@@ -25,26 +25,26 @@ class SignupForm extends React.Component {
   //   this.setState({ errors: nextProps.errors });
   // }
 
-  componentDidMount() {
-    this.props.clearErrors();
-    this.setState({
-      username: "",
-      email: "",
-      password: "",
-      password2: ""
-    })
-  }
+  // componentDidMount() {
+  //   this.props.clearErrors();
+  //   this.setState({
+  //     username: "",
+  //     email: "",
+  //     password: "",
+  //     password2: ""
+  //   })
+  // }
 
-  componentWillUnmount() {
-    this.props.clearErrors();
-    this.setState({
-      username: "",
-      email: "",
-      password: "",
-      password2: ""
-    })
+  // componentWillUnmount() {
+  //   this.props.clearErrors();
+  //   this.setState({
+  //     username: "",
+  //     email: "",
+  //     password: "",
+  //     password2: ""
+  //   })
 
-  }
+  // }
 
   update(field) {
     return (e) =>
@@ -58,9 +58,9 @@ class SignupForm extends React.Component {
     const { signup, login, history, currentUser } = this.props;
     const user = Object.assign({}, this.state);
     signup(user)
-      .then(() => login(user));
+      // .then(() => login(user));
     if (currentUser) {
-      history.push("/");
+      history.push("/login");
     }
     // e.preventDefault();
     // let user = {

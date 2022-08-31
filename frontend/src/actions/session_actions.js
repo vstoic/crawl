@@ -97,16 +97,11 @@ export const clearErrors = () => ({
   type: CLEAR_SESSION_ERRORS
 })
 
-export const signup = user => dispatch => (
-  APIUtil.signup(user).then((user) => (
-    dispatch(receiveUserSignIn(user))
-  ), err => (
-    dispatch(receiveErrors(err.response.data))
-  ))
-);
+
 
 export const login = user => dispatch => (
-  APIUtil.login(user).then(res => {
+  APIUtil.login(user)
+    .then(res => {
     const { token } = res.data;
     localStorage.setItem('jwtToken', token);
     APIUtil.setAuthToken(token);
@@ -117,6 +112,15 @@ export const login = user => dispatch => (
       dispatch(receiveErrors(err.response.data));
     })
 )
+
+
+export const signup = user => dispatch => (
+  APIUtil.signup(user)
+    .then((user) => (dispatch(receiveUserSignIn(user))), 
+    err => (dispatch(receiveErrors(err.response.data))))
+    // .then(() => login(user))
+);
+
 
 export const logout = () => dispatch => {
   localStorage.removeItem('jwtToken')
