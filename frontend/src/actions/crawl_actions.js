@@ -24,8 +24,15 @@ export const fetchCrawl = (crawlId) => (dispatch) =>
   );
 
 
+export const updateCrawl = (crawl) => dispatch => (
+    CrawlApiUtil.updateCrawl(crawl)
+        .then(payload => dispatch(receiveCrawl(payload.data)))
+);
+
+
 export const createCrawl = (crawl) => (dispatch) => {
   return CrawlApiUtil.createCrawl(crawl).then((crawl) =>
     dispatch(receiveCrawl(crawl))
   );
 };
+
