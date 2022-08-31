@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import {Link} from 'react-router-dom'
-export default class venue extends Component {
+import "../../assets/stylesheets/venue_index.css";
+
+
+class VenueIndex extends Component {
   constructor(props) {
     super(props);
   }
@@ -22,3 +25,5 @@ export default class venue extends Component {
     );
   }
 }
+
+export default VenueIndex

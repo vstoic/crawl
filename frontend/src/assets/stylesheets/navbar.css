@@ -1,7 +1,7 @@
 .nav-container {
     display: flex;
     background-color: transparent;
-    padding: 26px 40px 0;
+    padding: 15px 40px 0;
     pointer-events: auto;
     justify-content: space-between;
     vertical-align: center;
@@ -79,7 +79,9 @@
     border-radius: 2px;
     box-shadow: none;
     cursor: pointer;
-    height: 20px;
+    height: 34px;
+    justify-content: center;
+    min-height: 34px;
     min-width: 40px;
     padding-bottom: 6px;
     padding-left: 15px;
