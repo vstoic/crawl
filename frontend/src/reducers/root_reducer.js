@@ -12,7 +12,6 @@ const RootReducer = combineReducers({
   errors: ErrorsReducer,
   userSession,
   venueReducer
-
 });
 
 export default RootReducer;

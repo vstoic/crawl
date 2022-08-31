@@ -15,6 +15,7 @@ const venuesReducer = (oldState = _nullState, action) => {
     case RECEIVE_ALL_VENUES:
       nextState.venues = action.venues;
      
+      
       return nextState;
     case RECEIVE_VENUE:
       nextState.singleVenue = action.venue;
