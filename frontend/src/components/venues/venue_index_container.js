@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import VenueSection from "./venue";
-import { fetchAllVenues } from "../../actions/venue_actions";
+import VenueSection from "./venue_show";
+import { fetchVenue } from "../../actions/venue_actions";
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAllVenues: () => dispatch(fetchAllVenues()),
+    fetchVenue: (id) => dispatch(fetchVenue(id)),
   };
 };
 

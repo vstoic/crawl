@@ -1,0 +1,44 @@
+.main-page-container {
+    height: 88vh;
+    width: 99vw;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4%;
+}
+
+.main-left-container {
+    height: 80%;
+    width: 25%;
+    /* background-color: black; */
+    
+}
+
+    .category-container {
+        width: 100%;
+        height: 45%;
+        background-color: rgba(209, 209, 209, 0.45);
+        margin-bottom: 10%;
+    }
+
+    .developers-container {
+        width: 100%;
+        height: 45%;
+        background-color: rgb(209, 209, 209);
+        margin-top: 15%;
+    }
+
+.main-crawl-container {
+    height: 80%;
+    width: 60%;
+    background-color: rgb(209, 209, 209);
+}
+
+.crawl-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    
+}
