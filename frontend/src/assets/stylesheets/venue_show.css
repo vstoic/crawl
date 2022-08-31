@@ -87,8 +87,6 @@
 
 .business-details {
     /* height: 60%; */
-    /* background-color: aqua; */
-    
     min-height: 35%;
     max-height: 58%;
     width: 89%;
@@ -121,8 +119,28 @@
     padding-left: 20px; */
 }
 
+.cost-website {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.cost-website p {
+    margin-right: 15%;
+}
+.cost-website a {
+    font-family: 'Quicksand';
+    margin-left: 15%;
+    text-decoration: none;
+    font-size: 85%;
+}
 
-
+.cost-website a:visited {
+    font-family: 'Quicksand';
+    margin-left: 15%;
+    text-decoration: none;
+    font-size: 85%;
+    color: #F17F26;
+}
 
 .comments-container {
     /* border: 1px solid black; */

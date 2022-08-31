@@ -11,6 +11,7 @@ import "../../assets/stylesheets/venue_show.css";
   const venueDescription = props.venueReducer?.singleVenue?.data?.description;
   const venueCost = props.venueReducer?.singleVenue?.data?.cost;
   const venueImageSrc = props.venueReducer?.singleVenue?.data?.image;
+  const venueWebsite = props.venueReducer?.singleVenue?.data?.website;
   // const venueLat = props.venueReducer?.singleVenue?.data?.latitude;
   // const venueLong = props.venueReducer?.singleVenue?.data?.longitude;
 
@@ -24,9 +25,12 @@ import "../../assets/stylesheets/venue_show.css";
       <div className="right-column">        
         <div className="business-details"> 
           <h1>{venueName}</h1>
+          <div className="cost-website">
+            <p>{venueCost}</p>
+            <a href={venueWebsite} target="_blank" rel="noopener">Website</a>
+          </div>
           <p>Details: {venueDescription}</p>
           <p>Address: {venueAddress}</p>
-          <p>{venueCost}</p>
           {/* <div>{venueLat}</div> */}
           {/* <div>{venueLong}</div> */}
         </div>
