@@ -11,8 +11,8 @@ import "../../assets/stylesheets/venue_show.css";
   const venueDescription = props.venueReducer?.singleVenue?.data?.description;
   const venueCost = props.venueReducer?.singleVenue?.data?.cost;
   const venueImageSrc = props.venueReducer?.singleVenue?.data?.image;
-  const venueLat = props.venueReducer?.singleVenue?.data?.latitude;
-  const venueLong = props.venueReducer?.singleVenue?.data?.longitude;
+  // const venueLat = props.venueReducer?.singleVenue?.data?.latitude;
+  // const venueLong = props.venueReducer?.singleVenue?.data?.longitude;
 
   console.log("IDPROPS=======>", props.venueReducer?.singleVenue);
   return (
