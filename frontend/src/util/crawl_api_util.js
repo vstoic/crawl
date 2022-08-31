@@ -9,5 +9,5 @@ export const fetchCrawl = id => {
 };
 
 export const createCrawl = (crawl) => {
-    return axios.post('/api/cartitems');
+    return axios.post('/api/crawls');
 };
