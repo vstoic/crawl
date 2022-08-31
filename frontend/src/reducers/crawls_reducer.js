@@ -15,7 +15,11 @@ const crawlsReducer = (oldState = _nullState, action) => {
             nextState.allIds = action.crawls
             return nextState;
         case RECEIVE_CRAWL:
+
+   
+
             nextState.byId= action.crawl;
+
             return nextState;
         default:
             return oldState;
