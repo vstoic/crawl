@@ -18,22 +18,22 @@ class LoginForm extends React.Component {
     // this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentDidMount() {
-    this.props.clearErrors();
-    this.setState({
-      email: '',
-      password: ''
-    })
-  }
+  // componentDidMount() {
+  //   this.props.clearErrors();
+  //   this.setState({
+  //     email: '',
+  //     password: ''
+  //   })
+  // }
 
-  componentWillUnmount() {
-    this.props.clearErrors();
-    this.setState({
-      email: '',
-      password: ''
-    })
+  // componentWillUnmount() {
+  //   this.props.clearErrors();
+  //   this.setState({
+  //     email: '',
+  //     password: ''
+  //   })
 
-  }
+  // }
 
   // Once the user has been authenticated, redirect to the main page
   // componentWillReceiveProps(nextProps) {
