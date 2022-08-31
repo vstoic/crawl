@@ -8,8 +8,8 @@ import NavBarContainer from "./nav/navbar_container";
 import MainPage from "./main/main.js";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
-import VenueContainer from "../components/venues/venue_container"
-import VenueDetailsContainer from "../components/venues/venue_details_container"
+import VenueContainer from "../components/venues/venue_show"
+import VenueDetailsContainer from "../components/venues/venue_show_container"
 const App = () => (
   <div>
     <NavBarContainer />
