@@ -23,8 +23,15 @@ export const fetchCrawl = (crawlId) => (dispatch) =>
     dispatch(receiveCrawl(crawl))
   );
 
+<<<<<<< HEAD
 export const createCrawl = (crawl) => (dispatch) => {
   return CrawlApiUtil.createCrawl(crawl).then((crawl) =>
     dispatch(receiveCrawl(crawl))
   );
 };
+=======
+export const createCrawl = (crawl) => dispatch => (
+    CrawlApiUtil.createCrawl(crawl)
+        .then(crawl => dispatch(receiveCrawl(crawl)))
+);
+>>>>>>> main
