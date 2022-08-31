@@ -1,18 +1,18 @@
 import { connect } from "react-redux";
-// import VenueSection from "./venue_show";
-import crawlIndex from "./crawl_index";
-import { fetchCrawl } from "../../actions/crawl_actions";
+import CrawlIndex from "./crawl_index";
+import { fetchAllCrawls } from "../../actions/crawl_actions";
+
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
-    // venueReducer: state.venueReducer,
+    crawlsReducer: state.crawlsReducer,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCrawl: (id) => dispatch(fetchCrawl(id)),
+    fetchAllCrawls: () => dispatch(fetchAllCrawls()),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(crawlIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(CrawlIndex);
