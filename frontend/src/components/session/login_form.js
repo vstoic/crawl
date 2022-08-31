@@ -13,44 +13,20 @@ class LoginForm extends React.Component {
       password: "",
       errors: {},
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this)
+    this.clearErrors = this.clearErrors.bind(this);
+
     // this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.clearErrors();
-  //   this.setState({
-  //     email: '',
-  //     password: ''
-  //   })
-  // }
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  //   this.setState({
-  //     email: '',
-  //     password: ''
-  //   })
-
-  // }
-
-  // Once the user has been authenticated, redirect to the main page
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.currentUser === true) {
-  //     // this.props.history.push("/");
-  //   }
-
-  //   // Set or clear errors
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
-  // Handle field updates (called in the render method)
   update(field) {
     return (e) =>
-      this.setState({
-        [field]: e.currentTarget.value,
-      });
+      this.setState({[field]: e.currentTarget.value,});
   }
 
   // Handle form submission
@@ -68,23 +44,45 @@ class LoginForm extends React.Component {
       if (currentUser) {
         history.push("/");
       }
-    // .then((res) => {
-    //   console.log("Response====>", res);
-    // });
   }
 
-  // Render the session errors if there are any
-  // renderErrors() {
-  //   return (
-  //     <div className="session-errors">
-  //       <ul>
-  //         {Object.keys(this.state.errors).map((error, i) => (
-  //           <li key={`error-${i}`}>{this.state.errors[error]}</li>
-  //         ))}
-  //       </ul>
-  //     </div>
-  //   );
-  // }
+  clearErrors(e) {
+    this.props.clearErrors()
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const demo = {
+      email: "demo@demo.com",
+      password: "starwars"
+    }
+    const speed = 65;
+
+    if (this.state.email !== demo.email) {
+      const inputEmail = setInterval(() => {
+        if (this.state.email !== demo.email) {
+          const temp = demo.email.slice(0, this.state.email.length + 1);
+          this.setState({ email: temp })
+        } else {
+          clearInterval(inputEmail);
+          animatePW();
+        }
+      }, speed)
+    }
+    const animatePW = () => {
+      if (this.state.password !== demo.password) {
+        const inputPassword = setInterval(() => {
+          if (this.state.password !== demo.password) {
+            const temp = demo.password.slice(0, this.state.password.length + 1);
+            this.setState({ password: temp });
+          } else {
+            clearInterval(inputPassword);
+            this.props.login(demo).then(() => this.props.history.push('/'));
+          }
+        }, speed);
+      }
+    }
+  }
 
   render() {
     console.log("Data======>",this.props.venueReducer)
