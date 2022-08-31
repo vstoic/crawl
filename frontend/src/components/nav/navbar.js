@@ -31,6 +31,9 @@ class NavBar extends React.Component {
             <div></div>
           </div>
           <div className="nav-right">
+            <Link to={"/Venue"} className="nav-login-button">
+              Venues
+            </Link>
             <button onClick={this.logoutUser} className="nav-logout-button">
               Logout
             </button>
