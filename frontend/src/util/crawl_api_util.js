@@ -7,3 +7,7 @@ export const fetchAllCrawls = () => {
 export const fetchCrawl = id => {
     return axios.get(`/api/crawls/${id}`);
 };
+
+export const createCrawl = (crawl) => {
+    return axios.post('/api/cartitems');
+};

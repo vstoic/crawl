@@ -15,7 +15,24 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    // this.renderErrors = this.renderErrors.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
+    this.setState({
+      email: '',
+      password: ''
+    })
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
+    this.setState({
+      email: '',
+      password: ''
+    })
+
   }
 
   // Once the user has been authenticated, redirect to the main page
@@ -51,20 +68,22 @@ class LoginForm extends React.Component {
   }
 
   // Render the session errors if there are any
-  renderErrors() {
-    return (
-      <div className="session-errors">
-        <ul>
-          {Object.keys(this.state.errors).map((error, i) => (
-            <li key={`error-${i}`}>{this.state.errors[error]}</li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+  // renderErrors() {
+  //   return (
+  //     <div className="session-errors">
+  //       <ul>
+  //         {Object.keys(this.state.errors).map((error, i) => (
+  //           <li key={`error-${i}`}>{this.state.errors[error]}</li>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //   );
+  // }
 
   render() {
     console.log("Data======>",this.props.venueReducer)
+    const { errors } = this.props;
+
     return (
       <div className="session-background">
         <div className="session-image-container">
@@ -92,6 +111,7 @@ class LoginForm extends React.Component {
                 onChange={this.update("email")}
                 placeholder="Email"
               />
+              <p>{errors.email}</p>
               <br />
               <input
                 className="password-input"
@@ -100,6 +120,7 @@ class LoginForm extends React.Component {
                 onChange={this.update("password")}
                 placeholder="Password"
               />
+              <p>{errors.password}</p>
               <br />
               <button className="demo-button-login" onClick={this.handleDemo}>
                 Demo User
@@ -109,7 +130,7 @@ class LoginForm extends React.Component {
               <p className="signup-redirect">
                 New to Crawl? <Link to="/signup">Sign Up</Link>.
               </p>
-              {this.renderErrors()}
+              {/* {this.renderErrors()} */}
             </div>
           </form>
         </div>

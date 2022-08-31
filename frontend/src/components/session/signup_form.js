@@ -11,12 +11,11 @@ class SignupForm extends React.Component {
       email: "",
       handle: "",
       password: "",
-      password2: "",
-      errors: {},
+      password2: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    // this.clearedErrors = false;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -27,6 +26,29 @@ class SignupForm extends React.Component {
     this.setState({ errors: nextProps.errors });
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+    this.setState({
+      username: "",
+      email: "",
+      handle: "",
+      password: "",
+      password2: ""
+    })
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
+    this.setState({
+      username: "",
+      email: "",
+      handle: "",
+      password: "",
+      password2: ""
+    })
+
+  }
+
   update(field) {
     return (e) =>
       this.setState({
@@ -35,28 +57,37 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
+    // e.preventDefault();
+    // let user = {
+    //   email: this.state.email,
+    //   username: this.state.username,
+    //   password: this.state.password,
+    //   password2: this.state.password2,
+    // };
+
+    // this.props.signup(user, this.props.history);
+
     e.preventDefault();
-    let user = {
-      email: this.state.email,
-      username: this.state.username,
-      password: this.state.password,
-      password2: this.state.password2,
-    };
-
-    this.props.signup(user, this.props.history);
+    const { signup, history } = this.props;
+    const user = Object.assign({}, this.state);
+    signup(user)
+      .then(() => history.push("/login"));
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
-    );
-  }
+  // renderErrors() {
+  //   return (
+  //     <ul>
+  //       {Object.keys(this.state.errors).map((error, i) => (
+  //         <li key={`error-${i}`}>{this.state.errors[error]}</li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
+  
   render() {
+    const { errors } = this.props;
+  
     return (
       <div className="session-background">
         <div className="session-image-container">
@@ -84,7 +115,8 @@ class SignupForm extends React.Component {
                 onChange={this.update("username")}
                 placeholder="Username"
               />
-              <br />
+              <p>{errors.username}</p>
+              {/* <br /> */}
               <input
                 className="email-input"
                 type="email"
@@ -92,7 +124,8 @@ class SignupForm extends React.Component {
                 onChange={this.update("email")}
                 placeholder="Email"
               />
-              <br />
+              <p>{errors.email}</p>
+              {/* <br /> */}
               <input
                 className="password-input"
                 type="password"
@@ -100,6 +133,7 @@ class SignupForm extends React.Component {
                 onChange={this.update("password")}
                 placeholder="Password"
               />
+              <p>{errors.password}</p>
               <br />
               <input
                 className="password-input"
@@ -108,7 +142,8 @@ class SignupForm extends React.Component {
                 onChange={this.update("password2")}
                 placeholder="Confirm Password"
               />
-              <br />
+              <p>{errors.password2}</p>
+              {/* <br /> */}
               <button className="demo-button-signup" onClick={this.handleDemo}>
                 Demo User
               </button>
@@ -117,7 +152,7 @@ class SignupForm extends React.Component {
               <p className="login-redirect">
                 New to Crawl? <Link to="/login">Login</Link>.
               </p>
-              {this.renderErrors()}
+              {/* {this.renderErrors()} */}
             </div>
           </form>
         </div>
