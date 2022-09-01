@@ -15,11 +15,49 @@
   /* background-color: rgba(125, 125, 125, 0.755); */
   /* margin-left: -4%; */
   /* padding-right: -10%; */
+  display: flex;
   justify-content: center;
   align-items: center;
   vertical-align: center;
   flex-direction: column;
-  padding-left: 5%;
+
+  /* padding-left: 5%; */
+}
+
+.data-container {
+  border: 1px solid rgba(134, 134, 134, 0.516);
+  width: 90%;
+  height: 90%;
+  overflow: scroll;
+  overflow: hidden;
+}
+
+.crawl-title {
+  font-size: 310%;
+  margin: 0%;
+}
+.crawl-details-important {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+    flex-direction: row;
+    gap: 12%;
+    font-size: 140%;
+}
+
+.crawls-venues-container {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.each-venue {
+  border: 1px solid rgba(134, 134, 134, 0.487);
+  width: 96%;
+  margin-top: 2px;
+  margin-bottom: 4px;
 }
 
 .crawl-show-right {
@@ -28,16 +66,17 @@
   /* background-color: rgba(125, 125, 125, 0.755); */
   /* margin-left: -4%; */
   /* padding-right: -10%; */
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
   vertical-align: center;
   flex-direction: column;
-  padding-right: 5%;
+  /* padding-right: 5%; */
 }
 
 .crawl-show-map-container {
   height: 70%;
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,6 +97,7 @@
   /* border: 1px solid black; */
   background-color: rgba(128, 128, 128, 0.263);
   max-height: 30%;
+  width: 90%;
   /* height: %; */
   /* width: 89%; */
   display: flex;

@@ -51,8 +51,8 @@ class LoginForm extends React.Component {
   handleDemo(e) {
     e.preventDefault();
     const demo = {
-      email: "demo@aa.io",
-      password: "starwars"
+      email: "demo@appacademy.com",
+      password: "howsthecodelooking?"
     }
     const speed = 65;
     if (this.state.email !== demo.email) {
@@ -85,7 +85,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    console.log("Data======>",this.props.venueReducer)
+    // console.log("Data======>",this.props.venueReducer)
     const { errors } = this.props;
 
     return (
