@@ -115,8 +115,7 @@ class SignupForm extends React.Component {
                 onChange={this.update("username")}
                 placeholder="Username"
               />
-              <p>{errors.username}</p>
-              {/* <br /> */}
+              <div className="errors">{errors.username}</div>
               <input
                 className="email-input"
                 type="email"
@@ -124,8 +123,7 @@ class SignupForm extends React.Component {
                 onChange={this.update("email")}
                 placeholder="Email"
               />
-              <p>{errors.email}</p>
-              {/* <br /> */}
+              <div className="errors">{errors.email}</div>
               <input
                 className="password-input"
                 type="password"
@@ -133,8 +131,7 @@ class SignupForm extends React.Component {
                 onChange={this.update("password")}
                 placeholder="Password"
               />
-              <p>{errors.password}</p>
-              <br />
+              <div className="errors">{errors.password}</div>
               <input
                 className="password-input"
                 type="password"
@@ -142,8 +139,7 @@ class SignupForm extends React.Component {
                 onChange={this.update("password2")}
                 placeholder="Confirm Password"
               />
-              <p>{errors.password2}</p>
-              {/* <br /> */}
+              <div className="errors">{errors.password2}</div>
               <button className="demo-button-signup" onClick={this.handleDemo}>
                 Demo User
               </button>
