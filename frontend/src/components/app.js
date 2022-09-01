@@ -10,6 +10,8 @@ import VenueIndexContainer from "../components/venues/venue_index_container";
 import VenueShowContainer from "../components/venues/venue_show_container";
 import crawlShowContainer from "./crawls/crawl_show_container";
 import crawlIndexContainer from "./crawls/crawl_index_container";
+import CrawlCreateContainer from "./crawls/crawl_create_container";
+import CrawlEditContainer from "./crawls/crawl_edit_container";
 import ProfileContainer from "./profile/profile_container";
 
 const App = () => (
@@ -19,6 +21,8 @@ const App = () => (
       <Route path="/users/:id" component={ProfileContainer} />
       <Route path="/venueShow/:id" component={VenueShowContainer} />
       <Route path="/crawl/:id" component={crawlShowContainer} />
+      <Route path="/crawlCreate/" component={CrawlCreateContainer} />
+      <Route path="/crawlEdit/" component={CrawlEditContainer} />
       <Route exact path="/venues" component={VenueIndexContainer} />
       <Route exact path="/crawls" component={crawlIndexContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
