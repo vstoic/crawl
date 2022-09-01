@@ -33,8 +33,8 @@ function VenueShow(props) {
     props.match.params.id == "1234"
       ? props.createVenueReducer?.singleVenue?.website
       : props.venueReducer?.singleVenue?.data?.website;
-  // const venueLat = props.venueReducer?.singleVenue?.data?.latitude;
-  // const venueLong = props.venueReducer?.singleVenue?.data?.longitude;
+  const venueLat = props.venueReducer?.singleVenue?.data?.latitude;
+  const venueLong = props.venueReducer?.singleVenue?.data?.longitude;
   console.log("IDPROPS=======>", typeof props.match.params.id);
   console.log("IDPROPS=======>", props.createVenueReducer);
 
@@ -52,7 +52,7 @@ function VenueShow(props) {
         </div>
         <div className="venue-show-map-container">
           <div className="venue-show-map">
-            {/* <GoogleMap venueLat={venueLat} venueLong={venueLong} /> */}
+            <GoogleMap venueLat={venueLat} venueLong={venueLong} />
           </div>
         </div>
       </div>
