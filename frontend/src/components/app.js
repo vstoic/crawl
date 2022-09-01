@@ -13,12 +13,8 @@ import crawlIndexContainer from "./crawls/crawl_index_container";
 import CrawlCreateContainer from "./crawls/crawl_create_container";
 import CrawlEditContainer from "./crawls/crawl_edit_container";
 import ProfileContainer from "./profile/profile_container";
-<<<<<<< HEAD
-import VenueCreate from "./venues/venue_create_container"
-=======
+import VenueCreate from "./venues/venue_create_container";
 
-
->>>>>>> 903c45a6bbec9cef47e82caa3ebb83ea828a1d0c
 const App = () => (
   <div>
     <NavBarContainer />
