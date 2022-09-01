@@ -12,3 +12,8 @@ export const fetchVenue = async(id) => {
   return venueById
 
 };
+
+export const deleteVenue = async(id) => {
+  let venueById = await axios.delete(`/api/venues/${id}`);
+  return venueById
+}
