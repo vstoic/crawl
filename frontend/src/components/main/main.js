@@ -6,6 +6,11 @@ import "../../assets/stylesheets/main.css";
 
 
 class MainPage extends React.Component {
+
+componentDidMount(){
+  
+}
+
   render() {
     return (
       <div className="main-page-container">

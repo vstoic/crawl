@@ -12,9 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
     fetchVenue: (id) => dispatch(fetchVenue(id)),
-
   };
 };
 

@@ -16,7 +16,7 @@ class NavBar extends React.Component {
   }
 
   getLinks() {
-    if (this.props.loggedIn) {
+    if (this.props.currentUser) {
       return (
         <div className="nav-container">
           <div className="logo-container">
@@ -76,7 +76,7 @@ class NavBar extends React.Component {
     }
   }
   render() {
-    console.log("Props======>", this.props.loggedIn);
+    console.log("Props======>", this.props.currentUser);
     return <div>{this.getLinks()}</div>;
   }
 }
