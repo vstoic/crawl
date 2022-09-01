@@ -19,7 +19,7 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
-      <Route exact path="/venueDetail/:id" component={VenueShowContainer} />
+      <Route exact path="/venueShow/:id" component={VenueShowContainer} />
       <Route exact path="/venues" component={VenueIndexContainer} />
       <Route exact path="/crawl/:id" component={crawlShowContainer} />
       <Route exact path="/crawls" component={crawlIndexContainer} />

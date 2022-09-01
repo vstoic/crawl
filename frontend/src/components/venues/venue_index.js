@@ -19,7 +19,7 @@ class VenueIndex extends Component {
     return (
       <div>
         {this.props.venues.venues.map((item) => (
-        <Link to={`/venueDetail/${item._id}`}> {item.name} </Link>
+        <Link to={`/venueShow/${item._id}`}> {item.name} </Link>
         ))}
       </div>
     );

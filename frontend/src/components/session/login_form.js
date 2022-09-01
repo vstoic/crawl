@@ -16,8 +16,6 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this)
     this.clearErrors = this.clearErrors.bind(this);
-
-    // this.renderErrors = this.renderErrors.bind(this);
   }
 
   componentWillUnmount() {
@@ -57,7 +55,6 @@ class LoginForm extends React.Component {
       password: "starwars"
     }
     const speed = 65;
-
     if (this.state.email !== demo.email) {
       const inputEmail = setInterval(() => {
         if (this.state.email !== demo.email) {
@@ -100,7 +97,6 @@ class LoginForm extends React.Component {
             className="google-image"
             // src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
           />
-
         </div>
         <div className="login-container">
           <div className="login-text">
