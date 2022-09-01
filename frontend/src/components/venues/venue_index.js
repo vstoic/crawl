@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom'
+import VenueIndexItem from "./venue_index_item";
 import "../../assets/stylesheets/venue_index.css";
 
 
 class VenueIndex extends Component {
-  constructor(props) {
-    super(props);
-  }
+  
   componentDidMount() {
     this.props.fetchAllVenues();
   }
+
   render() {
     // this.props.fetchAllVenues()
     if (this.props.venues.venues?.length > 0) {
@@ -18,9 +17,16 @@ class VenueIndex extends Component {
 
     return (
       <div>
-        {this.props.venues.venues.map((item) => (
-        <Link to={`/venueShow/${item._id}`}> {item.name} </Link>
-        ))}
+        <ul>
+        {
+          this.props.venues.venues.map(item => (
+            <VenueIndexItem
+            key={item.id}
+            item={item}
+            />
+          ))
+        }
+        </ul>
       </div>
     );
   }

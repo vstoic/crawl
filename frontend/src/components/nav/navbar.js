@@ -1,5 +1,3 @@
-// src/components/nav/navbar.js
-
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../assets/stylesheets/navbar.css";
@@ -14,7 +12,7 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.props.logout()
     console.log(this.props.history);
-    window.history.pushState({urlPath: '/#/'}, "", "/#/")
+    window.history.pushState({ urlPath: '/#/' }, "", "/#/")
   }
 
   getLinks() {
