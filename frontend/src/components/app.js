@@ -22,6 +22,7 @@ const App = () => (
       <Route path="/venueShow/:id" component={VenueShowContainer} />
       <Route path="/crawl/:id" component={crawlShowContainer} />
       <Route path="/crawlCreate/" component={CrawlCreateContainer} />
+      <Route path="/crawlEdit/" component={CrawlEditContainer} />
       <Route exact path="/venues" component={VenueIndexContainer} />
       <Route exact path="/crawls" component={crawlIndexContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
