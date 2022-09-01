@@ -10,8 +10,15 @@ import VenueIndexContainer from "../components/venues/venue_index_container";
 import VenueShowContainer from "../components/venues/venue_show_container";
 import crawlShowContainer from "./crawls/crawl_show_container";
 import crawlIndexContainer from "./crawls/crawl_index_container";
+import CrawlCreateContainer from "./crawls/crawl_create_container";
+import CrawlEditContainer from "./crawls/crawl_edit_container";
 import ProfileContainer from "./profile/profile_container";
+<<<<<<< HEAD
 import VenueCreate from "./venues/venue_create_container"
+=======
+
+
+>>>>>>> 903c45a6bbec9cef47e82caa3ebb83ea828a1d0c
 const App = () => (
   <div>
     <NavBarContainer />
@@ -19,6 +26,8 @@ const App = () => (
       <Route path="/users/:id" component={ProfileContainer} />
       <Route path="/venueShow/:id" component={VenueShowContainer} />
       <Route path="/crawl/:id" component={crawlShowContainer} />
+      <Route path="/crawlCreate/" component={CrawlCreateContainer} />
+      <Route path="/crawlEdit/" component={CrawlEditContainer} />
       <Route exact path="/venues" component={VenueIndexContainer} />
       <Route exact path="/venueCreate" component={VenueCreate} />
       <Route exact path="/crawls" component={crawlIndexContainer} />

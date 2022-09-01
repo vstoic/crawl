@@ -13,7 +13,7 @@ const venuesReducer = (oldState = _nullState, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_VENUES:
-      nextState.venues = action.venues;
+      nextState.venues = action.venues; 
      
       
       return nextState;

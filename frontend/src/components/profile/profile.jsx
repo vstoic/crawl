@@ -11,15 +11,12 @@ class Profile extends React.Component {
   }
 
   render () {
-    return(
+    if (this.props.currentUser) return(
       <div className="profile-container">
         <h1> {this.props.currentUser.username}'s Page</h1>
       </div>
     )
   }
-
-
-
 }
 
 export default Profile;
