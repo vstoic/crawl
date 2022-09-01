@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const fetchUser = userId => (axios.get(`/api/users/${userId}`));
+export const fetchUsers = () => (axios.get("/api/users/"));
 
 export const updateUser = userData => (axios.patch(`/api/users/${userData.id}`, userData));
 

@@ -10,12 +10,19 @@ const validateLoginInput = require('../../validation/login');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
+
+router.get('/', (req, res) => {
+  User.find().then(users => res.json(users))
+});
+
+
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.json({
       id: req.user.id,
       username: req.user.username,
       email: req.user.email,
-      createdAt: req.user.createdAt
+      createdAt: req.user.createdAt,
+      profileImage: req.user.profileImage
     });
   });
 
@@ -24,9 +31,9 @@ router.get('/:id', (req, res) => {
   const filter = { _id: req.params.id };
 
   User.findOne(filter)
-    .then(venue => {
-      if (venue) {
-        return res.json(venue)
+    .then(user => {
+      if (user) {
+        return res.json(user)
       } else {
         return res.json({ error: "User not found" }).status(404)
       }
@@ -52,7 +59,8 @@ router.post("/register", (req, res) => {
         const newUser = new User({
           username: req.body.username,
           email: req.body.email,
-          password: req.body.password
+          password: req.body.password,
+          profileImage: req.bodt.profileImage,
         });
   
         bcrypt.genSalt(10, (err, salt) => {
@@ -62,7 +70,7 @@ router.post("/register", (req, res) => {
             newUser
               .save()
               .then(user => {
-                const payload = { id: user.id, username: user.username, email: user.email, createdAt: user.createdAt };
+                const payload = { id: user.id, username: user.username, email: user.email, createdAt: user.createdAt, profileImage: user.profileImage };
   
                 jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                   res.json({
@@ -76,6 +84,37 @@ router.post("/register", (req, res) => {
         });
       }
     });
+  });
+
+router.patch('/:id',
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+
+    // validates updates
+    // const { errors, isValid } = validateRegisterInput(req.body);
+
+    // if (!isValid) {
+    //   return res.status(400).json(errors);
+    // }
+
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    const profileImage = req.body.profileImage;
+    
+
+
+    const filter = { _id: req.params.id };
+    const update = {
+      username,
+      email,
+      password,
+      profileImage
+    };
+
+    User.findOneAndUpdate(filter, update, { new: true })
+      .then(user => res.json(user).status(200))
+      .catch(() => res.json({ error: "User not found" }).status(404))
   });
 
   router.post("/login", (req, res) => {
