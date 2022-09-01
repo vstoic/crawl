@@ -17,35 +17,6 @@ class SignupForm extends React.Component {
     // this.clearedErrors = false;
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.signedIn === true) {
-  //     this.props.history.push("/login");
-  //   }
-
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
-  // componentDidMount() {
-  //   this.props.clearErrors();
-  //   this.setState({
-  //     username: "",
-  //     email: "",
-  //     password: "",
-  //     password2: ""
-  //   })
-  // }
-
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  //   this.setState({
-  //     username: "",
-  //     email: "",
-  //     password: "",
-  //     password2: ""
-  //   })
-
-  // }
-
   update(field) {
     return (e) =>
       this.setState({
@@ -58,33 +29,11 @@ class SignupForm extends React.Component {
     const { signup, login, history, currentUser } = this.props;
     const user = Object.assign({}, this.state);
     signup(user)
-      // .then(() => login(user));
     if (currentUser) {
       history.push("/login");
     }
-    // e.preventDefault();
-    // let user = {
-    //   email: this.state.email,
-    //   username: this.state.username,
-    //   password: this.state.password,
-    //   password2: this.state.password2,
-    // };
-
-    // this.props.signup(user, this.props.history);
-
   }
 
-  // renderErrors() {
-  //   return (
-  //     <ul>
-  //       {Object.keys(this.state.errors).map((error, i) => (
-  //         <li key={`error-${i}`}>{this.state.errors[error]}</li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
-
-  
   render() {
     const { errors } = this.props;
   
@@ -95,7 +44,6 @@ class SignupForm extends React.Component {
             className="logo-image"
             src="https://i.postimg.cc/tRWyZch1/snail-logo.png"
           />
-          {/* <img className="google-image" src="https://i.postimg.cc/02PL3BDw/googlemap.png"/> */}
           <img
             className="google-image"
             src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
@@ -104,7 +52,6 @@ class SignupForm extends React.Component {
         <div className="signup-container">
           <div className="signup-text">
             <h1 className="signup-text1">Sign Up</h1>
-            {/* <h2 className="signup-redirect-main">New to crawl? <Link className="signup-link" to="/signup">Sign Up</Link>.</h2> */}
           </div>
           <form onSubmit={this.handleSubmit}>
             <div>
@@ -148,48 +95,11 @@ class SignupForm extends React.Component {
               <p className="login-redirect">
                 New to Crawl? <Link to="/login">Login</Link>.
               </p>
-              {/* {this.renderErrors()} */}
             </div>
           </form>
         </div>
       </div>
-      // <div className="signup-form-container">
-      //   <form onSubmit={this.handleSubmit}>
-      //     <div className="signup-form">
-      //       <br />
-      //       <input
-      //         type="text"
-      //         value={this.state.email}
-      //         onChange={this.update("email")}
-      //         placeholder="Email"
-      //       />
-      //       <br />
-      //       <input
-      //         type="text"
-      //         value={this.state.handle}
-      //         onChange={this.update("handle")}
-      //         placeholder="Handle"
-      //       />
-      //       <br />
-      //       <input
-      //         type="password"
-      //         value={this.state.password}
-      //         onChange={this.update("password")}
-      //         placeholder="Password"
-      //       />
-      //       <br />
-      //       <input
-      //         type="password"
-      //         value={this.state.password2}
-      //         onChange={this.update("password2")}
-      //         placeholder="Confirm Password"
-      //       />
-      //       <br />
-      //       <input type="submit" value="Submit" />
-      //       {this.renderErrors()}
-      //     </div>
-      //   </form>
-      // </div>
+  
     );
   }
 }

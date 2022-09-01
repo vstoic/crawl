@@ -12,18 +12,18 @@ class CrawlIndex extends Component {
   render() {
     // this.props.fetchAllVenues()
     if (this.props.crawlsReducer?.allIds?.length > 0) {
-      console.log("PropsCrawls======>", this.props.crawlsReducer);
+      // console.log("PropsCrawls======>", this.props.crawlsReducer);
     }
 
     return (
-      <div>
+      <ul>
         {(this.props.crawlsReducer.allIds || []).map((item) => (
-          <div>
+          <ul>
             {" "}
             <Link to={`/crawl/${item._id}`}>{item.title} </Link>
-          </div>
+          </ul>
         ))}
-      </div>
+      </ul>
     );
   }
 }

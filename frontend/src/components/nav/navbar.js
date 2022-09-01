@@ -31,7 +31,7 @@ class NavBar extends React.Component {
             <div></div>
           </div>
           <div className="nav-right">
-            <Link to={"/Venue"} className="nav-login-button">
+            <Link to={"/venues"} className="nav-login-button">
               Venues
             </Link>
             <Link to={"/crawls"} className="nav-login-button">
@@ -76,7 +76,7 @@ class NavBar extends React.Component {
     }
   }
   render() {
-    console.log("Props======>", this.props.loggedIn);
+    console.log("LoggedIn?==>", this.props.loggedIn);
     return <div>{this.getLinks()}</div>;
   }
 }
