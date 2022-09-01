@@ -1,5 +1,3 @@
-// src/components/nav/navbar.js
-
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../assets/stylesheets/navbar.css";
@@ -12,11 +10,13 @@ class NavBar extends React.Component {
   }
   logoutUser(e) {
     e.preventDefault();
-    this.props.logout();
+    this.props.logout()
+    console.log(this.props.history);
+    window.history.pushState({ urlPath: '/#/' }, "", "/#/")
   }
 
   getLinks() {
-    if (this.props.currentUser) {
+    if (this.props.loggedIn) {
       return (
         <div className="nav-container">
           <div className="logo-container">
@@ -31,7 +31,10 @@ class NavBar extends React.Component {
             <div></div>
           </div>
           <div className="nav-right">
-            <Link to={"/Venue"} className="nav-login-button">
+            <Link to={`/users/${this.props.currentUser.id}`} className="nav-login-button">
+              Profile
+            </Link>
+            <Link to={"/venues"} className="nav-login-button">
               Venues
             </Link>
             <Link to={"/crawls"} className="nav-login-button">
@@ -76,7 +79,7 @@ class NavBar extends React.Component {
     }
   }
   render() {
-    console.log("Props======>", this.props.currentUser);
+    console.log("LoggedIn?==>", this.props.loggedIn);
     return <div>{this.getLinks()}</div>;
   }
 }

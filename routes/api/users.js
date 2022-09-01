@@ -17,7 +17,22 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
       email: req.user.email,
       createdAt: req.user.createdAt
     });
-  })
+  });
+
+router.get('/:id', (req, res) => {
+  // filters by question id
+  const filter = { _id: req.params.id };
+
+  User.findOne(filter)
+    .then(venue => {
+      if (venue) {
+        return res.json(venue)
+      } else {
+        return res.json({ error: "User not found" }).status(404)
+      }
+    })
+    .catch(() => res.status(404).json({ error: "User not found" }))
+});
 
 router.post("/register", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");

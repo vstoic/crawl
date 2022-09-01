@@ -19,7 +19,7 @@ function CrawlShow(props) {
   //     props.crawlsReducer?.byId?.data;
   
   const renderName = (id) => {
-    console.log("Data(renderName before)========>", props.venueReducer?.venues);
+    // console.log("Data(renderName before)========>", props.venueReducer?.venues);
     let text = props.venueReducer?.venues?.find((x) => x._id == id)?.name;
     return text;
   };
@@ -35,32 +35,39 @@ function CrawlShow(props) {
     let text = props.venueReducer?.venues?.find((x) => x._id == id)?.description;
     return text;
   };
-  console.log(
-    "DataCrawls======>",
-    props.crawlsReducer?.byId?.data?.venues[0].split(", ")
-  );
+  // console.log(
+  //   "DataCrawls======>",
+  //   props.crawlsReducer?.byId?.data?.venues[0].split(", ")
+  // );
   
   return (
     <div className="main-crawl-show-container">
       <div className="crawl-show-left">
-        <div className="crawl-votes"> {crawlVotes}</div>
-        <div className="crawl-title"><h1>{crawlTitle}</h1></div>
-        <div className="crawl-cost">{crawlCost}</div>
-        <div className="crawl-description">{crawlDescription}</div>
-        <div className="crawl-category">{crawlCategory}</div>
-        <div className="crawl-time">Duration: {crawlTime}</div>
-        <div className="crawls-venues-container">
-          {crawlVenues?.map((item) => (
-            <div>
-              <Link to={`/venueShow/${item}`}> {renderName(item)} </Link>
-              <div>{renderCost(item)}</div>
-              <div>{renderDescription(item)}</div>
-              {/* {renderImageSrc(item)} */}
-              
-            </div>
-          ))}
+        <div className="data-container">
+          <div className="crawl-votes"> {crawlVotes}</div>
+          <div className="crawl-title">{crawlTitle}</div>
+          <div className="crawl-details-important">
+            <div className="crawl-cost">{crawlCost}</div>
+            <div className="crawl-category">{crawlCategory}</div>
+            <div className="crawl-time">Duration: {crawlTime}</div>
+          </div>
+          
+          <div className="crawl-description">{crawlDescription}</div>
+          
+          <div className="crawls-venues-container">
+            {crawlVenues?.map((item) => (
+              <div className="each-venue">
+                <Link to={`/venueShow/${item}`}>{renderName(item)}</Link>
+                <div>{renderCost(item)}</div>
+                <div>-{renderDescription(item)}</div>
+                {/* {renderImageSrc(item)} */}
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
+
       <div className="crawl-show-right">
         <div className="crawl-show-map-container">
               <div className="crawl-show-map">map</div>
