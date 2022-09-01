@@ -10,11 +10,13 @@ import VenueIndexContainer from "../components/venues/venue_index_container";
 import VenueShowContainer from "../components/venues/venue_show_container";
 import crawlShowContainer from "./crawls/crawl_show_container";
 import crawlIndexContainer from "./crawls/crawl_index_container";
+import ProfileContainer from "./profile/profile_container";
 
 const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
+      <Route path="/users/:id" component={ProfileContainer} />
       <Route path="/venueShow/:id" component={VenueShowContainer} />
       <Route path="/crawl/:id" component={crawlShowContainer} />
       <Route exact path="/venues" component={VenueIndexContainer} />
