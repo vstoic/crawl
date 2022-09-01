@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
     venueReducer: state.entities.venues,
+    createVenueReducer : state.createVenueReducer,
   };
 };
 

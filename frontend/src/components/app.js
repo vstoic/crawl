@@ -11,7 +11,7 @@ import VenueShowContainer from "../components/venues/venue_show_container";
 import crawlShowContainer from "./crawls/crawl_show_container";
 import crawlIndexContainer from "./crawls/crawl_index_container";
 import ProfileContainer from "./profile/profile_container";
-
+import VenueCreate from "./venues/venue_create_container"
 const App = () => (
   <div>
     <NavBarContainer />
@@ -20,6 +20,7 @@ const App = () => (
       <Route path="/venueShow/:id" component={VenueShowContainer} />
       <Route path="/crawl/:id" component={crawlShowContainer} />
       <Route exact path="/venues" component={VenueIndexContainer} />
+      <Route exact path="/venueCreate" component={VenueCreate} />
       <Route exact path="/crawls" component={crawlIndexContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
