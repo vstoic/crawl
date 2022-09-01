@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import GoogleMap from "../map/GoogleMap";
 import "../../assets/stylesheets/venue_show.css";
+import { deleteVenue } from "../../util/venue_api_util";
+import { useHistory } from "react-router-dom";
 
 function VenueShow(props) {
+  const history = useHistory();
   useEffect(() => {
     props.fetchVenue(props.match.params.id);
   }, []);
@@ -36,6 +39,10 @@ function VenueShow(props) {
   console.log("IDPROPS=======>", props.createVenueReducer);
 
   console.log("IDPROPS=======>", props.venueReducer?.singleVenue);
+  const venueDelete = async () => {
+    await deleteVenue(props.match.params.id);
+    history.push("/venues");
+  };
 
   return (
     <div className="venue-show-main">
@@ -45,7 +52,7 @@ function VenueShow(props) {
         </div>
         <div className="venue-show-map-container">
           <div className="venue-show-map">
-            <GoogleMap venueLat={venueLat} venueLong={venueLong} />
+            {/* <GoogleMap venueLat={venueLat} venueLong={venueLong} /> */}
           </div>
         </div>
       </div>
@@ -61,6 +68,9 @@ function VenueShow(props) {
           <p>Details: {venueDescription}</p>
           <p>Address: {venueAddress}</p>
         </div>
+        <button onClick={() => venueDelete()} className="nav-logout-button">
+          Delete Venue
+        </button>
       </div>
     </div>
   );
