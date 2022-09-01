@@ -12,7 +12,9 @@ class NavBar extends React.Component {
   }
   logoutUser(e) {
     e.preventDefault();
-    this.props.logout();
+    this.props.logout()
+    console.log(this.props.history);
+    window.history.pushState({urlPath: '/#/'}, "", "/#/")
   }
 
   getLinks() {
@@ -31,6 +33,9 @@ class NavBar extends React.Component {
             <div></div>
           </div>
           <div className="nav-right">
+            <Link to={`/users/${this.props.currentUser.id}`} className="nav-login-button">
+              Profile
+            </Link>
             <Link to={"/venues"} className="nav-login-button">
               Venues
             </Link>
