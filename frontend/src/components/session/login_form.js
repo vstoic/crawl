@@ -53,7 +53,7 @@ class LoginForm extends React.Component {
   handleDemo(e) {
     e.preventDefault();
     const demo = {
-      email: "demo@demo.com",
+      email: "demo@aa.io",
       password: "starwars"
     }
     const speed = 65;
@@ -77,7 +77,10 @@ class LoginForm extends React.Component {
             this.setState({ password: temp });
           } else {
             clearInterval(inputPassword);
-            this.props.login(demo).then(() => this.props.history.push('/'));
+            this.props.login(demo);
+            if (this.props.currentUser) {
+              this.props.history.push("/");
+            }
           }
         }, speed);
       }
