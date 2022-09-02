@@ -16,29 +16,73 @@ componentDidMount(){
     return (
       <div className="main-page-container">
         <div className="main-left-container">
-          <div className="category-container">
-            category-container</div>
+          {/* <div className="category-container">
+            category-container</div> */}
           <div className="developers-container">
-            developers-container</div>
+            <div> 
+              <img className="personal-link-photo"
+                src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
+                <br/>
+                Victor Cheng
+                <br/>
+              <a href="https://www.linkedin.com/in/victorcheng3/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+                src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
+              <a href="https://github.com/vstoic" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+                src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
+            </div>
+            <div> 
+              <img className="personal-link-photo"
+                src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
+              <br />
+              Tara Oliver 
+              <br />
+              <a href="https://www.linkedin.com/in/victorcheng3/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+                src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
+              <a href="https://github.com/vstoic" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+                src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
+            </div>
+            <div> 
+              <img className="personal-link-photo"
+                src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
+              <br />
+              Mohammad Rizwan
+              <br />
+              <a href="https://www.linkedin.com/in/victorcheng3/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+                src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
+              <a href="https://github.com/vstoic" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+                src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
+            </div>
+            <div>
+              <img className="personal-link-photo"
+                src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
+              <br />
+              Tom Léger
+              <br />
+              <a href="https://www.linkedin.com/in/victorcheng3/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+                src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
+              <a href="https://github.com/vstoic" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+                src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
+            </div>
+
+            </div>
         </div>
         <div className="main-crawl-container">
           <div className="crawl-container">
-             <ul>
-                {
-                  this.props.crawls.map(crawl => (
-                    <MainPageItem
-                    key={crawl.id}
-                    title={crawl.title}
-                    time={crawl.time}
-                    distance={crawl.distance}
-                    cost={crawl.cost}
-                    venues={crawl.venues}
-                    venueReducer={this.props.venueReducer}
-                    fetchAllVenues={this.props.fetchAllVenues}
-                    />
-                  ))
-                }
-             </ul>
+            {
+              this.props.crawls.map(crawl => (
+                <MainPageItem
+                key={crawl.id}
+                crawl={crawl}
+                title={crawl.title}
+                time={crawl.time}
+                distance={crawl.distance}
+                cost={crawl.cost}
+                venues={crawl.venues}
+                venueReducer={this.props.venueReducer}
+                fetchAllVenues={this.props.fetchAllVenues}
+                />
+              ))
+            }
           </div>
         </div>
       </div>

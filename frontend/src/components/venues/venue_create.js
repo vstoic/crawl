@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-class VenueForm extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,13 +45,13 @@ class VenueForm extends React.Component {
     return (
       <div className="session-background">
         <div className="session-image-container">
-          <img
+          {/* <img
             className="logo-image"
             src="https://i.postimg.cc/tRWyZch1/snail-logo.png"
-          />
+          /> */}
           <img
             className="google-image"
-            src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
+            src="https://i.postimg.cc/05ZwPz18/Shining-bright-idea-light-bulb-with-cogs-on-transparent-background-PNG.png"
           />
         </div>
         <div className="signup-container">
@@ -73,10 +73,9 @@ class VenueForm extends React.Component {
                 type="description"
                 value={this.state.description}
                 onChange={this.update("description")}
-                placeholder="A venue description is all about the venue information."
+                placeholder="Description"
               />
               <div className="errors">{errors.description}</div>
-
               <input
                 className="username-input"
                 type="cost"
@@ -90,7 +89,7 @@ class VenueForm extends React.Component {
                 type="address"
                 value={this.state.address}
                 onChange={this.update("address")}
-                placeholder="Address:123 Main Street,Brooklyn, NY 11225"
+                placeholder="Address: 90 5th Ave, New York, NY 10011"
               />
               <div className="errors">{errors.address}</div>
 
@@ -99,7 +98,7 @@ class VenueForm extends React.Component {
                 type="text"
                 value={this.state.image}
                 onChange={this.update("image")}
-                placeholder="Add a link to an image of the venue"
+                placeholder="Image url"
               />
               <div className="errors">{errors.image}</div>
 
@@ -108,7 +107,7 @@ class VenueForm extends React.Component {
                 type="website"
                 value={this.state.website}
                 onChange={this.update("website")}
-                placeholder="Website: http://www.google.com/"
+                placeholder="Website url"
               />
               <div className="errors">{errors.website}</div>
 
@@ -117,7 +116,7 @@ class VenueForm extends React.Component {
                 type="latitude"
                 value={this.state.latitude}
                 onChange={this.update("latitude")}
-                placeholder="Latitude: 40.503242"
+                placeholder="Latitude ex: 40.503242"
               />
               <div className="errors">{errors.latitude}</div>
 
@@ -126,7 +125,7 @@ class VenueForm extends React.Component {
                 type="longitude"
                 value={this.state.longitude}
                 onChange={this.update("longitude")}
-                placeholder="Longitude: -79.324324"
+                placeholder="Longitude ex: -79.324324"
               />
               <div className="errors">{errors.longitude}</div>
 
@@ -143,4 +142,4 @@ class VenueForm extends React.Component {
   }
 }
 
-export default withRouter(VenueForm);
+export default withRouter(SignupForm);

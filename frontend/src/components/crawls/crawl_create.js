@@ -46,12 +46,8 @@ class CrawlForm extends React.Component {
             <div className="session-background">
                 <div className="session-image-container">
                     <img
-                        className="logo-image"
-                        src="https://i.postimg.cc/tRWyZch1/snail-logo.png"
-                    />
-                    <img
                         className="google-image"
-                        src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
+                        src="https://i.postimg.cc/05ZwPz18/Shining-bright-idea-light-bulb-with-cogs-on-transparent-background-PNG.png"
                     />
                 </div>
                 <div className="signup-container">

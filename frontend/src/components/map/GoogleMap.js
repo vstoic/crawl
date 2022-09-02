@@ -1,6 +1,7 @@
 import React from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { GKEY } from '../../googlekey';
+import "../../assets/stylesheets/map.css";
 // import  { 
 //     geocodeByAddress,
 //     getLatLng,
@@ -60,7 +61,7 @@ class MapContainer extends React.Component {
     render() {
         // debugger
         return (
-            <div id='googleMap'>
+            <div className='map-container'>
                 
 
             <Map google={this.props.google}
