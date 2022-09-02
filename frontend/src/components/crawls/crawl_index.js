@@ -16,14 +16,21 @@ class CrawlIndex extends Component {
     }
 
     return (
-      <ul>
-        {(this.props.crawlsReducer.allIds || []).map((item) => (
-          <ul>
-            {" "}
-            <Link to={`/crawl/${item._id}`}>{item.title} </Link>
-          </ul>
-        ))}
-      </ul>
+      <>
+        <ul>
+          {(this.props.crawlsReducer.allIds || []).map((item) => (
+            <ul>
+              {" "}
+              <Link to={`/crawl/${item._id}`}>{item.title} </Link>
+            </ul>
+          ))}
+        </ul>
+        <div>
+          <Link to={"/crawlCreate/"} className="nav-login-button">
+            Create a Crawl
+          </Link>
+        </div>
+      </>
     );
   }
 }

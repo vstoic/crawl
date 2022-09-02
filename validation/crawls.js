@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 module.exports = function validateCrawlInput(data) {
   let errors = {};
 
-  const categories = ["Food and Drinks", "Active Life", "Art and Entertainment", "Night Life", "Shopping", "Wellness", "Other"];
+  const categories = ["Food and Drinks", "Active Life", "Arts and Entertainment", "Night Life", "Shopping", "Wellness", "Other"];
 
   if (!mongoose.isValidObjectId(data.creator_id)) {
     errors.creator_id = 'Invalid Creator ID'
