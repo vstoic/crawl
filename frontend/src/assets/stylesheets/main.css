@@ -10,10 +10,10 @@
 }
 
 .main-left-container {
-    height: 80%;
+    height: 90%;
     width: 25%;
     /* background-color: black; */
-    
+        font-family: 'Quicksand';
 }
 
     .category-container {
@@ -25,20 +25,178 @@
 
     .developers-container {
         width: 100%;
-        height: 45%;
-        background-color: rgb(209, 209, 209);
-        margin-top: 15%;
+        height: 50%;
+        background: #c6c6c6;        
+        border: .1px solid rgb(215, 215, 215);
+        /* margin-top: 15%; */
+        border-radius: 8px;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        justify-content: center;
+        /* gap: 2vw; */
+        
+
+    }
+
+    .personal-link-photo {
+        height: 8vh;
+        border-radius: 50%;
+        filter: contrast(.9);
+    }
+
+    .personal-link{
+        height: 3vh;
+    }
+
+    .developers-container:hover {
+        box-shadow:
+                1px 1px #F17F26,
+                2px 2px #F17F26,
+                /* 1.5px 1.5px #F17F26, */
+                3px 3px #F17F26,
+                /* 2px 2px #F17F26, */
+                6px 6px #ffba08;
+            -webkit-transform: translateX(-2.5px);
+            transform: translateX(-2.5px);
+            transition: .5s ease;
     }
 
 .main-crawl-container {
-    height: 80%;
+    display: flex;
+    /* align-items: ; */
+    justify-content: center;
+    height: 90%;
     width: 60%;
-    background-color: rgb(209, 209, 209);
+    background-color: rgb(255, 255, 255);
+    /* border: .1px solid rgb(215, 215, 215); */
+    border-radius: 8px;
+    font-family: 'Quicksand';
 }
 
 .crawl-container {
     display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+    /* padding-top: 1%; */
+    border-radius: 8px;
+    /* background: linear-gradient(to top, #00000006 100%, #ececec11 100%); */
+}
+
+
+
+.each-crawl {
+    border: .1px solid rgb(201, 201, 201);
+    border-radius: 6px;
+    /* background-color: rgba(219, 219, 219, 0.207); */
+    background: #f2f2f2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    /* margin-top: 1%; */
+    margin-bottom: 2%;
+    /* gap: 5%; */
+}
+
+.each-crawl:hover {
+    box-shadow:
+            1px 1px #F17F26,
+            2px 2px #F17F26,
+            /* 1.5px 1.5px #F17F26, */
+            3px 3px #F17F26,
+            /* 2px 2px #F17F26, */
+            6px 6px #ffba08;
+        -webkit-transform: translateX(-2.5px);
+        transform: translateX(-2.5px);
+        transition: .5s ease;
+    /* border: 1px solid white; */
+    transform: scale(1.038);
+    transition: .5s ease;
+}
+
+.each-desc {
+    /* border: 1px solid black; */
+    /* max-width: 70%; */
+    width: 60%;
+}
+
+.each-desc a{
+    /* border: 1px solid black; */
+    text-decoration: none;
+    color: #f17e26db;
+    /* font-size: 250%; */
+    font-size: 3vw;
+    font-weight: lighter;
+    margin: 4px;
+}
+.each-desc a:hover {
+    /* border: 1px solid black; */
+    color: #ffba08;
+    /* text-shadow: 1px 1px 2px #ffb90845; */
+    transition: .5s ease;
+}
+.each-sub-desc {
+    display: flex;
     flex-direction: row;
-    justify-content: left;
-    
+    justify-content: space-between;
+    gap: 10px;
+    /* border: 1px solid black; */
+    /* padding: 2%; */
+}
+
+.each-sub-desc p {
+    font-size: 1vw;
+    margin: 2%;
+    color: #555555db;
+}
+
+.each-sub-desc p:hover {
+    /* border: 1px solid black; */
+    cursor: default;
+    color: #ffba08;
+    text-shadow: 1px 1px 2px #ffb90845
+}
+
+
+
+.crawl-venue-container {
+    /* border: 1px solid black; */
+    padding: 1%;
+}
+
+.each-crawl-venue-details {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: rgb(210, 210, 210);
+    margin-top: .5%;
+    margin-bottom: .5%;
+    /* justify-content: center; */
+}
+
+.each-crawl-venue-details a {
+    text-decoration: none;
+    color: #555555db;
+    font-size: .9vw;
+    /* justify-content: center; */
+}
+
+.each-crawl-venue-details:hover {
+    /* border: 1px solid black; */
+    color: #ffba08;
+
+}
+
+.each-crawl-venue-details a:hover {
+    /* border: 1px solid black; */
+    color: #ffba08;
+
+}
+
+.main-page-images {
+    height: 20px;
 }

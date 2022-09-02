@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import { fetchAllVenues } from "../../util/venue_api_util";
+import "../../assets/stylesheets/main.css";
 
 
 class MainPageItem extends React.Component  {
@@ -10,7 +11,7 @@ class MainPageItem extends React.Component  {
    
    render(){
     // debugger
-        const {  venueReducer, title, time, distance, venues, cost } = this.props;
+        const { crawl, venueReducer, title, time, distance, venues, cost } = this.props;
        const crawlVenues = venues[0].split(", ");
        const renderName = (id) => {
            // console.log("Data(renderName before)========>", props.venueReducer?.venues);
@@ -25,26 +26,31 @@ class MainPageItem extends React.Component  {
        };
 
         return(
-            <li>
-                <h4>{title}</h4>
-                <p>{time}</p>
-                <p>{distance}</p>
-                <p>{cost}</p>
+            <div className="each-crawl">
+                <div className="each-desc">
+                    <Link to={`/crawl/${crawl._id}`}>{title}</Link>
+                    {/* <Link to={`/crawl/${item._id}`}>{item.title} </Link> */}
+                    <div className="each-sub-desc">
+                        <p>{cost}</p>
+                        <p>{time}</p>
+                        <p>{distance}</p>
+                    </div>
+                </div>
                 {/* <h2>Website</h2> */}
                 <div className="crawl-venue-container">
-                    <ul>
+                    <div>
                     {crawlVenues?.map((item) => (
-                        <>
-                        <li><Link to={`/venueShow/${item}`}>{renderName(item)}</Link></li>
-                        <div className="mp-image-container">
-                            <img src={renderImageSrc(item)} className="main-page-image" />
+                        <div className="each-crawl-venue-details">
+                            <li><Link to={`/venueShow/${item}`}>{renderName(item)}</Link></li>
+                            <div className="mp-image-container">
+                                {/* <img src={renderImageSrc(item)} className="main-page-images" /> */}
+                            </div>
                         </div>
-                        </>
                     ))} 
-                    </ul>
+                    </div>
                 </div>
                 
-            </li>
+            </div>
         )
     }
 }

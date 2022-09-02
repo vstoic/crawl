@@ -21,7 +21,8 @@ class Profile extends React.Component {
       <div className="profile-left">
 
 
-        <img className="profile-img" src={this.props.viewedUser.profileImage} alt="" />
+          <img className="profile-img" src={this.props.viewedUser.profileImage} alt='<img className="personal-link-photo"
+            src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />' />
         <h1> {this.props.viewedUser.username}'s Page</h1>
      
 

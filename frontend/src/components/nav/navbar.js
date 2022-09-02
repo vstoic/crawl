@@ -25,6 +25,10 @@ class NavBar extends React.Component {
                 className="logo"
                 src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
               />
+            <img
+              className="logo-image-snail"
+              src="https://i.postimg.cc/tRWyZch1/snail-logo.png"
+            />
             </Link>
           </div>
           <div className="search-container">
@@ -34,20 +38,20 @@ class NavBar extends React.Component {
 
            
 
-            <Link to={"/venueCreate"} className="nav-login-button">
+            <Link to={"/venueCreate"} className="nav-other-button">
               Create a Venue
             </Link>
 
             <Link
               to={`/users/${this.props.currentUser.id}`}
-              className="nav-login-button"
+              className="nav-other-button"
             >
               Profile
             </Link>
-            <Link to={"/venues"} className="nav-login-button">
+            <Link to={"/venues"} className="nav-other-button">
               Venues
             </Link>
-            <Link to={"/crawls"} className="nav-login-button">
+            <Link to={"/crawls"} className="nav-other-button">
               Crawls
             </Link>
             <button onClick={this.logoutUser} className="nav-logout-button">
@@ -65,19 +69,26 @@ class NavBar extends React.Component {
                 className="logo"
                 src="https://i.postimg.cc/8zjb85Sr/Crawl-logo-transparent.png"
               />
+              <img
+                className="logo-image-snail"
+                src="https://i.postimg.cc/tRWyZch1/snail-logo.png"
+              />
             </Link>
           </div>
           <div className="search-container">
             <div></div>
           </div>
           <div className="nav-right">
-            <Link to={"/venues"} className="nav-login-button">
+            {/* <Link to={"/venueCreate"} className="nav-other-button">
+              Create Venue
+            </Link>
+            <Link to={"/venues"} className="nav-other-button">
               Venues
             </Link>
-            <Link to={"/crawls"} className="nav-login-button">
+            <Link to={"/crawls"} className="nav-other-button">
               Crawls
-            </Link>
-            <Link to={"/login"} className="nav-login-button">
+            </Link> */}
+            <Link to={"/login"} className="nav-signup-button">
               Login
             </Link>
             <Link to={"/signup"} className="nav-signup-button">

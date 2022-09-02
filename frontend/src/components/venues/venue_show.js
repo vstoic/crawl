@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import GoogleMap from "../map/GoogleMap";
 import "../../assets/stylesheets/venue_show.css";
+import "../../assets/stylesheets/map.css";
+
 import { deleteVenue } from "../../util/venue_api_util";
 import { useHistory } from "react-router-dom";
 
@@ -51,9 +53,9 @@ function VenueShow(props) {
           <img src={venueImageSrc} className="venue-show-image" />
         </div>
         <div className="venue-show-map-container">
-          <div className="venue-show-map">
+          {/* <div className="map-container"> */}
             <GoogleMap venueLat={venueLat} venueLong={venueLong} />
-          </div>
+          {/* </div> */}
         </div>
       </div>
       <div className="right-column">
