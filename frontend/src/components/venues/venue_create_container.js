@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { create_venue, } from "../../actions/create_venue_actions";
-import CreateVenue from "./venue_create";
+import VenueForm from "./venue_create";
 
 const mapStateToProps = (state) => {
   return {
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateVenue);
+export default connect(mapStateToProps, mapDispatchToProps)(VenueForm);

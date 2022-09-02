@@ -31,8 +31,7 @@ export const updateCrawl = (crawl) => dispatch => (
 
 
 export const createCrawl = (crawl) => (dispatch) => {
-  return CrawlApiUtil.createCrawl(crawl).then((crawl) =>
-    dispatch(receiveCrawl(crawl))
-  );
+  return CrawlApiUtil.createCrawl(crawl)
+  .then((crawl) => dispatch(receiveCrawl(crawl)));
 };
 

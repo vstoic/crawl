@@ -1,19 +1,18 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-class SignupForm extends React.Component {
+class VenueForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Venue Name",
-      description: "A venue description is all about the venue information.",
-      cost: "$$$",
-      address: "123 Main Street, Brooklyn, NY 11225",
-      latitude: "40.503242",
-      longitude: "-79.324324",
-      image:
-        "https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/in/wp-content/uploads/2022/03/monkey-g412399084_1280.jpg",
-      website: "http://www.google.com/",
+      name: "",
+      description: "",
+      cost: "",
+      address: "",
+      latitude: "",
+      longitude: "",
+      image:"",
+      website: "",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,7 +56,7 @@ class SignupForm extends React.Component {
         </div>
         <div className="signup-container">
           <div className="signup-text">
-            <h1 className="signup-text1">Create a Venue</h1>
+            <h1 className="signup-text1">Add a Venue</h1>
           </div>
           <form onSubmit={this.handleSubmit}>
             <div>
@@ -66,7 +65,7 @@ class SignupForm extends React.Component {
                 type="name"
                 value={this.state.name}
                 onChange={this.update("name")}
-                placeholder="Name"
+                placeholder="Venue Name"
               />
               <div className="errors">{errors.name}</div>
               <input
@@ -74,15 +73,16 @@ class SignupForm extends React.Component {
                 type="description"
                 value={this.state.description}
                 onChange={this.update("description")}
-                placeholder="Description"
+                placeholder="A venue description is all about the venue information."
               />
               <div className="errors">{errors.description}</div>
+
               <input
                 className="username-input"
                 type="cost"
                 value={this.state.cost}
                 onChange={this.update("cost")}
-                placeholder="Cost"
+                placeholder="$$$"
               />
               <div className="errors">{errors.cost}</div>
               <input
@@ -90,7 +90,7 @@ class SignupForm extends React.Component {
                 type="address"
                 value={this.state.address}
                 onChange={this.update("address")}
-                placeholder="Address"
+                placeholder="Address:123 Main Street,Brooklyn, NY 11225"
               />
               <div className="errors">{errors.address}</div>
 
@@ -99,7 +99,7 @@ class SignupForm extends React.Component {
                 type="text"
                 value={this.state.image}
                 onChange={this.update("image")}
-                placeholder="Image"
+                placeholder="Add a link to an image of the venue"
               />
               <div className="errors">{errors.image}</div>
 
@@ -108,7 +108,7 @@ class SignupForm extends React.Component {
                 type="website"
                 value={this.state.website}
                 onChange={this.update("website")}
-                placeholder="Website"
+                placeholder="Website: http://www.google.com/"
               />
               <div className="errors">{errors.website}</div>
 
@@ -117,7 +117,7 @@ class SignupForm extends React.Component {
                 type="latitude"
                 value={this.state.latitude}
                 onChange={this.update("latitude")}
-                placeholder="Latitude"
+                placeholder="Latitude: 40.503242"
               />
               <div className="errors">{errors.latitude}</div>
 
@@ -126,7 +126,7 @@ class SignupForm extends React.Component {
                 type="longitude"
                 value={this.state.longitude}
                 onChange={this.update("longitude")}
-                placeholder="Longitude"
+                placeholder="Longitude: -79.324324"
               />
               <div className="errors">{errors.longitude}</div>
 
@@ -143,4 +143,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default withRouter(SignupForm);
+export default withRouter(VenueForm);

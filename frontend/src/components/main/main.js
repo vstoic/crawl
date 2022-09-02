@@ -2,7 +2,6 @@
 
 import React from "react";
 import "../../assets/stylesheets/main.css";
-import CrawlShow from "../crawls/crawl_show";
 import MainPageItem from "./main_page_item";
 
 
