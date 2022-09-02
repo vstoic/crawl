@@ -19,7 +19,7 @@ componentDidMount(){
           {/* <div className="category-container">
             category-container</div> */}
           <div className="developers-container">
-            <div> 
+            <div className="devs"> 
               <img className="personal-link-photo"
                 src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
                 <br/>
@@ -30,7 +30,7 @@ componentDidMount(){
               <a href="https://github.com/vstoic" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
             </div>
-            <div> 
+            <div className="devs"> 
               <img className="personal-link-photo"
                 src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
               <br />
@@ -41,7 +41,7 @@ componentDidMount(){
               <a href="https://github.com/vstoic" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
             </div>
-            <div> 
+            <div className="devs"> 
               <img className="personal-link-photo"
                 src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
               <br />
@@ -52,7 +52,7 @@ componentDidMount(){
               <a href="https://github.com/vstoic" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
             </div>
-            <div>
+            <div className="devs">
               <img className="personal-link-photo"
                 src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
               <br />

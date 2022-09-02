@@ -11,7 +11,7 @@
 
 .main-left-container {
     height: 90%;
-    width: 25%;
+    width: 20%;
     /* background-color: black; */
         font-family: 'Quicksand';
 }
@@ -24,9 +24,10 @@
     }
 
     .developers-container {
-        width: 100%;
+        width: 92%;
         height: 50%;
-        background: #c6c6c6;        
+        /* background: #c6c6c6; */
+        background: url("https://i.postimg.cc/ZnhF2RgG/Screen-Shot-2022-09-02-at-3-07-11-AM.png");
         border: .1px solid rgb(215, 215, 215);
         /* margin-top: 15%; */
         border-radius: 8px;
@@ -63,12 +64,17 @@
             transition: .5s ease;
     }
 
+    .devs {
+        /* font-size:vh; */
+        color: #161616;
+    }
+
 .main-crawl-container {
     display: flex;
     /* align-items: ; */
     justify-content: center;
     height: 90%;
-    width: 60%;
+    width: 65%;
     background-color: rgb(255, 255, 255);
     /* border: .1px solid rgb(215, 215, 215); */
     border-radius: 8px;

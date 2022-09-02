@@ -35,10 +35,10 @@ function CrawlShow(props) {
     let text = props.venueReducer?.venues?.find((x) => x._id == id)?.description;
     return text;
   };
-  // console.log(
-  //   "DataCrawls======>",
-  //   props.crawlsReducer?.byId?.data?.venues[0].split(", ")
-  // );
+  console.log(
+    "DataCrawls======>",
+    props.crawlsReducer?.byId?.data?.venues[0].split(", ")
+  );
   
   return (
     <div className="main-crawl-show-container">
@@ -56,11 +56,13 @@ function CrawlShow(props) {
           
           <div className="crawls-venues-container">
             {crawlVenues?.map((item) => (
-              <div className="each-venue">
-                <Link to={`/venueShow/${item}`}>{renderName(item)}</Link>
-                <div>{renderCost(item)}</div>
-                <div>-{renderDescription(item)}</div>
-                {/* {renderImageSrc(item)} */}
+              <div className="each-crawl">
+                <div className="">
+                  <Link to={`/venueShow/${item}`}>{renderName(item)}</Link>
+                  <div>{renderCost(item)}</div>
+                  <div>-{renderDescription(item)}</div>
+                </div>
+                <img className="crawl-venue-image" src={renderImageSrc(item)}/>
               </div>
             ))}
           </div>
