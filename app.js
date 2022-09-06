@@ -30,7 +30,7 @@ app.use("/api/venues", venues);
 app.use("/api/comments", comments);
 app.use("/api/votes", votes);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 // app.get("/", (req, res) => res.send("Hello World"));
 
