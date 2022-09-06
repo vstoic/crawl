@@ -22,5 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-src/googlekey.js
+# src/googlekey.js
 src/googlekey_dev.js
