@@ -11,7 +11,12 @@ const votes = require("./routes/api/votes")
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
-
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -31,7 +36,5 @@ app.use("/api/comments", comments);
 app.use("/api/votes", votes);
 
 const port = process.env.PORT || 5001;
-
-// app.get("/", (req, res) => res.send("Hello World"));
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
