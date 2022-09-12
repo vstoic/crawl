@@ -1,6 +1,6 @@
 import React from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import { GKEY } from '../../googlekey';
+import { GKEY } from '../../googlekey.js';
 import "../../assets/stylesheets/map.css";
 // import  { 
 //     geocodeByAddress,
