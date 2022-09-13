@@ -24,7 +24,7 @@ const App = () => (
       <Route path="/venueShow/:id" component={VenueShowContainer} />
       <Route path="/crawl/:id" component={crawlShowContainer} />
       <ProtectedRoute path="/crawlCreate/" component={CrawlCreateContainer} />
-      <ProtectedRoute path="/crawlEdit/" component={CrawlEditContainer} />
+      <ProtectedRoute path="/crawlEdit/:id" component={CrawlEditContainer} />
       <Route exact path="/venues" component={VenueIndexContainer} />
       <ProtectedRoute exact path="/venueCreate" component={VenueCreateContainer} />
       <Route exact path="/crawls" component={crawlIndexContainer} />
