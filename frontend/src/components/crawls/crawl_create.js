@@ -11,10 +11,13 @@ class CrawlForm extends React.Component {
             description: "",
             cost: "",
             time: "",
-            distance: ""
+            distance: "",
+            venue:[],
+            venues: []
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.addVenue = this.addVenue.bind(this);
         // this.clearedErrors = false;
     }
 
@@ -23,24 +26,57 @@ class CrawlForm extends React.Component {
     }
 
     update(field) {
-        return (e) =>
-            this.setState({
-                [field]: e.currentTarget.value,
-            });
+        // console.log(field);
+        return (e) => {
+            // console.log(e.currentTarget.value)
+            this.setState({ [field]: e.currentTarget.value });
+        }
     }
 
     handleSubmit(e) {
+        
         e.preventDefault();
-        const { createCrawl, login, history, currentUser } = this.props;
+        const { history, createCrawl } = this.props;
         const crawl = Object.assign({}, this.state);
+        console.log(crawl)
         createCrawl(crawl).then(res => {
-            history.push("/crawlShow/1234");
+            history.push(`/crawl/{crawl.id}`);
         });
     }
+
+
+    addVenue = (e) => {
+        e.preventDefault();
+        const newVenues = Object.assign([], this.state.venues)
+        const venue_id = this.state.venue;
+        if(!newVenues.includes(venue_id)) {
+            newVenues.push(venue_id)
+        }
+        this.setState({ venues: newVenues })
+        // console.log(this.state.venues)
+    }
+
+    removeVenue = (idx, e) => {
+        const newVenues = Object.assign([], this.state.venues)
+        newVenues.splice(idx, 1)
+        this.setState({ venues: newVenues })
+        // delete newVenues[idx]
+    //   return this.state.venues.remove(venue_id)
+    //    this.state.venues.splice(idx, 1)
+    }
+    
+
+  
 
     render() {
         // debugger
         // const { errors } = this.props;
+
+        const renderName = (id) => {
+            // console.log("Data(renderName before)========>", props.venueReducer?.venues);
+            let text = this.props.allVenues?.find((x) => x._id == id)?.name;
+            return text;
+          };
 
         return (
             <div className="session-background">
@@ -59,14 +95,14 @@ class CrawlForm extends React.Component {
                             <select className="username-input"
                                     onChange={this.update("category")}
                             >
-                                <option value="selected">Select a Category</option>
-                                <option value={this.state.category}>Food and Drinks</option>
-                                <option value={this.state.category}>Active Life</option>
-                                <option value={this.state.category}>Arts and Entertainment</option>
-                                <option value={this.state.category}>Night Life</option>
-                                <option value={this.state.category}>Shopping</option>
-                                <option value={this.state.category}>Wellness</option>
-                                <option value={this.state.category}>Other</option>
+                                <option value="defaultValue">Select a Category</option>
+                                <option value={"Food and Drinks"}>Food and Drinks</option>
+                                <option value={"Active Life"}>Active Life</option>
+                                <option value={"Arts and Entertainment"}>Arts and Entertainment</option>
+                                <option value={"Night Life"}>Night Life</option>
+                                <option value={"Shopping"}>Shopping</option>
+                                <option value={"Wellness"}>Wellness</option>
+                                <option value={"Other"}>Other</option>
                             </select>
                             {/* <div className="errors">{errors.category}</div> */}
                             <textarea
@@ -116,24 +152,53 @@ class CrawlForm extends React.Component {
 
                             <div>
                                 <p>Venues</p>
-                                <select>
-                                    <option value="selected" selected>Select a Venue</option>
-                                    {
-                                        this.props.venues.map(venue => (
-                                            <option value={this.state.category}>{venue.name}</option>
-                                        )
+                                <ul className='selected-venues'>
+                                     {
+                                        this.state.venues.map((venue_id, idx) => 
+                                            <li className="selected-exercises-individuals">
+                                                    <p>{renderName(venue_id)}</p>
+                                                    <button className="button" id="remove-from-list" onClick={() => this.removeVenue(idx)}>Remove Venue</button>  
+                                            </li>
+                                        )}
+                                </ul>
 
-                                        )
+                                    {/* {
+                                        this.props.allVenues.map(venue => (
+                                            <VenueListItem
+                                             key={venue._id}
+                                             value="venue"
+                                             venue={venue}
+                                           />
+                                            ))
+                                    } */}
+
+                                <select 
+                                    onChange={this.update("venue")}
+                                    className="username-input"
+                                >
+                                    <option value="defaultValue">Select a Venue</option>
+                                    {
+                                        this.props.allVenues.map(venue => (
+                                            <option
+                                             key={venue._id}
+                                             value={venue._id}
+                                           >
+                                            {venue.name}</option>
+            
+                                            ))
                                     }
                                 </select>
                                 <div>
-                                    <button>Add Venue</button>
+                                    <button onClick={this.addVenue}>Add Venue</button>
                                 </div>
                             </div>
 
                             <br />
-                            <input className="submit-signup" type="submit" value="Create Crawl" />
-
+                            <input 
+                                className="submit-signup" 
+                                type="submit" 
+                                value="Create Crawl"
+                            />
                         </div>
                     </form>
                 </div>

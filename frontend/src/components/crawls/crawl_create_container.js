@@ -6,7 +6,7 @@ import CrawlForm from "./crawl_create";
 const mapStateToProps = (state) => {
     return {
         currentUser: state.session.user,
-        venues: state.entities.venues.venues
+        allVenues: state.entities.venues.venues
     };
 };
 
