@@ -17,6 +17,10 @@ export const updateCrawl = (crawl) => {
 
 export const createCrawl = async (crawl) => {
   let crawlAll = await axios.post("/api/crawls");
-  console.log("CrawlAll=======>", crawlAll);
   return crawlAll;
 };
+export const getCrawlsByUser = async(userId) => {
+  let getcrawl = await axios.get(`/api/crawls/users/${userId}`);
+  console.log("Data=========>",getcrawl)
+  return getcrawl;
+}
