@@ -87,7 +87,6 @@ router.post("/register", (req, res) => {
   });
 
 router.patch('/:id',
-  passport.authenticate("jwt", { session: false }),
   (req, res) => {
 
     // validates updates
