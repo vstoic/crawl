@@ -1,8 +1,9 @@
-import { RECEIVE_ALL_CRAWLS, RECEIVE_CRAWL } from "../actions/crawl_actions";
+import { RECEIVE_ALL_CRAWLS, RECEIVE_CRAWL ,RECEIVE_CRAWL_USER } from "../actions/crawl_actions";
 
 const _nullState = {
     byId: {},
-    allIds: []
+    allIds: [],
+    crawlByUser:[]
 };
 
 const crawlsReducer = (oldState = _nullState, action) => {
@@ -21,6 +22,9 @@ const crawlsReducer = (oldState = _nullState, action) => {
             nextState.byId= action.crawl;
 
             return nextState;
+        case RECEIVE_CRAWL_USER:
+            nextState.crawlByUser = action.crawl
+            return nextState
         default:
             return oldState;
     }

@@ -44,7 +44,7 @@ export const fetchUsers = () => dispatch => (
     UserUtil.fetchUsers().then((users) => dispatch(receiveUsers(users)))
 );
 
-export const updateUser = userData => dispatch => (
+export const updateUserData = userData => dispatch => (
     UserUtil.updateUser(userData)
         .then((user) => dispatch(updateCurrentUser(user)))
         .catch((errors) => dispatch(receiveUserErrors(errors.response.data)))
