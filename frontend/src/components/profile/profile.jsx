@@ -72,21 +72,23 @@ fetch("  https://api.cloudinary.com/v1_1/dhudcmiwm/image/upload", {
 
         <div className="profile-right">
           {this.props.crawlsReducer?.crawlByUser?.data?.length == 0 && (
-            <div className="profile-right-crawls">No items here</div>
+            <div className="profile-right-crawls">No crawls here</div>
           )}
           {(this.props.crawlsReducer?.crawlByUser?.data || []).map(
             (item, index) => (
               <div key={item._id} className="profile-right-crawls">
                 <Link to={`/crawl/${item._id}`}>{item.title} </Link>
+                {item.category}
+                {item.time}
               </div>
             )
           )}
-          <div className="profile-right-crawls">First Crawl goes here</div>
+          {/* <div className="profile-right-crawls">First Crawl goes here</div>
           <div className="profile-right-crawls">Second Crawl goes here</div>
           <div className="profile-right-crawls">Third Crawl goes here</div>
           <div className="profile-right-crawls">Fourth Crawl goes here</div>
           <div className="profile-right-crawls">Fifth Crawl goes here</div>
-          <div className="profile-right-crawls">Sixth Crawl goes here</div>
+          <div className="profile-right-crawls">Sixth Crawl goes here</div> */}
         </div>
       </div>
     );
