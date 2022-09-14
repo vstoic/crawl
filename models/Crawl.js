@@ -35,6 +35,7 @@ const CrawlSchema = new Schema(
       type: Number,
       default: 0
     },
+    users:[{user_id:String}],
     venues: [{type: Object }],
   }, {
   timestamps: true

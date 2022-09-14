@@ -12,7 +12,7 @@ class MainPageItem extends React.Component  {
    render(){
     // debugger
         const { crawl, venueReducer, title, time, distance, venues, cost } = this.props;
-       const crawlVenues = venues[0].split(", ");
+       const crawlVenues = venues[0]?.split(", ");
        const renderName = (id) => {
            // console.log("Data(renderName before)========>", props.venueReducer?.venues);
            let text = venueReducer?.venues?.find((x) => x._id == id)?.name;
