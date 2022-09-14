@@ -38,18 +38,29 @@ fetch("  https://api.cloudinary.com/v1_1/dhudcmiwm/image/upload", {
   .catch((err) => console.log(err));
 }
   render () {
-
+      console.log("ImageData========>", this.props.userFetch?.currentUser);
+      let profileImage =
+        this.props.userFetch?.currentUser != undefined
+          ? this.props.userFetch?.currentUser?.data?.profileImage
+          : this.props.viewedUser?.profileImage;
     if (this.props.viewedUser) return (
       <div className="profile-container">
         <div className="profile-left">
-          {this.props.userFetch?.currentUser?.data?.profileImage && (
+          {/* {this.props.userFetch?.currentUser != undefined && (
             <img
               className="profile-img"
               src={this.props.userFetch?.currentUser?.data?.profileImage}
               alt='<img className="personal-link-photo"
              />'
             />
-          )}
+          )} */}
+
+          <img
+            className="profile-img"
+            src={profileImage}
+            alt='<img className="personal-link-photo"
+             />'
+          />
 
           <input
             type="file"
@@ -67,7 +78,6 @@ fetch("  https://api.cloudinary.com/v1_1/dhudcmiwm/image/upload", {
             (item, index) => (
               <div key={item._id} className="profile-right-crawls">
                 <Link to={`/crawl/${item._id}`}>{item.title} </Link>
-               
               </div>
             )
           )}
