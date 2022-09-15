@@ -28,6 +28,7 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const { signup, login, history, currentUser } = this.props;
     const user = Object.assign({}, this.state);
+    
     signup(user)
     if (currentUser) {
       history.push("/login");
@@ -87,9 +88,7 @@ class SignupForm extends React.Component {
                 placeholder="Confirm Password"
               />
               <div className="errors">{errors.password2}</div>
-              <button className="demo-button-signup" onClick={this.handleDemo}>
-                Demo User
-              </button>
+             
               <br />
               <input className="submit-signup" type="submit" value="Sign Up" />
               <p className="login-redirect">

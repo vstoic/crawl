@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class CrawlForm extends React.Component {
     constructor(props) {
@@ -20,28 +20,47 @@ class CrawlForm extends React.Component {
         this.addVenue = this.addVenue.bind(this);
         // this.clearedErrors = false;
     }
-
-    componentDidMount() {
-        this.props.fetchAllVenues();
-    }
-
+    
     update(field) {
-        // console.log(field);
         return (e) => {
-            // console.log(e.currentTarget.value)
             this.setState({ [field]: e.currentTarget.value });
         }
     }
 
-    handleSubmit(e) {
-        
+    componentDidMount() {
+        this.props.fetchAllVenues();
+        this.props.clearErrors();
+    }
+
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
+   
+    handleSubmit = async (e) => {
+        // debugger
         e.preventDefault();
-        const { history, createCrawl } = this.props;
+        const { history, createCrawl, newCrawl, errors } = this.props;
         const crawl = Object.assign({}, this.state);
-        console.log(crawl)
-        createCrawl(crawl).then(res => {
-            history.push(`/crawl/{crawl.id}`);
-        });
+       await createCrawl(crawl)
+       if(crawl.id){
+        history.push(`/crawl/{crawl.id}`)
+       } 
+    //    .then(history.push(`/crawl/{crawl.id}`))
+        
+        // removeCrawl = async (crawlId) => {
+        //     const {deleteCrawl, currentUser, history} = this.props
+        //     await deleteCrawl(crawlId);
+        //       history.push("/");
+
+        // if (newCrawl && errors.length === 0) {
+        //      .then(
+        //     history.push(`/crawl/{crawl.id}`)
+        // );
+            // history.push(`/crawl/{crawl.id}`);
+        // }
+
+       
     }
 
 
@@ -56,7 +75,7 @@ class CrawlForm extends React.Component {
         // console.log(this.state.venues)
     }
 
-    removeVenue = (idx, e) => {
+    removeVenue = (idx) => {
         const newVenues = Object.assign([], this.state.venues)
         newVenues.splice(idx, 1)
         this.setState({ venues: newVenues })
@@ -70,7 +89,7 @@ class CrawlForm extends React.Component {
 
     render() {
         // debugger
-        // const { errors } = this.props;
+        const { errors } = this.props;
 
         const renderName = (id) => {
             // console.log("Data(renderName before)========>", props.venueReducer?.venues);
@@ -104,7 +123,7 @@ class CrawlForm extends React.Component {
                                 <option value={"Wellness"}>Wellness</option>
                                 <option value={"Other"}>Other</option>
                             </select>
-                            {/* <div className="errors">{errors.category}</div> */}
+                            <div className="errors">{errors.category}</div>
                             <textarea
                                 className="username-input"
                                 type="description"
@@ -112,7 +131,7 @@ class CrawlForm extends React.Component {
                                 onChange={this.update("description")}
                                 placeholder="Description: What's your crawl all about?."
                             />
-                            {/* <div className="errors">{errors.description}</div> */}
+                            <div className="errors">{errors.description}</div>
 
                             <input
                                 className="username-input"
@@ -121,7 +140,7 @@ class CrawlForm extends React.Component {
                                 onChange={this.update("cost")}
                                 placeholder="$$$"
                             />
-                            {/* <div className="errors">{errors.cost}</div> */}
+                            <div className="errors">{errors.cost}</div>
                             <input
                                 className="username-input"
                                 type="text"
@@ -129,9 +148,7 @@ class CrawlForm extends React.Component {
                                 onChange={this.update("title")}
                                 placeholder="Title"
                             />
-                            {/* <div className="errors">{errors.title}</div> */}
-       
-                        
+                            <div className="errors">{errors.title}</div>
                             <input
                                 className="username-input"
                                 type="text"
@@ -139,7 +156,7 @@ class CrawlForm extends React.Component {
                                 onChange={this.update("time")}
                                 placeholder="Time: How long will this crawl take?"
                             />
-                            {/* <div className="errors">{errors.time}</div> */}
+                            <div className="errors">{errors.time}</div>
 
                             <input
                                 className="username-input"
@@ -148,16 +165,20 @@ class CrawlForm extends React.Component {
                                 onChange={this.update("distance")}
                                 placeholder="Distance: How much traveling between venues?"
                             />
-                            {/* <div className="errors">{errors.distance}</div> */}
+                            <div className="errors">{errors.distance}</div>
 
                             <div>
                                 <p>Venues</p>
                                 <ul className='selected-venues'>
                                      {
                                         this.state.venues.map((venue_id, idx) => 
-                                            <li className="selected-exercises-individuals">
+                                            <li key={idx} className="venues-list">
                                                     <p>{renderName(venue_id)}</p>
-                                                    <button className="button" id="remove-from-list" onClick={() => this.removeVenue(idx)}>Remove Venue</button>  
+                                                    <button 
+                                                        className="button" 
+                                                        id="remove-from-list" 
+                                                        onClick={() => this.removeVenue(idx)}>Remove Venue
+                                                    </button>  
                                             </li>
                                         )}
                                 </ul>

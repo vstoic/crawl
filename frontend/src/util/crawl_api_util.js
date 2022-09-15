@@ -43,3 +43,7 @@ export const getCrawlsByUser = async(userId) => {
   console.log("Data=========>",getcrawl)
   return getcrawl;
 }
+
+export const deleteCrawl = (crawlId) => {
+  return axios.delete(`/api/crawls/${crawlId}`);
+};
