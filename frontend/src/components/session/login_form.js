@@ -125,11 +125,11 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
               <div className="errors">{errors.password}</div>
+              <input className="submit-login" type="submit" value="Login" />
+              <br/>
               <button className="demo-button-login" onClick={this.handleDemo}>
                 Demo User
               </button>
-              <br />
-              <input className="submit-login" type="submit" value="Login" />
               <p className="signup-redirect">
                 New to Crawl? <Link to="/signup" className="linkfont">Sign Up</Link>.
               </p>
