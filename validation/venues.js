@@ -19,14 +19,12 @@ module.exports = function validateVenueInput(data) {
     errors.address = 'Address is required for Venue';
   }
   
-  
-  if (Validator.isEmpty(data.longitude)) {
-    errors.longitude = 'Longitude is required for Venue';
+  if (!data.longitude.length === 7) {
+    errors.longitude = "Please Insert a valid Longitude like '40.56254'"
   }
 
-  
-  if (Validator.isEmpty(data.latitude)) {
-    errors.latitude = 'Latitude is required for Venue';
+  if (!data.latitude.length === 7) {
+    errors.latitude = "Please Insert a valid Longitude like '-70.56254'"
   }
   return {
     errors,
