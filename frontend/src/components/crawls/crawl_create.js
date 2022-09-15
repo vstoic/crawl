@@ -114,7 +114,7 @@ class CrawlForm extends React.Component {
                             <select className="username-input"
                                     onChange={this.update("category")}
                             >
-                                <option value="defaultValue">Select a Category</option>
+                                <option value="defaultValue" selected="true" disabled="disabled">Select a Category</option>
                                 <option value={"Food and Drinks"}>Food and Drinks</option>
                                 <option value={"Active Life"}>Active Life</option>
                                 <option value={"Arts and Entertainment"}>Arts and Entertainment</option>
@@ -133,13 +133,31 @@ class CrawlForm extends React.Component {
                             />
                             <div className="errors">{errors.description}</div>
 
-                            <input
+
+
+
+
+
+
+                            <select className="username-input"
+                                    onChange={this.update("cost")}
+                            >
+                                <option value="defaultValue" selected="true" disabled="disabled">Select a Cost</option>
+                                <option value={"Food and Drinks"}>$</option>
+                                <option value={"Active Life"}>$$</option>
+                                <option value={"Arts and Entertainment"}>$$$</option>
+                                <option value={"Night Life"}>$$$$</option>
+                                <option value={"Shopping"}>$$$$$</option>
+                            </select>
+
+
+                            {/* <input
                                 className="username-input"
                                 type="cost"
                                 value={this.state.cost}
                                 onChange={this.update("cost")}
                                 placeholder="$$$"
-                            />
+                            /> */}
                             <div className="errors">{errors.cost}</div>
                             <input
                                 className="username-input"
@@ -197,7 +215,7 @@ class CrawlForm extends React.Component {
                                     onChange={this.update("venue")}
                                     className="username-input"
                                 >
-                                    <option value="defaultValue">Select a Venue</option>
+                                    <option value="defaultValue" selected="true" disabled="disabled">Select a Venue</option>
                                     {
                                         this.props.allVenues.map(venue => (
                                             <option
@@ -209,6 +227,7 @@ class CrawlForm extends React.Component {
                                             ))
                                     }
                                 </select>
+                                <div className="errors">{errors.venues}</div>
                                 <div>
                                     <button onClick={this.addVenue}>Add Venue</button>
                                 </div>
