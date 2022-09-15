@@ -120,7 +120,6 @@ class Profile extends React.Component {
           {(this.props.crawlsReducer?.crawlByUser?.data || []).map(
             (item, idx) => (
               <div key={item._id} className="profile-right-crawls">
-<<<<<<< HEAD
                 <Link to={`/crawl/${item._id}`}>{item.title}</Link>
                 <br/>
                 <Link to={`/crawlEdit/${item._id}`}>Edit Crawl</Link>
@@ -129,20 +128,6 @@ class Profile extends React.Component {
             )
           )}
          
-=======
-                <Link to={`/crawl/${item._id}`}>{item.title} </Link>
-                {item.category}
-                {item.time}
-              </div>
-            )
-          )}
-          {/* <div className="profile-right-crawls">First Crawl goes here</div>
-          <div className="profile-right-crawls">Second Crawl goes here</div>
-          <div className="profile-right-crawls">Third Crawl goes here</div>
-          <div className="profile-right-crawls">Fourth Crawl goes here</div>
-          <div className="profile-right-crawls">Fifth Crawl goes here</div>
-          <div className="profile-right-crawls">Sixth Crawl goes here</div> */}
->>>>>>> main
         </div>
       </div>
     );
