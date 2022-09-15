@@ -4,10 +4,12 @@ import { combineReducers } from "redux";
 import SessionErrorsReducer from "./session_errors_reducer";
 // import UserErrorsReducer from "./user_errors_reducer";
 import CrawlErrorsReducer from "./crawls_errors_reducer";
+import CommentErrorsReducer from "./comments_errors_reducer";
 
 const ErrorsReducer = combineReducers({
   session: SessionErrorsReducer,
   // user: UserErrorsReducer
-  crawl: CrawlErrorsReducer
+  crawl: CrawlErrorsReducer,
+  comment: CommentErrorsReducer
 });
 export default ErrorsReducer;
