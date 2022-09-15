@@ -1,16 +1,14 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class CommentForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            creator_id:this.props.currentUser.id,
+            // creator_id: this.props.currentUser.id,
             comment: "",
         };
-
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.clearedErrors = false;
     }
 
     componentDidMount() {
@@ -34,9 +32,6 @@ class CommentForm extends React.Component {
     }
 
     render() {
-        // debugger
-        // const { errors } = this.props;
-
     return (
         <div className="session-background">
             <h1 className="signup-text1">Comments</h1>

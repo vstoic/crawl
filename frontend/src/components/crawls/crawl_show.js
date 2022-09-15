@@ -1,6 +1,7 @@
 import React, { useEffect ,useState} from "react";
 import "../../assets/stylesheets/crawl_show.css";
 import { Link } from "react-router-dom";
+import CommentForm from "../comment/crawl_comments";
 
 function CrawlShow(props) {
   const [updatedVoteCount, setUpdatedVoteCount] = useState(0);
@@ -133,6 +134,7 @@ function CrawlShow(props) {
 
         <div className="crawl-comments-container">
           <p>comments-container</p>
+          {/* < CommentForm /> */}
         </div>
         <button className="button" id="vote-button" onClick={() => voteBot()} style={{backgroundColor:errorBot == 1 ?'green': errorBot==2 ? 'red' :'grey'}}>
          {buttonText}

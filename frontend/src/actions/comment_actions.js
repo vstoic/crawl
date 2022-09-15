@@ -2,19 +2,32 @@ import * as CommentApiUtil from "../util/comment_util.js";
 
 export const RECEIVE_ALL_COMMENTS = "RECEIVE_ALL_COMMENTS";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
+export const RECEIVE_COMMENT_CRAWL = "RECEIVE_COMMENT_CRAWL";
+export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
+export const CLEAR_COMMENT_ERRORS = 'CLEAR_COMMENT_ERRORS'
 
 const receiveAllComments = (comments) => ({
     type: RECEIVE_ALL_COMMENTS,
     comments,
 });
-
 const receiveComment = (comment) => ({
     type: RECEIVE_COMMENT,
     comment,
 });
+const receiveCommentCrawl = (comment) => ({
+    type: RECEIVE_COMMENT_CRAWL,
+    comment,
+});
+const receiveCommentErrors = errors => ({
+    type: RECEIVE_COMMENT_ERRORS,
+    errors,
+});
+export const clearCommentErrors = () => ({
+    type: CLEAR_COMMENT_ERRORS,
+});
 
 export const fetchAllComments = () => (dispatch) =>
-    CommentApiUtil.fetchAllComments().then((commentResponse) =>
+    CommentApiUtil.fetchAllComments().then((commentsResponse) =>
         dispatch(receiveAllComments(commentsResponse.data))
     );
 
@@ -26,13 +39,21 @@ export const fetchComment = (commentId) => (dispatch) =>
 export const updateComment = (comment) => (dispatch) => (
     CommentApiUtil.updateComment(comment)
         .then(payload => dispatch(receiveComment(payload.data)))
+        .catch(err => dispatch(receiveCommentErrors(err.response.data)))
 );
 
 export const createComment = (comment) => (dispatch) => {
     return CommentApiUtil.createComment(comment)
-        .then((comment) => dispatch(receiveComment(comment)));
+        .then((comment) => dispatch(receiveComment(comment)))
+        .catch (err => dispatch(receiveCommentErrors(err.response.data)))
 };
 
 export const deleteComment = commentId => dispatch => (
-    commentUtil.deleteComment(commentId).then(() => dispatch(removeComment(commentId)))
+    CommentApiUtil.deleteComment(commentId).then(() => dispatch(deleteComment(commentId)))
 );
+
+export const fetchCommentByCrawl = (crawlId) => (dispatch) => {
+    CommentApiUtil.getCommentByCrawl(crawlId).then((comment) => {
+        dispatch(receiveCommentCrawl(comment))
+    })
+};
