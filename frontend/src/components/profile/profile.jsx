@@ -76,21 +76,34 @@ class Profile extends React.Component {
 
  
 
-
-  
   render () {
-    // debugger
+      console.log(
+        "ImageData========>",
+        this.props.crawlsReducer?.crawlByUser?.data
+      );
+      this.props.crawlsReducer?.crawlByUser?.data?.sort((a,b) => (b.votecount) -  (a.votecount))
+      let profileImage =
+        this.props.userFetch?.currentUser != undefined
+          ? this.props.userFetch?.currentUser?.data?.profileImage
+          : this.props.viewedUser?.profileImage;
     if (this.props.viewedUser) return (
       <div className="profile-container">
         <div className="profile-left">
-          {this.props.userFetch?.currentUser?.data?.profileImage && (
+          {/* {this.props.userFetch?.currentUser != undefined && (
             <img
               className="profile-img"
               src={this.props.userFetch?.currentUser?.data?.profileImage}
               alt='<img className="personal-link-photo"
              />'
             />
-          )}
+          )} */}
+
+          <img
+            className="profile-img"
+            src={profileImage}
+            alt='<img className="personal-link-photo"
+             />'
+          />
 
           <input
             type="file"
@@ -102,11 +115,12 @@ class Profile extends React.Component {
 
         <div className="profile-right">
           {this.props.crawlsReducer?.crawlByUser?.data?.length == 0 && (
-            <div className="profile-right-crawls">No items here</div>
+            <div className="profile-right-crawls">No crawls here</div>
           )}
           {(this.props.crawlsReducer?.crawlByUser?.data || []).map(
             (item, idx) => (
               <div key={item._id} className="profile-right-crawls">
+<<<<<<< HEAD
                 <Link to={`/crawl/${item._id}`}>{item.title}</Link>
                 <br/>
                 <Link to={`/crawlEdit/${item._id}`}>Edit Crawl</Link>
@@ -115,6 +129,20 @@ class Profile extends React.Component {
             )
           )}
          
+=======
+                <Link to={`/crawl/${item._id}`}>{item.title} </Link>
+                {item.category}
+                {item.time}
+              </div>
+            )
+          )}
+          {/* <div className="profile-right-crawls">First Crawl goes here</div>
+          <div className="profile-right-crawls">Second Crawl goes here</div>
+          <div className="profile-right-crawls">Third Crawl goes here</div>
+          <div className="profile-right-crawls">Fourth Crawl goes here</div>
+          <div className="profile-right-crawls">Fifth Crawl goes here</div>
+          <div className="profile-right-crawls">Sixth Crawl goes here</div> */}
+>>>>>>> main
         </div>
       </div>
     );

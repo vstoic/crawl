@@ -12,6 +12,10 @@ componentDidMount(){
 }
 
   render() {
+    console.log("MainCrawl========>",this.props.crawls)
+    if(this.props.crawls){
+      this.props.crawls?.sort((a,b) => (b.votecount) - (a.votecount))
+    }
     // debugger
     return (
       <div className="main-page-container">

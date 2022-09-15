@@ -12,7 +12,8 @@ class CrawlIndex extends Component {
   render() {
     // this.props.fetchAllVenues()
     if (this.props.crawlsReducer?.allIds?.length > 0) {
-      // console.log("PropsCrawls======>", this.props.crawlsReducer);
+       console.log("PropsCrawls======>", this.props.crawlsReducer?.allIds);
+       this.props.crawlsReducer?.allIds?.sort((a,b) => parseInt(b.votecount) - parseInt(a.votecount) )
     }
 
     return (

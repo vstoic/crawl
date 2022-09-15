@@ -66,6 +66,7 @@ class SignupForm extends React.Component {
                 value={this.state.name}
                 onChange={this.update("name")}
                 placeholder="Venue Name"
+                required
               />
               <div className="errors">{errors.name}</div>
               <input
@@ -74,6 +75,7 @@ class SignupForm extends React.Component {
                 value={this.state.description}
                 onChange={this.update("description")}
                 placeholder="Description"
+                required
               />
               <div className="errors">{errors.description}</div>
               <input
@@ -82,6 +84,7 @@ class SignupForm extends React.Component {
                 value={this.state.cost}
                 onChange={this.update("cost")}
                 placeholder="$$$"
+                required
               />
               <div className="errors">{errors.cost}</div>
               <input
@@ -90,6 +93,7 @@ class SignupForm extends React.Component {
                 value={this.state.address}
                 onChange={this.update("address")}
                 placeholder="Address: 90 5th Ave, New York, NY 10011"
+                required
               />
               <div className="errors">{errors.address}</div>
 
@@ -99,6 +103,7 @@ class SignupForm extends React.Component {
                 value={this.state.image}
                 onChange={this.update("image")}
                 placeholder="Image url"
+                required
               />
               <div className="errors">{errors.image}</div>
 
@@ -108,6 +113,7 @@ class SignupForm extends React.Component {
                 value={this.state.website}
                 onChange={this.update("website")}
                 placeholder="Website url"
+                required
               />
               <div className="errors">{errors.website}</div>
 
@@ -117,6 +123,7 @@ class SignupForm extends React.Component {
                 value={this.state.latitude}
                 onChange={this.update("latitude")}
                 placeholder="Latitude ex: 40.503242"
+                required
               />
               <div className="errors">{errors.latitude}</div>
 
@@ -126,14 +133,16 @@ class SignupForm extends React.Component {
                 value={this.state.longitude}
                 onChange={this.update("longitude")}
                 placeholder="Longitude ex: -79.324324"
+                required
               />
               <div className="errors">{errors.longitude}</div>
 
-             
-            
               <br />
-              <input className="submit-signup" type="submit" value="Create Venue" />
-             
+              <input
+                className="submit-signup"
+                type="submit"
+                value="Create Venue"
+              />
             </div>
           </form>
         </div>

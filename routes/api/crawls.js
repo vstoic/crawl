@@ -76,7 +76,7 @@ router.post('/',
 // Updates Crawl -- should be used as part of the create page on the front end
 // Set should be created, and then populated with questions
 router.patch('/:id',
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
 (req, res) => {
 
   // validates updates
@@ -95,6 +95,7 @@ router.patch('/:id',
   const distance = req.body.distance;
   const venues = req.body.venues;
   const votecount = req.body.votecount;
+  const users = req.body.users;
 
 
   const filter = {_id: req.params.id };
@@ -107,7 +108,9 @@ router.patch('/:id',
     time,
     distance,
     venues,
-    votecount
+    users,
+    votecount,
+   
   };
 
   Crawl.findOneAndUpdate(filter, update, { new: true })
