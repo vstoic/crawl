@@ -2,6 +2,7 @@ const Validator = require('validator');
 const validText = require('./valid-text');
 const mongoose = require('mongoose');
 
+
 module.exports = function validateCrawlInput(data) {
   let errors = {};
 
@@ -48,6 +49,12 @@ module.exports = function validateCrawlInput(data) {
   if (Validator.isEmpty(data.distance)) {
     errors.distance = 'Distance is required';
   }
+
+
+  if (data.venues.length < 1) {
+      errors.venues = 'Venues is required'
+  }
+  
 
   return {
     errors,
