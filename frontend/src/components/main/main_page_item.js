@@ -12,7 +12,7 @@ class MainPageItem extends React.Component  {
    render(){
     // debugger
         const { crawl, venueReducer, title, time, distance, venues, cost } = this.props;
-       const crawlVenues = venues[0]?.split(", ");
+    //    const crawlVenues = venues.split(", ");
        const renderName = (id) => {
            // console.log("Data(renderName before)========>", props.venueReducer?.venues);
            let text = venueReducer?.venues?.find((x) => x._id == id)?.name;
@@ -39,7 +39,7 @@ class MainPageItem extends React.Component  {
                 {/* <h2>Website</h2> */}
                 <div className="crawl-venue-container">
                     <div>
-                    {crawlVenues?.map((item) => (
+                    {venues?.map((item) => (
                         <div className="each-crawl-venue-details">
                             <li><Link to={`/venueShow/${item}`}>{renderName(item)}</Link></li>
                             <div className="mp-image-container">
