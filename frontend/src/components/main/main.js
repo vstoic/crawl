@@ -65,9 +65,9 @@ componentDidMount(){
               <br />
               Rizwan
               <br />
-              <a href="https://www.linkedin.com/in/victorcheng3/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+              <a href="https://www.linkedin.com/in/mohammad-h-rizwan-a83a31246/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
-              <a href="https://github.com/vstoic" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+              <a href="https://github.com/mrizwan83" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
             </div>
             <div className="devs">
