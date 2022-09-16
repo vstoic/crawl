@@ -103,13 +103,13 @@ class Profile extends React.Component {
             alt='<img className="personal-link-photo"/>'
           />
 
-          <input
-            type="file"
-            accept="images/*"
-            onChange={(e) => this.getImageUrl(e.target.files[0])}
-          />
-          <h1> {this.props.viewedUser.username}'s Page</h1>
-        </div>
+            <input
+              type="file"
+              accept="images/*"
+              onChange={(e) => this.getImageUrl(e.target.files[0])}
+            />
+            <h1> {this.props.viewedUser.username}'s Page</h1>
+          </div>
 
         <div className="profile-right">
           {this.props.crawlsReducer?.crawlByUser?.data?.length == 0 && (
@@ -127,8 +127,8 @@ class Profile extends React.Component {
           )}
          
         </div>
-      </div>
-    );
+        </div>
+      );
   }
 }
 
