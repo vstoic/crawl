@@ -1,10 +1,11 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-class SignupForm extends React.Component {
+class VenueForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      creator_id: this.props.currentUser.id,
       name: "",
       description: "",
       cost: "",
@@ -14,7 +15,7 @@ class SignupForm extends React.Component {
       image:"",
       website: "",
     };
-
+    this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.clearedErrors = false;
   }
@@ -26,22 +27,29 @@ class SignupForm extends React.Component {
       });
   }
 
-  handleSubmit(e) {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    const { create_venue, login, history, currentUser } = this.props;
-    const user = Object.assign({}, this.state);
-    create_venue(user).then(res => 
-        {
-             history.push("/venueShow/1234");
-        });
-    if (currentUser) {
-      history.push("/login");
-    }
+    const { createVenue, history, errors } = this.props;
+    const venue = Object.assign({}, this.state);
+    await createVenue(venue)
+    .then(() => {
+      if (Object.values(errors).length === 0) {
+        history.push(`/venues/${venue._id}`);
+      }
+  });
+
+
+
+  //   setTimeout(() => {
+  //     if (venue._id) {
+  //         history.push(`/venues/${venue._id}`)
+  //     }
+  // },1000);
   }
 
   render() {
+    
     const { errors } = this.props;
-
     return (
       <div className="session-background">
         <div className="session-image-container">
@@ -66,7 +74,7 @@ class SignupForm extends React.Component {
                 value={this.state.name}
                 onChange={this.update("name")}
                 placeholder="Venue Name"
-                required
+        
               />
               <div className="errors">{errors.name}</div>
               <input
@@ -75,16 +83,14 @@ class SignupForm extends React.Component {
                 value={this.state.description}
                 onChange={this.update("description")}
                 placeholder="Description"
-                required
               />
-              <div className="errors">{errors.description}</div>
               <input
                 className="username-input"
                 type="cost"
                 value={this.state.cost}
                 onChange={this.update("cost")}
                 placeholder="$$$"
-                required
+               
               />
               <div className="errors">{errors.cost}</div>
               <input
@@ -93,7 +99,7 @@ class SignupForm extends React.Component {
                 value={this.state.address}
                 onChange={this.update("address")}
                 placeholder="Address: 90 5th Ave, New York, NY 10011"
-                required
+              
               />
               <div className="errors">{errors.address}</div>
 
@@ -103,9 +109,9 @@ class SignupForm extends React.Component {
                 value={this.state.image}
                 onChange={this.update("image")}
                 placeholder="Image url"
-                required
+              
               />
-              <div className="errors">{errors.image}</div>
+              
 
               <input
                 className="username-input"
@@ -113,17 +119,17 @@ class SignupForm extends React.Component {
                 value={this.state.website}
                 onChange={this.update("website")}
                 placeholder="Website url"
-                required
+              
               />
-              <div className="errors">{errors.website}</div>
+          
 
               <input
                 className="username-input"
                 type="latitude"
                 value={this.state.latitude}
                 onChange={this.update("latitude")}
-                placeholder="Latitude ex: 40.503242"
-                required
+                placeholder="Latitude ex: 40.50324"
+              
               />
               <div className="errors">{errors.latitude}</div>
 
@@ -132,8 +138,8 @@ class SignupForm extends React.Component {
                 type="longitude"
                 value={this.state.longitude}
                 onChange={this.update("longitude")}
-                placeholder="Longitude ex: -79.324324"
-                required
+                placeholder="Longitude ex: -79.32432"
+               
               />
               <div className="errors">{errors.longitude}</div>
 
@@ -151,4 +157,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default withRouter(SignupForm);
+export default withRouter(VenueForm);

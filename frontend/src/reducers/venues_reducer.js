@@ -1,24 +1,19 @@
 import { RECEIVE_ALL_VENUES, RECEIVE_VENUE } from "../actions/venue_actions";
 
-const _nullState = {
-    
-   venues: [],
-   singleVenue:{}
- 
-};
-
-const venuesReducer = (oldState = _nullState, action) => {
+const venuesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
-  let nextState = Object.assign({}, oldState);
+  const nextState = Object.assign({}, oldState);
 
   switch (action.type) {
     case RECEIVE_ALL_VENUES:
-      nextState.venues = action.venues; 
-     
-      
+      const venues = action.venues 
+      venues.forEach(venue => {
+        nextState[venue._id] = venue
+      });
       return nextState;
+      // return action.venues;
     case RECEIVE_VENUE:
-      nextState.singleVenue = action.venue;
+      nextState[action.venue._id] = action.venue
       return nextState;
     default:
       return oldState;

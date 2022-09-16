@@ -4,6 +4,9 @@ import "../../assets/stylesheets/venue_index.css";
 
 
 class VenueIndex extends Component {
+  constructor(props) {
+    super(props);
+  }
   
   componentDidMount() {
     this.props.fetchAllVenues();
@@ -11,17 +14,15 @@ class VenueIndex extends Component {
 
   render() {
     // this.props.fetchAllVenues()
-    if (this.props.venues.venues?.length > 0) {
-      console.log("PropsVenue======>", this.props.venues.venues);
-    }
-
+  
+    console.log(this.state)
     return (
       <div>
         <ul>
         {
-          this.props.venues.venues.map(item => (
+          this.props.venues.map(item => (
             <VenueIndexItem
-            key={item.id}
+            key={item._id}
             item={item}
             />
           ))

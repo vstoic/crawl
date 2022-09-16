@@ -1,19 +1,17 @@
 import { connect } from "react-redux";
-import { create_venue, } from "../../actions/create_venue_actions";
+import { createVenue } from "../../actions/venue_actions";
 import VenueForm from "./venue_create";
 
 const mapStateToProps = (state) => {
   return {
-    errors: state.errors.session,
     currentUser: state.session.user,
+    errors: state.errors.venues
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    create_venue: (venue) => dispatch(create_venue(venue)),
-    // login: (user) => dispatch(login(user)),
-    // clearErrors: () => dispatch(clearErrors()),
+    createVenue: (venue) => dispatch(createVenue(venue)),
   };
 };
 
