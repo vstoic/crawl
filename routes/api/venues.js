@@ -9,7 +9,16 @@ router.get("/test", (req, res) => res.json({ msg: "This is the venues route" }))
 // Index route; grabs all venues
 router.get('/', (req, res) => {
   Venue.find().then(venues => res.json(venues))
-})
+});
+
+
+// All Crawls for a Specific User
+router.get('/users/:user_id', (req, res) => {
+  const filter = { creator_id: req.params.user_id }
+  Venue.find(filter)
+    .then(venue => res.json(venue))
+    .catch(err => res.json(err).status(404))
+});
 
 // Route to retrieve individual venues
 router.get('/:id', (req, res) => {
@@ -38,6 +47,7 @@ router.post('/',
     return res.status(400).json(errors);
   }
 
+  const creator_id = req.body.creator_id;
   const name = req.body.name;
   const description = req.body.description;
   const cost = req.body.cost;
@@ -49,6 +59,7 @@ router.post('/',
 
 
   const newVenue = new Venue({
+    creator_id,
     name,
     description,
     cost,
@@ -76,6 +87,7 @@ passport.authenticate("jwt", { session: false }),
     return res.status(400).json(errors);
   }
 
+  const creator_id = req.body.creator_id;
   const name = req.body.name;
   const description = req.body.description;
   const cost = req.body.cost;
@@ -88,6 +100,7 @@ passport.authenticate("jwt", { session: false }),
 
   const filter = { _id: req.params.id };
   const update = {
+    creator_id,
     name,
     description,
     cost,

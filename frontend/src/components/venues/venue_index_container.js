@@ -4,6 +4,7 @@ import { fetchAllVenues } from "../../actions/venue_actions";
 
 const mapStateToProps = (state) => {
   return {
+    currentUser: state.session.user,
     errors: state.errors.session,
     venues: Object.values(state.entities.venues),
   };

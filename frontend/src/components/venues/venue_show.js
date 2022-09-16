@@ -1,5 +1,6 @@
 import React from "react";
 import GoogleMap from "../map/GoogleMap";
+import { Link } from "react-router-dom";
 import "../../assets/stylesheets/venue_show.css";
 import "../../assets/stylesheets/map.css";
 
@@ -11,7 +12,26 @@ class VenueShow extends React.Component {
         venue: "",
         venueb: this.props.venue
       }
+      this.handlelink = this.handlelink.bind(this)
     }
+
+    // need to fix on refresh edit venue link
+    handlelink() {
+      if (this.state.venueb === undefined) {
+      if (this.state.venue.creator_id === this.props.currentUser.id) {
+        return  <Link to={"/venueEdit"} className="create-button">
+                Edit Venue
+              </Link>
+      }
+    }
+      else {
+        if (this.state.venueb.creator_id === this.props.currentUser.id) {
+          return  <Link to={"/venueEdit"} className="create-button">
+                  Edit Venue
+                </Link>
+        }
+      }
+    };
 
     componentDidMount () {
       this.props.fetchVenue(this.props.match.params.id)
@@ -23,8 +43,7 @@ class VenueShow extends React.Component {
     }
 
     render () {
-      console.log(this.state.venueb);
-      if (!this.state.venueb) {
+      if (this.state.venueb === undefined) {
       return(
         <div className="venue-show-main">
               <div className="left-column">
@@ -49,6 +68,7 @@ class VenueShow extends React.Component {
                    <p>Details: {this.state.venue.description}</p>
                    <p>Address: {this.state.venue.address}</p>
                  </div>
+                
                </div>
              </div>
       )} 
@@ -77,6 +97,7 @@ class VenueShow extends React.Component {
                    <p>Details: {this.state.venueb.description}</p>
                    <p>Address: {this.state.venueb.address}</p>
                  </div>
+                 {this.handlelink()}
                </div>
              </div>
         )

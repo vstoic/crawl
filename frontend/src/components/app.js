@@ -14,6 +14,7 @@ import CrawlCreateContainer from "./crawls/crawl_create_container";
 import CrawlEditContainer from "./crawls/crawl_edit_container";
 import ProfileContainer from "./profile/profile_container";
 import VenueCreateContainer from "./venues/venue_create_container";
+import VenueEditContainer from "./venues/venue_edit_container";
 
 
 const App = () => (
@@ -27,6 +28,7 @@ const App = () => (
       <ProtectedRoute path="/crawlEdit/:id" component={CrawlEditContainer} />
       <Route exact path="/venues" component={VenueIndexContainer} />
       <ProtectedRoute exact path="/venueCreate" component={VenueCreateContainer} />
+      <ProtectedRoute exact path="/venueEdit" component={VenueEditContainer} />
       <Route exact path="/crawls" component={crawlIndexContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />

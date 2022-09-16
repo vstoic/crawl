@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const VenueIndexItem = ({ item }) => {
+const VenueIndexItem = ({ venue }) => {
     return (
+        <div>
         <li>
-            <Link to={`/venueShow/${item._id}`}>{item.name}</Link>
+            <Link to={`/venueShow/${venue._id}`}>{venue.name}</Link>
         </li>
+        </div>
     )
 }
 
