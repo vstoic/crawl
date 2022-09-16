@@ -29,24 +29,14 @@ class VenueForm extends React.Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const { createVenue, history, errors } = this.props;
+    const { createVenue, history } = this.props;
     const venue = Object.assign({}, this.state);
     await createVenue(venue)
-    .then((response) => {
-      // if (Object.values(errors).length === 0) 
+    .then((response) => { 
       if (response.venue.data._id) {
         history.push(`/venueShow/${response.venue.data._id}`);
       }
   });
-  // console.log(errors);
-
-
-
-  //   setTimeout(() => {
-  //     if (venue._id) {
-  //         history.push(`/venues/${venue._id}`)
-  //     }
-  // },1000);
   }
 
   render() {
