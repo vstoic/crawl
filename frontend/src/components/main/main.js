@@ -12,7 +12,7 @@ componentDidMount(){
 }
 
   render() {
-    console.log("MainCrawl========>",this.props.crawls)
+ 
     if(this.props.crawls){
       this.props.crawls?.sort((a,b) => (b.votecount) - (a.votecount))
     }

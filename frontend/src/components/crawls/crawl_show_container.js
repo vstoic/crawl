@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
     crawlsReducer: state.entities.crawls,
     venueReducer: state.entities.venues,
     session:state.session,
-    victor: state.entities.venues
+    venue: Object.values(state.entities.venues),
   };
 };
 
