@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const VenueSchema = new Schema(
   {
+    creator_id: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+  },
     name: {
       type: String,
       required: true
@@ -20,11 +24,11 @@ const VenueSchema = new Schema(
     },
     longitude: {
       type: Number,
-      required: true
+      required: true,
     },
     latitude: {
       type: Number,
-      required: true
+      required: true,
     },
     image: {
       type: String,
