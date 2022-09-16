@@ -40,12 +40,19 @@ class CrawlForm extends React.Component {
     handleSubmit = async (e) => {
         // debugger
         e.preventDefault();
-        const { history, createCrawl, newCrawl, errors } = this.props;
+        const { history, createCrawl } = this.props;
         const crawl = Object.assign({}, this.state);
        await createCrawl(crawl)
-       if(crawl.id){
-        history.push(`/crawl/{crawl.id}`)
-       } 
+       .then((response) => {
+        if (response.crawl.data._id) {
+          history.push(`/crawl/${response.crawl.data._id}`);
+        }
+    });
+
+
+    //    if(crawl.id){
+    //     history.push(`/crawl/{crawl.id}`)
+    //    } 
     //    .then(history.push(`/crawl/{crawl.id}`))
         
         // removeCrawl = async (crawlId) => {
