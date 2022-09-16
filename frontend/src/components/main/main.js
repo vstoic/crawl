@@ -1,5 +1,5 @@
 // src/components/main/main_page.js
-
+import { Link } from "react-router-dom";
 import React from "react";
 import "../../assets/stylesheets/main.css";
 import MainPageItem from "./main_page_item";
@@ -22,12 +22,22 @@ componentDidMount(){
         <div className="main-left-container">
           {/* <div className="category-container">
             category-container</div> */}
+            <div className="create-buttons-container">
+              <Link to={"/crawlCreate/"} className="create-button">
+                Create Crawl
+              </Link>
+              <Link to={"/venueCreate"} className="create-button">
+                Create Venue
+              </Link>
+            </div>
           <div className="developers-container">
             <div className="devs"> 
               <img className="personal-link-photo"
-                src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
+                src="https://i.postimg.cc/0jsScSDw/Linkedin.jpg" />
                 <br/>
-                Victor Cheng
+                Victor 
+                <br />
+                Cheng
                 <br/>
               <a href="https://www.linkedin.com/in/victorcheng3/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
@@ -38,7 +48,9 @@ componentDidMount(){
               <img className="personal-link-photo"
                 src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
               <br />
-              Tara Oliver 
+              Tara 
+              <br />
+              Oliver 
               <br />
               <a href="https://www.linkedin.com/in/victorcheng3/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
@@ -47,9 +59,11 @@ componentDidMount(){
             </div>
             <div className="devs"> 
               <img className="personal-link-photo"
-                src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
+                src="https://i.postimg.cc/PJsW99sN/moh.png" />
               <br />
-              Mohammad Rizwan
+              Mohammad 
+              <br />
+              Rizwan
               <br />
               <a href="https://www.linkedin.com/in/victorcheng3/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
@@ -58,9 +72,11 @@ componentDidMount(){
             </div>
             <div className="devs">
               <img className="personal-link-photo"
-                src="https://www.tourcollierville.com/wp-content/uploads/2021/02/Empty-Headshot.jpg" />
+                src="https://avatars.githubusercontent.com/u/104274719?v=4" />
               <br />
-              Tom Léger
+              Tom
+              <br />
+              Léger
               <br />
               <a href="https://www.linkedin.com/in/victorcheng3/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
@@ -81,6 +97,8 @@ componentDidMount(){
                 time={crawl.time}
                 distance={crawl.distance}
                 cost={crawl.cost}
+                votecount={crawl.votecount}
+                description={crawl.description}
                 venues={crawl.venues}
                 venueReducer={this.props.venueReducer}
                 fetchAllVenues={this.props.fetchAllVenues}
