@@ -39,7 +39,7 @@ export const createVenue = (venue) => (dispatch) => {
     return VenueAPIUtil.createVenue(venue)
     .then((venue) => dispatch(receiveVenue(venue)))
     .catch(err => dispatch(receiveVenueErrors(err.response.data)))
-  }
+  };
   
 export const updateVenue = (venue) => dispatch => (
     VenueAPIUtil.updateVenue(venue)

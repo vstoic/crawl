@@ -26,27 +26,12 @@ function CrawlShow(props) {
   var usersData = props.crawlsReducer?.byId?.data?.users || []
   //   const { title, category, description, time } =
   //     props.crawlsReducer?.byId?.data;
-  console.log("Data(renderName before)========>", props.session);
-  const renderName = (id) => {
-    // console.log("Data(renderName before)========>", props.venueReducer?.venues);
-    let text = props.venueReducer?.venues?.find((x) => x._id == id)?.name;
+  console.log("Data(renderName before)========>", props.venueReducer);
+  const renderForVenues = (id) => {
+    let text = props.venueReducer[id]
     return text;
   };
-  const renderImageSrc = (id) => {
-    let text = props.venueReducer?.venues?.find((x) => x._id == id)?.image;
-    return text;
-  };
-  const renderCost = (id) => {
-    let text = props.venueReducer?.venues?.find((x) => x._id == id)?.cost;
-    return text;
-  };
-  const renderDescription = (id) => {
-    let text = props.venueReducer?.venues?.find(
-      (x) => x._id == id
-    )?.description;
-    return text;
-  };
-  
+
   const voteBot = async () => {
       var check =  usersData?.find((x) => x?.user_id == props.session.user.id)
    
@@ -116,11 +101,11 @@ function CrawlShow(props) {
             {crawlVenues?.map((item) => (
               <div className="each-crawl">
                 <div className="">
-                  <Link to={`/venueShow/${item}`}>{renderName(item)}</Link>
-                  <div>{renderCost(item)}</div>
-                  <div>-{renderDescription(item)}</div>
+                  <Link to={`/venueShow/${item}`}>{renderForVenues(item).name}</Link>
+                  <div>{renderForVenues(item).cost}</div>
+                  <div>-{renderForVenues(item).description}</div>
                 </div>
-                <img className="crawl-venue-image" src={renderImageSrc(item)} />
+                <img className="crawl-venue-image" src={renderForVenues(item).image} />
               </div>
             ))}
           </div>
