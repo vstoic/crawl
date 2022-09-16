@@ -5,6 +5,7 @@ import { fetchVenue } from "../../actions/venue_actions";
 const mapStateToProps = (state, ownProps) => {
  
   return {
+    currentUser: state.session.user,
     venue: state.entities.venues[ownProps.match.params.id],
     errors: state.errors.session,
     venueReducer: state.entities.venues,

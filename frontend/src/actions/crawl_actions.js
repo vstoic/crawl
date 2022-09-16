@@ -5,7 +5,7 @@ export const RECEIVE_CRAWL = "RECEIVE_CRAWL";
 export const RECEIVE_CRAWL_USER = "RECEIVE_CRAWL_USER"
 export const REMOVE_CRAWL = 'REMOVE_CRAWL';
 export const RECEIVE_CRAWL_ERRORS = 'RECEIVE_CRAWL_ERRORS';
-export const CLEAR_CRAWL_ERRORS = 'CLEAR_CRAWL_ERRORS'
+export const CLEAR_CRAWL_ERRORS = 'CLEAR_CRAWL_ERRORS';
 
 const receiveAllCrawls = (crawls) => ({
   type: RECEIVE_ALL_CRAWLS,
@@ -19,7 +19,7 @@ const receiveCrawl = (crawl) => ({
 const receiveCrawlUser = (crawl) =>({
   type: RECEIVE_CRAWL_USER,
   crawl
-})
+});
 
 const removeCrawl = (crawlId) => ({
   type: REMOVE_CRAWL,
@@ -33,7 +33,7 @@ const receiveCrawlErrors = errors => ({
 
 export const clearCrawlErrors = () => ({
   type: CLEAR_CRAWL_ERRORS
-})
+});
 
 
 

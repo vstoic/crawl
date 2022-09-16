@@ -15,19 +15,40 @@ class VenueIndex extends Component {
   render() {
     // this.props.fetchAllVenues()
   
-    console.log(this.state)
     return (
       <div>
         <ul>
         {
-          this.props.venues.map(item => (
+          this.props.venues.map(venue => (
+            // console.log(this.props.currentUser.id)
             <VenueIndexItem
-            key={item._id}
-            item={item}
+            key={venue._id}
+            venue={venue}
+            currentUser={this.props.currentUser}
             />
           ))
         }
+        {
+          this.props.venues.forEach(venue => {
+            if(venue.creator_id === this.props.currentUser.id) {
+              // <Link to={"/crawlCreate/"} className="create-button">
+              //   Create Crawl
+              // </Link>
+              return <span>It works!</span>
+            }
+          })
+        }
         </ul>
+        {
+          this.props.venues.forEach(venue => {
+            if(venue.creator_id === this.props.currentUser.id) {
+              // <Link to={"/crawlCreate/"} className="create-button">
+              //   Create Crawl
+              // </Link>
+              return <span>It works!</span>
+            }
+          })
+        }
       </div>
     );
   }
