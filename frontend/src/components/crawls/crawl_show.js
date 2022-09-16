@@ -15,15 +15,15 @@ function CrawlShow(props) {
    fetchData()
   }, [updatedVoteCount]);
 
-  const crawlTitle = props.crawlsReducer?.byId?.data?.title;
-  const crawlCategory = props.crawlsReducer?.byId?.data?.category;
-  const crawlDescription = props.crawlsReducer?.byId?.data?.description;
-  const crawlCost = props.crawlsReducer?.byId?.data?.cost;
-  const crawlTime = props.crawlsReducer?.byId?.data?.time;
-  const crawlVenues = props.crawlsReducer?.byId?.data?.venues[0]?.split(", ");
-  var crawlVotes = props.crawlsReducer?.byId?.data?.votecount;
-  var crawlId = props.crawlsReducer?.byId?.data?._id;
-  var usersData = props.crawlsReducer?.byId?.data?.users
+  const crawlTitle = props.crawlsReducer?.byId?.data?.title || '';
+  const crawlCategory = props.crawlsReducer?.byId?.data?.category || '';
+  const crawlDescription = props.crawlsReducer?.byId?.data?.description || '';
+  const crawlCost = props.crawlsReducer?.byId?.data?.cost || '';
+  const crawlTime = props.crawlsReducer?.byId?.data?.time || '';
+  const crawlVenues = props.crawlsReducer?.byId?.data?.venues[0]?.split(", ") || [];
+  var crawlVotes = props.crawlsReducer?.byId?.data?.votecount || 0;
+  var crawlId = props.crawlsReducer?.byId?.data?._id || '';
+  var usersData = props.crawlsReducer?.byId?.data?.users || []
   //   const { title, category, description, time } =
   //     props.crawlsReducer?.byId?.data;
   console.log("Data(renderName before)========>", props.session);
@@ -91,7 +91,7 @@ function CrawlShow(props) {
     
   };
   useEffect(() => {
-    var check = usersData?.find((x) => x?.user_id == props.session.user.id);
+    var check = usersData?.find((x) => x?.user_id == props?.session?.user?.id);
     if (check == undefined) {
       setButtonText("Vote");
     } else {
@@ -136,12 +136,23 @@ function CrawlShow(props) {
           <p>comments-container</p>
           {/* < CommentForm /> */}
         </div>
-        <button className="button" id="vote-button" onClick={() => voteBot()} style={{backgroundColor:errorBot == 1 ?'green': errorBot==2 ? 'red' :'grey'}}>
-         {buttonText}
-        </button>
-        {errorBot ==1 ? (
+        {props?.session?.user?.id && (
+          <button
+            className="button"
+            id="vote-button"
+            onClick={() => voteBot()}
+            style={{
+              backgroundColor:
+                errorBot == 1 ? "green" : errorBot == 2 ? "red" : "grey",
+            }}
+          >
+            {buttonText}
+          </button>
+        )}
+
+        {errorBot == 1 ? (
           <p>You successfully voted</p>
-        ) : errorBot ==2 ? (
+        ) : errorBot == 2 ? (
           <p>You already voted</p>
         ) : null}
       </div>
