@@ -91,7 +91,7 @@ class VenueForm extends React.Component {
                             >
                                 <option value="defaultValue" selected="true" disabled="disabled">Select a Cost</option>
                                 <option value={"Food and Drinks"}>$</option>
-                                <option value={"Active Life"}>$$</option>
+                                <option value={"Active Life"}>$$</option>git b
                                 <option value={"Arts and Entertainment"}>$$$</option>
                                 <option value={"Night Life"}>$$$$</option>
                                 <option value={"Shopping"}>$$$$$</option>
