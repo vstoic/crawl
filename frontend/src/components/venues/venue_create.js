@@ -84,14 +84,27 @@ class VenueForm extends React.Component {
                 onChange={this.update("description")}
                 placeholder="Description"
               />
-              <input
+
+
+                            <select className="username-input"
+                                    onChange={this.update("cost")}
+                            >
+                                <option value="defaultValue" selected="true" disabled="disabled">Select a Cost</option>
+                                <option value={"Food and Drinks"}>$</option>
+                                <option value={"Active Life"}>$$</option>
+                                <option value={"Arts and Entertainment"}>$$$</option>
+                                <option value={"Night Life"}>$$$$</option>
+                                <option value={"Shopping"}>$$$$$</option>
+                            </select>
+
+              {/* <input
                 className="username-input"
                 type="cost"
                 value={this.state.cost}
                 onChange={this.update("cost")}
                 placeholder="$$$"
                
-              />
+              /> */}
               <div className="errors">{errors.cost}</div>
               <input
                 className="username-input"
