@@ -6,6 +6,7 @@ export const RECEIVE_COMMENT_CRAWL = "RECEIVE_COMMENT_CRAWL";
 export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
 export const CLEAR_COMMENT_ERRORS = 'CLEAR_COMMENT_ERRORS'
 
+
 const receiveAllComments = (comments) => ({
     type: RECEIVE_ALL_COMMENTS,
     comments,
@@ -14,9 +15,9 @@ const receiveComment = (comment) => ({
     type: RECEIVE_COMMENT,
     comment,
 });
-const receiveCommentCrawl = (comment) => ({
+const receiveCommentCrawl = (comments) => ({
     type: RECEIVE_COMMENT_CRAWL,
-    comment,
+    comments,
 });
 const receiveCommentErrors = errors => ({
     type: RECEIVE_COMMENT_ERRORS,
@@ -53,7 +54,7 @@ export const deleteComment = commentId => dispatch => (
 );
 
 export const fetchCommentByCrawl = (crawlId) => (dispatch) => {
-    CommentApiUtil.getCommentByCrawl(crawlId).then((comment) => {
-        dispatch(receiveCommentCrawl(comment))
+    CommentApiUtil.getCommentByCrawl(crawlId).then((comments) => {
+        dispatch(receiveCommentCrawl(comments))
     })
 };

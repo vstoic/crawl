@@ -11,7 +11,7 @@ class MainPageItem extends React.Component  {
    
    render(){
     // debugger
-        const { crawl, venueReducer, title, time, distance, venues, cost } = this.props;
+        const { crawl, venueReducer, title, time, distance, venues, cost, votecount, description } = this.props;
     //    const crawlVenues = venues.split(", ");
        const renderName = (id) => {
            // console.log("Data(renderName before)========>", props.venueReducer?.venues);
@@ -26,30 +26,34 @@ class MainPageItem extends React.Component  {
        };
 
         return(
-            <div className="each-crawl">
-                <div className="each-desc">
+            <div className="each-crawl-container">
                     <Link to={`/crawl/${crawl._id}`}>{title}</Link>
-                    {/* <Link to={`/crawl/${item._id}`}>{item.title} </Link> */}
-                    <div className="each-sub-desc">
-                        <p>{cost}</p>
-                        <p>{time}</p>
-                        <p>{distance}</p>
-                    </div>
-                </div>
-                {/* <h2>Website</h2> */}
-                <div className="crawl-venue-container">
-                    <div>
-                    {venues?.map((item, idx) => (
-                        <div className="each-crawl-venue-details">
-                            <li><Link to={`/venueShow/${item}`}>{renderName(item)}</Link></li>
-                            <div className="mp-image-container">
-                                {/* <img src={renderImageSrc(item)} className="main-page-images" /> */}
-                            </div>
+                <div className="each-crawl">
+                    <div className="each-desc">
+                        {/* <Link to={`/crawl/${item._id}`}>{item.title} </Link> */}
+                        <div className="each-sub-desc">
+                            <p>Upvotes: {votecount}</p>
+                            <p>Cost: {cost}</p>
+                            <p>Avg Time: {time}</p>
+                            <p>Avg Distance: {distance}</p>
                         </div>
-                    ))} 
+                        <p>Info: {description}</p>
+                    </div>
+                    {/* <h2>Website</h2> */}
+                    <div className="crawl-venue-container">
+                        <div>
+                        {venues?.map((item) => (
+                            <div className="each-crawl-venue-details">
+                                <li><Link to={`/venueShow/${item}`}>{renderName(item)}</Link></li>
+                                <div className="mp-image-container">
+                                    {/* <img src={renderImageSrc(item)} className="main-page-images" /> */}
+                                </div>
+                            </div>
+                        ))} 
+                        </div>
                     </div>
                 </div>
-                
+
             </div>
         )
     }

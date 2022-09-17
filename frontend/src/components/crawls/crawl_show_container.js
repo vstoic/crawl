@@ -8,7 +8,8 @@ const mapStateToProps = (state) => {
     errors: state.errors.session,
     crawlsReducer: state.entities.crawls,
     venueReducer: state.entities.venues,
-    session:state.session
+    session:state.session,
+    venue: Object.values(state.entities.venues),
   };
 };
 

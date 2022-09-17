@@ -40,12 +40,19 @@ class CrawlForm extends React.Component {
     handleSubmit = async (e) => {
         // debugger
         e.preventDefault();
-        const { history, createCrawl, newCrawl, errors } = this.props;
+        const { history, createCrawl } = this.props;
         const crawl = Object.assign({}, this.state);
        await createCrawl(crawl)
-       if(crawl.id){
-        history.push(`/crawl/{crawl.id}`)
-       } 
+       .then((response) => {
+        if (response.crawl.data._id) {
+          history.push(`/crawl/${response.crawl.data._id}`);
+        }
+    });
+
+
+    //    if(crawl.id){
+    //     history.push(`/crawl/{crawl.id}`)
+    //    } 
     //    .then(history.push(`/crawl/{crawl.id}`))
         
         // removeCrawl = async (crawlId) => {
@@ -133,31 +140,17 @@ class CrawlForm extends React.Component {
                             />
                             <div className="errors">{errors.description}</div>
 
-
-
-
-
-
-
                             <select className="username-input"
                                     onChange={this.update("cost")}
-                            >
+                                >
                                 <option value="defaultValue" selected="true" disabled="disabled">Select a Cost</option>
-                                <option value={"Food and Drinks"}>$</option>
-                                <option value={"Active Life"}>$$</option>
-                                <option value={"Arts and Entertainment"}>$$$</option>
-                                <option value={"Night Life"}>$$$$</option>
-                                <option value={"Shopping"}>$$$$$</option>
+                                <option value={"$"}>$</option>
+                                <option value={"$$"}>$$</option>
+                                <option value={"$$$"}>$$$</option>
+                                <option value={"$$$$"}>$$$$</option>
+                                <option value={"$$$$$"}>$$$$$</option>
                             </select>
 
-
-                            {/* <input
-                                className="username-input"
-                                type="cost"
-                                value={this.state.cost}
-                                onChange={this.update("cost")}
-                                placeholder="$$$"
-                            /> */}
                             <div className="errors">{errors.cost}</div>
                             <input
                                 className="username-input"

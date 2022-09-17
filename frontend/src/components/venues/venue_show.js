@@ -1,81 +1,110 @@
-import React, { useEffect } from "react";
+import React from "react";
 import GoogleMap from "../map/GoogleMap";
+import { Link } from "react-router-dom";
 import "../../assets/stylesheets/venue_show.css";
 import "../../assets/stylesheets/map.css";
 
-// import { deleteVenue } from "../../util/venue_api_util";
-import { useHistory } from "react-router-dom";
+class VenueShow extends React.Component {
+    constructor(props) {
+      super(props);
+      // this.state = this.props.venue;
+      this.state = {
+        venue: "",
+        venueb: this.props.venue
+      }
+      this.handlelink = this.handlelink.bind(this)
+    }
 
-function VenueShow(props) {
-  const history = useHistory();
-  useEffect(() => {
-    props.fetchVenue(props.match.params.id);
-  }, []);
-  const venueName =
-    props.match.params.id == "1234"
-      ? props.createVenueReducer?.singleVenue?.name
-      : props.venueReducer?.singleVenue?.data?.name;
-  const venueAddress =
-    props.match.params.id == "1234"
-      ? props.createVenueReducer?.singleVenue?.address
-      : props.venueReducer?.singleVenue?.data?.address;
-  const venueDescription =
-    props.match.params.id == "1234"
-      ? props.createVenueReducer?.singleVenue?.description
-      : props.venueReducer?.singleVenue?.data?.description;
-  const venueCost =
-    props.match.params.id == "1234"
-      ? props.createVenueReducer?.singleVenue?.cost
-      : props.venueReducer?.singleVenue?.data?.cost;
-  const venueImageSrc =
-    props.match.params.id == "1234"
-      ? props.createVenueReducer?.singleVenue?.image
-      : props.venueReducer?.singleVenue?.data?.image;
-  const venueWebsite =
-    props.match.params.id == "1234"
-      ? props.createVenueReducer?.singleVenue?.website
-      : props.venueReducer?.singleVenue?.data?.website;
-  const venueLat = props.venueReducer?.singleVenue?.data?.latitude;
-  const venueLong = props.venueReducer?.singleVenue?.data?.longitude;
-  console.log("IDPROPS=======>", typeof props.match.params.id);
-  console.log("IDPROPS=======>", props.createVenueReducer);
+    // need to fix on refresh edit venue link
+    handlelink() {
+      if (this.state.venueb === undefined) {
+      if (this.state.venue.creator_id === this.props.currentUser.id) {
+        return  <Link to={"/venueEdit"} className="create-button">
+                Edit Venue
+              </Link>
+      }
+    }
+      else {
+        if (this.state.venueb.creator_id === this.props.currentUser.id) {
+          return  <Link to={"/venueEdit"} className="create-button">
+                  Edit Venue
+                </Link>
+        }
+      }
+    };
 
-  console.log("IDPROPS=======>", props.venueReducer?.singleVenue);
-  // const venueDelete = async () => {
-  //   await deleteVenue(props.match.params.id);
-  //   history.push("/venues");
-  // };
+    componentDidMount () {
+      this.props.fetchVenue(this.props.match.params.id)
+      .then((response) => {
+        this.setState({
+          venue: response.venue.data
+      })
+      })
+    }
 
-  return (
-    <div className="venue-show-main">
-      <div className="left-column">
-        <div className="venue-show-image-container">
-          <img src={venueImageSrc} className="venue-show-image" />
-        </div>
-        <div className="venue-show-map-container">
-          {/* <div className="map-container"> */}
-            <GoogleMap venueLat={venueLat} venueLong={venueLong} />
-          {/* </div> */}
-        </div>
-      </div>
-      <div className="right-column">
-        <div className="business-details">
-          <h1>{venueName}</h1>
-          <div className="cost-website">
-            <p>{venueCost}</p>
-            <a href={venueWebsite} target="_blank" rel="noopener">
-              Website
-            </a>
-          </div>
-          <p>Details: {venueDescription}</p>
-          <p>Address: {venueAddress}</p>
-        </div>
-        {/* <button onClick={() => venueDelete()} className="nav-logout-button">
-          Delete Venue
-        </button> */}
-      </div>
-    </div>
-  );
+    render () {
+      if (this.state.venueb === undefined) {
+      return(
+        <div className="venue-show-main">
+              <div className="left-column">
+                 <div className="venue-show-image-container">
+                   <img src={this.state.venue.image} className="venue-show-image" />
+                 </div>
+                 <div className="venue-show-map-container">
+                   <div className="map-container">
+                     <GoogleMap venueLat={this.state.venue.latitude} venueLong={this.state.venue.longitude} />
+                   </div>
+                 </div>
+               </div>
+               <div className="right-column">
+                 <div className="business-details">
+                   <h1>{this.state.venue.name}</h1>
+                   <div className="cost-website">
+                     <p>{this.state.venue.cost}</p>
+                     <a href={this.state.venue.website} target="_blank" rel="noopener">
+                       Website
+                     </a>
+                   </div>
+                   <p>Details: {this.state.venue.description}</p>
+                   <p>Address: {this.state.venue.address}</p>
+                 </div>
+                
+               </div>
+             </div>
+      )} 
+      else {
+        return(
+          <div className="venue-show-main">
+              <div className="left-column">
+                 <div className="venue-show-image-container">
+                   <img src={this.state.venueb.image} className="venue-show-image" />
+                 </div>
+                 <div className="venue-show-map-container">
+                   <div className="map-container">
+                     <GoogleMap venueLat={this.state.venueb.latitude} venueLong={this.state.venueb.longitude} />
+                   </div>
+                 </div>
+               </div>
+               <div className="right-column">
+                 <div className="business-details">
+                   <h1>{this.state.venueb.name}</h1>
+                   <div className="cost-website">
+                     <p>{this.state.venueb.cost}</p>
+                     <a href={this.state.venueb.website} target="_blank" rel="noopener">
+                       Website
+                     </a>
+                   </div>
+                   <p>Details: {this.state.venueb.description}</p>
+                   <p>Address: {this.state.venueb.address}</p>
+                 </div>
+                 {this.handlelink()}
+               </div>
+             </div>
+        )
+      }
+    }
+
 }
 
 export default VenueShow;
+

@@ -78,12 +78,11 @@ class Profile extends React.Component {
  
 
   render () {
-      // console.log(
-      //   "ImageData========>",
-      //   this.props.crawlsReducer?.crawlByUser?.data
-      // );
-      this.props.crawlsReducer?.crawlByUser?.data?.sort((a,b) => (b.votecount) -  (a.votecount))
-      let profileImage =
+      console.log(
+        "ImageData========>",
+        this.props.crawlsReducer?.crawlByUser?.data);
+        this.props.crawlsReducer?.crawlByUser?.data?.sort((a,b) => (b.votecount) -  (a.votecount))
+        let profileImage =
         this.props.userFetch?.currentUser != undefined
           ? this.props.userFetch?.currentUser?.data?.profileImage
           : this.props.viewedUser?.profileImage;
@@ -102,17 +101,16 @@ class Profile extends React.Component {
           <img
             className="profile-img"
             src={profileImage}
-            alt='<img className="personal-link-photo"
-             />'
+            alt='<img className="personal-link-photo"/>'
           />
 
-          <input
-            type="file"
-            accept="images/*"
-            onChange={(e) => this.getImageUrl(e.target.files[0])}
-          />
-          <h1> {this.props.viewedUser.username}'s Page</h1>
-        </div>
+            <input
+              type="file"
+              accept="images/*"
+              onChange={(e) => this.getImageUrl(e.target.files[0])}
+            />
+            <h1> {this.props.viewedUser.username}'s Page</h1>
+          </div>
 
         <div className="profile-right">
           {this.props.crawlsReducer?.crawlByUser?.data?.length == 0 && (
@@ -130,8 +128,8 @@ class Profile extends React.Component {
           )}
          
         </div>
-      </div>
-    );
+        </div>
+      );
   }
 }
 

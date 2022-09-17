@@ -1,19 +1,34 @@
 import axios from "axios";
 
-export const fetchAllVenues = async () => {
-  let venue = await axios.get("/api/venues/");
-  // console.log("VenueData======>",venue)
-  return venue
+export const setAuthToken = (token) => {
+  if (token) {
+    axios.defaults.headers.common["Authorization"] = token;
+  } else {
+    delete axios.defaults.headers.common["Authorization"];
+  }
 };
 
-export const fetchVenue = async(id) => {
-
-  let venueById = await axios.get(`/api/venues/${id}`);
-  return venueById
-
+export const fetchAllVenues = () => {
+  return axios.get("/api/venues/");
 };
 
-export const deleteVenue = async(id) => {
-  let venueById = await axios.delete(`/api/venues/${id}`);
-  return venueById
+export const fetchVenue = (id) => {
+  return axios.get(`/api/venues/${id}`);
+};
+
+export const updateVenue = (venue) => {
+    return axios.patch(`/api/venues/${venue.id}`, venue);
 }
+
+export const createVenue = async (venueData) => {
+
+  let create_venue = await axios.post("/api/venues", venueData);
+  console.log("create_venue",create_venue)
+  return create_venue
+};
+export const getVenuesByUser = async(userId) => {
+  let getvenue = await axios.get(`/api/venues/users/${userId}`);
+  console.log("Data=========>",getvenue)
+  return getvenue;
+};
+

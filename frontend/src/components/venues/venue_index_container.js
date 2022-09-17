@@ -4,8 +4,9 @@ import { fetchAllVenues } from "../../actions/venue_actions";
 
 const mapStateToProps = (state) => {
   return {
+    currentUser: state.session.user,
     errors: state.errors.session,
-    venues: state.entities.venues,
+    venues: Object.values(state.entities.venues),
   };
 };
 

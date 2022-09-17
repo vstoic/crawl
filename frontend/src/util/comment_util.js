@@ -1,5 +1,13 @@
 import axios from "axios";
 
+export const setAuthToken = (token) => {
+    if (token) {
+        axios.defaults.headers.common["Authorization"] = token;
+    } else {
+        delete axios.defaults.headers.common["Authorization"];
+    }
+};
+
 export const fetchAllComments = () => {
     return axios.get("/api/comments/");
 };
@@ -24,8 +32,14 @@ export const deleteComment = async (id) => {
     return commentById;
 };
 
+// export const getCommentByCrawl = async (crawlId) => {
+//     let getComment = await axios.get(`/api/crawls/users/${crawlId}`);
+//     console.log("Data=========>", getComment)
+//     return getComment;
+// }
+
 export const getCommentByCrawl = async (crawlId) => {
-    let getComment = await axios.get(`/api/crawls/users/${crawlId}`);
-    console.log("Data=========>", getComment)
-    return getComment;
+    let comments = await axios.get(`/api/comments/${crawlId}`);
+    console.log("Data=========>", comments)
+    return comments;
 }
