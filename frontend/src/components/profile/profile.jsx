@@ -30,6 +30,7 @@ class Profile extends React.Component {
     this.props.fetchUser(this.props.match.params.id);
     this.props.fetchCrawlByUser(this.props.match.params.id)
     this.props.fetchAllCrawls();
+    this.props.fetchAllCrawlsbyMo();
   }
 
   getImageUrl = async(image) => {
@@ -121,7 +122,7 @@ class Profile extends React.Component {
                 <Link to={`/crawl/${item._id}`}>{item.title}</Link>
                 <br/>
                 <Link to={`/crawlEdit/${item._id}`}>Edit Crawl</Link>
-                <button onClick={() => this.removeCrawl(item._id,idx)}>Delete Crawl</button>
+                <button onClick={() => this.removeCrawl(item._id)}>Delete Crawl</button>
               </div>
             )
           )}

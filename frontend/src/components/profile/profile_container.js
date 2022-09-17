@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { fetchUser, fetchUsers ,updateUserData } from "../../actions/user_actions";
 import { withRouter } from "react-router-dom";
 import Profile from "./profile";
-import { fetchAllCrawls ,fetchCrawlByUser, deleteCrawl } from "../../actions/crawl_actions";
+import { fetchAllCrawls ,fetchCrawlByUser, deleteCrawl, fetchAllCrawlsbyMo } from "../../actions/crawl_actions";
 
 
 const mSTP = (state, ownProps) => ({
@@ -20,7 +20,8 @@ const mDTP = (dispatch) => ({
   fetchAllCrawls: () => dispatch(fetchAllCrawls),
   fetchCrawlByUser: (userId) => dispatch(fetchCrawlByUser(userId)),
   updateImage: (userData) => dispatch(updateUserData(userData)),
-  deleteCrawl: (crawlId) => dispatch(deleteCrawl(crawlId))
+  deleteCrawl: (crawlId) => dispatch(deleteCrawl(crawlId)),
+  fetchAllCrawlsbyMo: () => dispatch(fetchAllCrawlsbyMo())
 });
 
 export default withRouter(connect(mSTP, mDTP)(Profile));

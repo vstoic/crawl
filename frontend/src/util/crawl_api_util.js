@@ -28,7 +28,7 @@ export const createCrawl = async (crawlData) => {
 };
 export const getCrawlsByUser = async(userId) => {
   let getcrawl = await axios.get(`/api/crawls/users/${userId}`);
-  console.log("Data=========>",getcrawl)
+  // console.log("Data=========>",getcrawl)
   return getcrawl;
 }
 
