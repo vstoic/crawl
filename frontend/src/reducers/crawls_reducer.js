@@ -1,9 +1,11 @@
-import { RECEIVE_ALL_CRAWLS, RECEIVE_CRAWL ,RECEIVE_CRAWL_USER, REMOVE_CRAWL } from "../actions/crawl_actions";
+import { RECEIVE_ALL_CRAWLS, 
+         RECEIVE_CRAWL ,RECEIVE_CRAWL_USER, REMOVE_CRAWL, RECEIVE_CRAWLS_BY_MO } from "../actions/crawl_actions";
 
 const _nullState = {
     byId: {},
     allIds: [],
-    crawlByUser:[]
+    crawlByUser:[],
+    byMo: {}
 };
 
 const crawlsReducer = (oldState = _nullState, action) => {
@@ -24,6 +26,11 @@ const crawlsReducer = (oldState = _nullState, action) => {
         case REMOVE_CRAWL:
             delete nextState.crawlByUser.data[action.crawlId]
             return nextState;
+        case RECEIVE_CRAWLS_BY_MO:
+            const crawls = action.crawls
+            crawls.forEach(crawl => {
+                nextState.byMo[crawl._id] = crawl
+            });
         default:
             return oldState;
     }

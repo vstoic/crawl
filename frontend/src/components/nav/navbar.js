@@ -100,7 +100,7 @@ class NavBar extends React.Component {
     }
   }
   render() {
-    console.log("LoggedIn?==>", this.props.loggedIn);
+    // console.log("LoggedIn?==>", this.props.loggedIn);
     return <div>{this.getLinks()}</div>;
   }
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchAllVenues = async () => {
   let venue = await axios.get("/api/venues/");
-  console.log("VenueData======>",venue)
+  // console.log("VenueData======>",venue)
   return venue
 };
 
