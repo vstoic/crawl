@@ -1,26 +1,69 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { withRouter } from 'react-router-dom';
 
 
 class CrawlEdit extends React.Component {
     constructor(props) {
         super(props);
+        let { category, description, cost, title, time, distance, venues, _id, creator_id, votecount, users
+        } = this.props.crawl;
+       
         this.state = {
-            crawl: this.props.crawl
+            creator_id,
+            category,
+            title,
+            cost,
+            time,
+            distance,
+            venues,
+            votecount,
+            users,
+            description,
+            _id,
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleClick = this.handleClick.bind(this)
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.update = this.update.bind(this);
+    }
+
+    update(field) {
+        // console.log(field)
+        return e => 
+        this.setState({
+            [field]: e.currentTarget.value,           
+        });
+    }
+
+  
+    handleSubmit(e) {
+        e.preventDefault();
+        const { updateCrawl, history, errors } = this.props;
+        const crawl = Object.assign({}, this.state);
+        // console.log(crawl)
+        updateCrawl(crawl)
+
+        // if (!errors) {
+        //      history.push(`/crawl/${crawl._id}`)
+        // }
+        
+
+        .then((res) => { 
+            if(res.type === "RECEIVE_CRAWL_ERRORS"){
+                return
+            }
+           return history.push(`/crawl/${crawl._id}`);
+        });
     }
 
    
-    componentDidMount(){
-        this.props.fetchAllVenues();
+    componentDidMount() {
+        // debugger
+        this.props.fetchAllVenues()
         this.props.fetchCrawl(this.props.match.params.id)
             .then((response) => {
-                console.log(response.crawl.data)
-                this.setState({
-                crawl: response.crawl.data
-                })
+                // console.log(response.crawl.data)
+                this.setState({ crawl: response.crawl.data })
             })
     
         // const fetchCrawl = this.props.fetchCrawl(this.props.match.params.id)
@@ -31,22 +74,29 @@ class CrawlEdit extends React.Component {
 
     // }
 
-    
-    handleSubmit(e){
-        const { updateCrawl } = this.props;
-
+    addVenue = (e) => {
         e.preventDefault();
-        const crawl = Object.assign({}, this.state);
-
-        updateCrawl(crawl)
-            // .then(() => history.push(`/users/${user.id}`));
+        const newVenues = Object.assign([], this.state.venues)
+        const venue_id = this.state.venue;
+        if(!newVenues.includes(venue_id)) {
+            newVenues.push(venue_id)
+        }
+        this.setState({ venues: newVenues })
+        // console.log(this.state.venues)
     }
 
-    update(field) {
-        return e => this.setState({
-            [field]: e.currentTarget.value
-        });
+    removeVenue = (idx) => {
+        const newVenues = Object.assign([], this.state.venues)
+        newVenues.splice(idx, 1)
+        this.setState({ venues: newVenues })
+        // delete newVenues[idx]
+    //   return this.state.venues.remove(venue_id)
+    //    this.state.venues.splice(idx, 1)
     }
+    
+  
+
+   
 
     handleClick(e){
         e.preventDefault(); 
@@ -55,15 +105,13 @@ class CrawlEdit extends React.Component {
     render() {
         // debugger
 
-        const { crawl } = this.props;
+        const { crawl, errors } = this.props;
 
         if (!crawl) {
             return null
         }
 
-        console.log(this.state.crawl.venues)
-        const { errors } = this.props;
-  
+        
         const renderName = (id) => {
             let text = this.props.allVenues?.find((x) => x._id == id)?.name;
             return text;
@@ -83,10 +131,11 @@ class CrawlEdit extends React.Component {
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <div>
+                            {/* <p>Category</p> */}
                             <select className="username-input"
                                     onChange={this.update("category")}
                             >
-                                <option value="defaultValue">{this.state.crawl.category}</option>
+                                <option value="defaultValue">{this.state.category}</option>
                                 <option value={"Food and Drinks"}>Food and Drinks</option>
                                 <option value={"Active Life"}>Active Life</option>
                                 <option value={"Arts and Entertainment"}>Arts and Entertainment</option>
@@ -96,70 +145,74 @@ class CrawlEdit extends React.Component {
                                 <option value={"Other"}>Other</option>
                             </select>
                             
-                            {/* <div className="errors">{errors.category}</div>  */}
+                            <div className="errors">{errors.category}</div> 
 
-
+                            {/* <p>Description</p> */}
                             <textarea
                                 className="username-input"
                                 type="description"
-                                value={this.state.crawl.description}
+                                value={this.state.description}
                                 onChange={this.update("description")}
                                 placeholder="Description: What's your crawl all about?."
                             />
 
 
-                            {/* <div className="errors">{errors.description}</div> */}
+                            <div className="errors">{errors.description}</div>
 
-                            <input
-                                className="username-input"
-                                type="cost"
-                                value={this.state.crawl.cost}
-                                onChange={this.update("cost")}
-                                placeholder="$$$"
-                            />
+                            
+                            {/* <p>Cost</p> */}
+                            <select className="username-input"
+                                    onChange={this.update("cost")}
+                            >
+                                <option value="defaultValue">{this.state.cost}</option>
+                                <option value={"$"}>$</option>
+                                <option value={"$$"}>$$</option>
+                                <option value={"$$$"}>$$$</option>
+                                <option value={"$$$$"}>$$$$</option>
+                                <option value={"$$$$$"}>$$$$$</option>
+                            </select>
 
+                            <div className="errors">{errors.cost}</div>
 
-                            {/* <div className="errors">{errors.cost}</div> */}
-
-
+                            {/* <p>Title</p> */}
                             <input
                                 className="username-input"
                                 type="text"
-                                value={this.state.crawl.title}
+                                value={this.state.title}
                                 onChange={this.update("title")}
                                 placeholder="Title"
                             />
 
 
-                            {/* <div className="errors">{errors.title}</div> */}
+                            <div className="errors">{errors.title}</div>
        
-                        
+                            {/* <p>Time</p> */}
                             <input
                                 className="username-input"
                                 type="text"
-                                value={this.state.crawl.time}
+                                value={this.state.time}
                                 onChange={this.update("time")}
                                 placeholder="Time: How long will this crawl take?"
                             />
 
 
-                            {/* <div className="errors">{errors.time}</div> */}
-
+                            <div className="errors">{errors.time}</div>
+                            {/* <p>Distance</p> */}
                             <input
                                 className="username-input"
                                 type="distance"
-                                value={this.state.crawl.distance}
+                                value={this.state.distance}
                                 onChange={this.update("distance")}
                                 placeholder="Distance: How much traveling between venues?"
                             />
 
-                            {/* <div className="errors">{errors.distance}</div> */}
+                            <div className="errors">{errors.distance}</div>
 
                             <div>
                                 <p>Venues</p>
                                 <ul className='selected-venues'>
                                      {
-                                        this.state.crawl.venues.map((venue_id, idx) => 
+                                        this.state.venues.map((venue_id, idx) => 
                                             <li className="selected-exercises-individuals">
                                                     <p>{renderName(venue_id)}</p>
                                                     <button className="button" id="remove-from-list" onClick={() => this.removeVenue(idx)}>Remove Venue</button>  
@@ -206,4 +259,4 @@ class CrawlEdit extends React.Component {
     }
 }
 
-export default CrawlEdit;
+export default withRouter(CrawlEdit);

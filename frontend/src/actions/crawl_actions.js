@@ -6,7 +6,8 @@ export const RECEIVE_CRAWL_USER = "RECEIVE_CRAWL_USER"
 export const REMOVE_CRAWL = 'REMOVE_CRAWL';
 export const RECEIVE_CRAWL_ERRORS = 'RECEIVE_CRAWL_ERRORS';
 export const CLEAR_CRAWL_ERRORS = 'CLEAR_CRAWL_ERRORS';
-export const RECEIVE_CRAWLS_BY_MO = 'RECEIVE_CRAWLS_BY_MO';;
+export const RECEIVE_CRAWLS_BY_MO = 'RECEIVE_CRAWLS_BY_MO';
+export const RECEIVE_CRAWL_BY_MO = "RECEIVE_CRAWL_BY_MO";
 
 const receiveAllCrawls = (crawls) => ({
   type: RECEIVE_ALL_CRAWLS,
@@ -43,6 +44,14 @@ export const clearCrawlErrors = () => ({
   type: CLEAR_CRAWL_ERRORS
 });
 
+const receiveCrawlByMo = (crawl) => {
+  // console.log(crawl)
+  return {
+    type: RECEIVE_CRAWL_BY_MO,
+    crawl: crawl
+    }
+};
+
 
 
 export const fetchAllCrawls = () => (dispatch) =>
@@ -63,11 +72,12 @@ export const fetchAllCrawlsbyMo = () => (dispatch) =>
 
 
 
-export const updateCrawl = (crawl) => dispatch => (
-    CrawlApiUtil.updateCrawl(crawl)
-        .then(payload => dispatch(receiveCrawl(payload.data)))
+export const updateCrawl = (crawl) => dispatch => {
+  return CrawlApiUtil.updateCrawl(crawl)
+        .then(payload => dispatch(receiveCrawlByMo(payload.data)))
         .catch(err => dispatch(receiveCrawlErrors(err.response.data)))
-);
+};
+
 
 
 export const createCrawl = (crawl) => (dispatch) => {

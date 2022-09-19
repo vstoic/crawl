@@ -17,8 +17,9 @@ export const fetchCrawl = (id) => {
 };
 
 export const updateCrawl = (crawl) => {
-    return axios.patch(`/api/crawls/${crawl.id}`, crawl);
+  return axios.patch(`/api/crawls/${crawl._id}`, crawl);
 }
+
 
 export const createCrawl = async (crawlData) => {
 

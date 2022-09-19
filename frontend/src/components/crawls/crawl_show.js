@@ -17,12 +17,14 @@ function CrawlShow(props) {
    fetchData()
   }, [updatedVoteCount]);
 
+  
   const crawlTitle = props.crawlsReducer?.byId?.data?.title || '';
   const crawlCategory = props.crawlsReducer?.byId?.data?.category || '';
   const crawlDescription = props.crawlsReducer?.byId?.data?.description || '';
   const crawlCost = props.crawlsReducer?.byId?.data?.cost || '';
   const crawlTime = props.crawlsReducer?.byId?.data?.time || '';
-  const crawlVenues = props.crawlsReducer?.byId?.data?.venues[0]?.split(", ") || [];
+  // const crawlVenues = props.crawlsReducer?.byId?.data?.venues[0]?.split(", ") || [];
+  const crawlVenues = props.crawlsReducer?.byId?.data?.venues || [];
   var crawlVotes = props.crawlsReducer?.byId?.data?.votecount || 0;
   var crawlId = props.crawlsReducer?.byId?.data?._id || '';
   var usersData = props.crawlsReducer?.byId?.data?.users || []
@@ -37,7 +39,6 @@ var venuesMap = props.venue
 useEffect(()=>{
 crawlVenues.map((item)=>{
   let getVenue = renderForVenues(item)
-
   let obj = {
     "latitude":getVenue.latitude,
     "longitude":getVenue.longitude
