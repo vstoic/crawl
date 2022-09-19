@@ -6,11 +6,11 @@ class VenueEditForm extends React.Component {
     super(props);
     this.state = {
       creator_id: this.props.currentUser.id,
-      id: this.props.venue.data._id,
       name: this.props.venue.data.name,
       description: this.props.venue.data.description,
       cost: this.props.venue.data.cost,
       address: this.props.venue.data.address,
+      id: this.props.venue.data._id,
       latitude: this.props.venue.data.latitude,
       longitude: this.props.venue.data.longitude,
       image: this.props.venue.data.image,
@@ -33,12 +33,21 @@ class VenueEditForm extends React.Component {
     const { updateVenue, history } = this.props;
     const venue = Object.assign({}, this.state);
     await updateVenue(venue)
-    .then(() => { 
-     
-    history.push(`/venueShow/${venue.id}`);
-      
+  
+    .then((res) => { 
+      if(res.type === "RECEIVE_VENUE_ERRORS"){
+        return
+      }
+        return history.push(`/venueShow/${venue.id}`);
   });
   }
+
+//   .then((res) => { 
+//     if(res.type === "RECEIVE_CRAWL_ERRORS"){
+//         return
+//     }
+//    return history.push(`/crawl/${crawl._id}`);
+// });
 
   render() {
     // console.log(this.props.venue.data);

@@ -6,11 +6,12 @@ import CrawlEdit from "./crawl_edit";
 
 const mapStateToProps = (state, ownProps) => {
     // console.log(ownProps)
+    // debugger
     return {
     crawl: state.entities.crawls.byMo[ownProps.match.params.id],
     currentUser: state.session.user,
-    allVenues: state.entities.venues.venues,
-    errors: state.errors.crawls
+    allVenues: Object.values(state.entities.venues),
+    errors: state.errors.crawl
 }}
 
 const mapDispatchToProps = (dispatch) => ({

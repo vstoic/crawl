@@ -1,5 +1,6 @@
 import { RECEIVE_ALL_CRAWLS, 
-         RECEIVE_CRAWL ,RECEIVE_CRAWL_USER, REMOVE_CRAWL, RECEIVE_CRAWLS_BY_MO } from "../actions/crawl_actions";
+         RECEIVE_CRAWL ,RECEIVE_CRAWL_USER, REMOVE_CRAWL, RECEIVE_CRAWLS_BY_MO,
+         RECEIVE_CRAWL_BY_MO} from "../actions/crawl_actions";
 
 const _nullState = {
     byId: {},
@@ -31,6 +32,10 @@ const crawlsReducer = (oldState = _nullState, action) => {
             crawls.forEach(crawl => {
                 nextState.byMo[crawl._id] = crawl
             });
+        case RECEIVE_CRAWL_BY_MO:
+            console.log(action)
+            nextState.byMo[action.crawl._id] = action.crawl
+            return nextState;
         default:
             return oldState;
     }
