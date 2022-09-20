@@ -13,7 +13,7 @@ class MainPageItem extends React.Component  {
         const { crawl, venueReducer, title, time, distance, venues, cost, votecount, description } = this.props;
     //    const crawlVenues = venues.split(", ");
        const renderName = (id) => {
-        //    console.log("victorsData(renderName before)========>", this.state);
+           console.log("victorsData(renderName before)========>", this.props);
            let text = this.props.venueReducer[id];
            return text;
        };
@@ -37,7 +37,9 @@ class MainPageItem extends React.Component  {
                         <div>
                         {venues.map((item) => (
                             <div className="each-crawl-venue-details">
-                                <li><Link to={`/venueShow/${item}`}>{renderName(item).name}</Link></li>
+                                {/* <Link to={`/venueShow/${item}`}>{renderName(item).name}</Link> */}
+                                <Link to={`/venueShow/${item}`}>{item}</Link>
+                                {/* line 40 not finding the .name & venueReducer not fetching venues upon refresh */}
                                 <div className="mp-image-container">
                                     {/* <img src={renderImageSrc(item)} className="main-page-images" /> */}
                                 </div>
