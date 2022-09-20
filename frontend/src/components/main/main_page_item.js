@@ -10,22 +10,15 @@ class MainPageItem extends React.Component  {
    }
    
    render(){
-    // debugger
         const { crawl, venueReducer, title, time, distance, venues, cost, votecount, description } = this.props;
     //    const crawlVenues = venues.split(", ");
        const renderName = (id) => {
-           // console.log("Data(renderName before)========>", props.venueReducer?.venues);
-           let text = venueReducer?.venues?.find((x) => x._id == id)?.name;
+        //    console.log("victorsData(renderName before)========>", this.state);
+           let text = this.props.venueReducer[id];
            return text;
        };
-       
-
-       const renderImageSrc = (id) => {
-           let img = venueReducer?.venues?.find((x) => x._id == id)?.image;
-           return img;
-       };
-
         return(
+            
             <div className="each-crawl-container">
                     <Link to={`/crawl/${crawl._id}`}>{title}</Link>
                 <div className="each-crawl">
@@ -42,9 +35,9 @@ class MainPageItem extends React.Component  {
                     {/* <h2>Website</h2> */}
                     <div className="crawl-venue-container">
                         <div>
-                        {venues?.map((item) => (
+                        {venues.map((item) => (
                             <div className="each-crawl-venue-details">
-                                <li><Link to={`/venueShow/${item}`}>{renderName(item)}</Link></li>
+                                <li><Link to={`/venueShow/${item}`}>{renderName(item).name}</Link></li>
                                 <div className="mp-image-container">
                                     {/* <img src={renderImageSrc(item)} className="main-page-images" /> */}
                                 </div>
