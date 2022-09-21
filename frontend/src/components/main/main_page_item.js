@@ -13,8 +13,8 @@ class MainPageItem extends React.Component  {
         const { crawl, venueReducer, title, time, distance, venues, cost, votecount, description } = this.props;
     //    const crawlVenues = venues.split(", ");
        const renderName = (id) => {
-           console.log("victorsData(renderName before)========>", this.props);
-           let text = this.props.venueReducer[id];
+        //    console.log("victorsData(renderName before)========>", this.props);
+           let text = this.props.venueReducer[id].name;
            return text;
        };
         return(
