@@ -1,18 +1,22 @@
-import React, { useEffect ,useState} from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/stylesheets/crawl_show.css";
 import { Link } from "react-router-dom";
 import GoogleMap from "../map/GoogleMapCrawl";
-import CommentForm from "../comment/crawl_comments";
+import CommentComposeContainer from "../comment/comment_compose_container";
 
 function CrawlShow(props) {
   const [updatedVoteCount, setUpdatedVoteCount] = useState(0);
   const [errorBot ,setErrorBot] = useState(0)
   const [latLng , setLatLng] = useState([])
   const [buttonText , setButtonText] = useState('')
+
+  
   useEffect(() => {
     const fetchData = async() => {
           await props.fetchAllVenues();
           await  props.fetchCrawl(props.match.params.id);
+          await props.fetchCrawlComments(props.match.params.id)
+          await props.fetchUsers()
     }
    fetchData()
   }, [updatedVoteCount]);
@@ -23,8 +27,12 @@ function CrawlShow(props) {
   const crawlDescription = props.crawlsReducer?.byId?.data?.description || '';
   const crawlCost = props.crawlsReducer?.byId?.data?.cost || '';
   const crawlTime = props.crawlsReducer?.byId?.data?.time || '';
-  // const crawlVenues = props.crawlsReducer?.byId?.data?.venues[0]?.split(", ") || [];
   const crawlVenues = props.crawlsReducer?.byId?.data?.venues || [];
+  
+
+
+
+
   var crawlVotes = props.crawlsReducer?.byId?.data?.votecount || 0;
   var crawlId = props.crawlsReducer?.byId?.data?._id || '';
   var usersData = props.crawlsReducer?.byId?.data?.users || []
@@ -38,6 +46,7 @@ var venuesMap = props.venue
   };
 useEffect(()=>{
 crawlVenues.map((item)=>{
+  let key=item._id
   let getVenue = renderForVenues(item)
   let obj = {
     "latitude":getVenue.latitude,
@@ -116,7 +125,7 @@ crawlVenues.map((item)=>{
 
            <div className="crawls-venues-container">
              {crawlVenues?.map((item) => (
-               <div className="each-crawl">
+               <div key={item._id} className="each-crawl">
                  <div className="">
                    <Link to={`/venueShow/${item}`}>
                      {renderForVenues(item).name}
@@ -132,6 +141,19 @@ crawlVenues.map((item)=>{
              ))}
            </div>
          </div>
+         <div className="crawl-comments-container">
+           <p>comments-container</p>
+           <CommentComposeContainer 
+             crawlId={props.match.params.id}
+             comments={props.comments}
+             fetchUsers={props.fetchUsers}
+             users={props.users}
+           />
+         
+        
+
+         </div>
+
        </div>
 
        <div className="crawl-show-right">
@@ -145,11 +167,8 @@ crawlVenues.map((item)=>{
                />
              )}
            </div>
-         </div>
+          
 
-         <div className="crawl-comments-container">
-           <p>comments-container</p>
-           {/* < CommentForm /> */}
          </div>
          {props?.session?.user?.id && (
            <button
@@ -172,6 +191,7 @@ crawlVenues.map((item)=>{
          ) : null}
        </div>
      </div>
+     
    );
 }
 
