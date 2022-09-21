@@ -71,8 +71,9 @@ class MapContainer extends React.Component {
           }}
           zoom={16}
         >
-          {this.props.LatLong.map((item) => (
+          {this.props.LatLong.map((item, idx) => (
             <Marker
+            key={idx}
               position={{
                 lat: item.latitude,
                 lng: item.longitude,

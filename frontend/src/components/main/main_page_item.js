@@ -35,11 +35,9 @@ class MainPageItem extends React.Component  {
                     {/* <h2>Website</h2> */}
                     <div className="crawl-venue-container">
                         <div>
-                        {venues.map((item) => (
-                            <div className="each-crawl-venue-details">
-                                {/* <Link to={`/venueShow/${item}`}>{renderName(item).name}</Link> */}
-                                <Link to={`/venueShow/${item}`}>{item}</Link>
-                                {/* line 40 not finding the .name & venueReducer not fetching venues upon refresh */}
+                        {venues?.map((item) => (
+                            <div key={item._id} className="each-crawl-venue-details">
+                                <li><Link to={`/venueShow/${item}`}>{renderName(item)}</Link></li>
                                 <div className="mp-image-container">
                                     {/* <img src={renderImageSrc(item)} className="main-page-images" /> */}
                                 </div>

@@ -33,7 +33,6 @@ const crawlsReducer = (oldState = _nullState, action) => {
                 nextState.byMo[crawl._id] = crawl
             });
         case RECEIVE_CRAWL_BY_MO:
-            console.log(action)
             nextState.byMo[action.crawl._id] = action.crawl
             return nextState;
         default:

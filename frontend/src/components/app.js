@@ -15,12 +15,14 @@ import CrawlEditContainer from "./crawls/crawl_edit_container";
 import ProfileContainer from "./profile/profile_container";
 import VenueCreateContainer from "./venues/venue_create_container";
 import VenueEditContainer from "./venues/venue_edit_container";
+// import CommentContainer from "./comment/crawl_comment_container";
 
 
 const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
+    {/* <Route path="/comments" component={CommentContainer} /> */}
       <ProtectedRoute path="/users/:id" component={ProfileContainer} />
       <Route path="/venueShow/:id" component={VenueShowContainer} />
       <Route path="/crawl/:id" component={crawlShowContainer} />
