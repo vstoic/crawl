@@ -1,0 +1,49 @@
+.venue-index-main {
+    height: 88vh;
+    width: 99vw;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding-top: 30vh;
+    /* gap: 6%; */
+}
+
+.venue-index-title {
+    display: flex;
+    font-family: 'Quicksand';
+    font-size: 5.5vh;
+    font-weight: 100;
+    color: rgb(74, 74, 74);
+}
+
+.venue-index-container {
+    display: flex;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    /* padding-top: 55vh; */
+    gap: 5vw;
+}
+
+.venue-show-image {
+    height: 20vh;
+    width: auto;
+    border-radius: 3px;
+    border: 1px solid rgb(134, 134, 134);
+}
+
+.each-venue-idx a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand';
+    font-size: 2.3vh;
+    text-decoration: none;
+    color: rgb(94, 94, 94);
+    padding: -10px;
+}

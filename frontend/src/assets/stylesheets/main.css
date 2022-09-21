@@ -210,6 +210,12 @@
     color: #555555db;
 }
 
+.each-desc p{
+    font-size: 1vw;
+        margin: 2%;
+        color: #555555db;
+}
+
 .each-sub-desc p:hover {
     /* border: 1px solid black; */
     cursor: default;
