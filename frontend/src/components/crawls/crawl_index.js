@@ -19,17 +19,12 @@ class CrawlIndex extends Component {
       <>
         <ul>
           {(this.props.crawlsReducer.allIds || []).map((item) => (
-            <ul>
-              {" "}
+            <li>
+              {/* {" "} */}
               <Link to={`/crawl/${item._id}`} key={item._id}>{item.title} </Link>
-            </ul>
+            </li>
           ))}
         </ul>
-        <div >
-          <Link to={"/crawlCreate/"} className="nav-login-button">
-            Create a Crawl
-          </Link>
-        </div>
       </>
     );
   }

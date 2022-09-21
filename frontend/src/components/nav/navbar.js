@@ -38,22 +38,16 @@ class NavBar extends React.Component {
 
            
 
-            <Link to={"/venueCreate"} className="nav-other-button">
+            {/* <Link to={"/venueCreate"} className="nav-other-button">
               Create a Venue
-            </Link>
+            </Link> */}
 
-            <Link
-              to={`/users/${this.props.currentUser.id}`}
-              className="nav-other-button"
-            >
-              Profile
-            </Link>
-            <Link to={"/venues"} className="nav-other-button">
-              Venues
-            </Link>
-            <Link to={"/crawls"} className="nav-other-button">
+            <Link to={"/venues"} className="nav-other-button">Venues</Link>
+            <Link to={`/users/${this.props.currentUser.id}`}
+              className="nav-other-button">Profile</Link>
+            {/* <Link to={"/crawls"} className="nav-other-button">
               Crawls
-            </Link>
+            </Link> */}
             <button onClick={this.logoutUser} className="nav-logout-button">
               Logout
             </button>

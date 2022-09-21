@@ -13,7 +13,6 @@ class Profile extends React.Component {
       imageSet:null,
       crawls: this.props.userCrawls
     }
-
     this.removeCrawl = this.removeCrawl.bind(this)
   }
 
@@ -22,9 +21,6 @@ class Profile extends React.Component {
 //       this.props.fetchCrawlByUser(this.props.match.params.id)
 //     }
 // }
-
-  
-
 
   componentDidMount () {
     this.props.fetchUser(this.props.match.params.id);
@@ -78,9 +74,7 @@ class Profile extends React.Component {
  
 
   render () {
-      console.log(
-        "ImageData========>",
-        this.props.crawlsReducer?.crawlByUser?.data);
+      console.log("ImageData========>", this.props);
         this.props.crawlsReducer?.crawlByUser?.data?.sort((a,b) => (b.votecount) -  (a.votecount))
         let profileImage =
         this.props.userFetch?.currentUser != undefined
@@ -97,40 +91,55 @@ class Profile extends React.Component {
              />'
             />
           )} */}
-
-          <img
-            className="profile-img"
-            src={profileImage}
-            alt='<img className="personal-link-photo"/>'
-          />
-
-            <input
-              type="file"
-              accept="images/*"
-              onChange={(e) => this.getImageUrl(e.target.files[0])}
-            />
-            <h1> {this.props.viewedUser.username}'s Page</h1>
-          </div>
+          <img className="profile-img" src={profileImage} alt='<img className="personal-link-photo"/>'/>
+          <input type="file" accept="images/*" onChange={(e) => this.getImageUrl(e.target.files[0])}/>
+          <h1> {this.props.viewedUser.username}'s Page</h1>
+        </div>
 
         <div className="profile-right">
-          {this.props.crawlsReducer?.crawlByUser?.data?.length == 0 && (
-            <div className="profile-right-crawls">No crawls here</div>
-          )}
-          {(this.props.crawlsReducer?.crawlByUser?.data || []).map(
-            (item, idx) => (
-              <div key={item._id} className="profile-right-crawls">
-                <Link to={`/crawl/${item._id}`}>{item.title}</Link>
-                <br/>
-                <Link to={`/crawlEdit/${item._id}`}>Edit Crawl</Link>
-                <button onClick={() => this.removeCrawl(item._id)}>Delete Crawl</button>
-              </div>
-            )
-          )}
-         
+          <div className="profile-crawl-container">
+            {this.props.crawlsReducer?.crawlByUser?.data?.length == 0 && (
+              <div className="profile-right-crawls">No Crawls Created</div>
+            )}
+            {(this.props.crawlsReducer?.crawlByUser?.data || []).map((item) => (
+                <div className="each-crawl-container">
+                  <div className="profile-crawl-header">
+                    <Link to={`/crawl/${item._id}`}>{item.title}</Link>
+                    <div className="edit-crawl-container"><Link to={`/crawlEdit/${item._id}`}><img className="edit-icon" src="https://i.postimg.cc/mkny8198/edit-icon.png" alt="" /></Link></div>
+                  </div>
+                  <div className="each-crawl">
+                    <div className="each-desc">
+                      <div className="each-sub-desc">
+                        <p>Upvotes: {item.votecount}</p>
+                        <p>Avg Time: {item.time}</p>
+                        <p>Cost: {item.cost}</p>
+                        <p>Avg Distance: {item.distance}</p>
+                      </div>
+                      <p>Description: {item.description}</p>
+                    </div>
+                    {/* <div className="crawl-venue-container"> */}
+                      {/* <div>
+                        {venues?.map((item) => (
+                          <div key={renderName(item)._id} className="each-crawl-venue-details">
+                            <li><Link to={`/venueShow/${item}`}>{renderName(item).name}</Link></li>
+                            <div className="mp-image-container">
+                            </div>
+                          </div>
+                        ))}
+                      </div> */}
+                    {/* </div> */}
+                  </div>
+                </div>
+              )
+            )}
+          </div>
         </div>
-        </div>
+      </div>
       );
   }
 }
 
 export default withRouter(Profile);
+
+
+
