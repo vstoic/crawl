@@ -37,7 +37,7 @@ class MainPageItem extends React.Component  {
                         <div>
                         {venues?.map((item) => (
                             <div key={item._id} className="each-crawl-venue-details">
-                                <li><Link to={`/venueShow/${item}`}>{renderName(item)}</Link></li>
+                                {/* <li><Link to={`/venueShow/${item}`}>{renderName(item)}</Link></li> */}
                                 <div className="mp-image-container">
                                     {/* <img src={renderImageSrc(item)} className="main-page-images" /> */}
                                 </div>
