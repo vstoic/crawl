@@ -8,7 +8,7 @@ const mSTP = (state) => {
     return {
         errors: state.errors.session,
         crawls: Object.values(state.entities.crawls.allIds),
-        venueReducer: state.entities.venues
+        venueReducer: state.entities.venues,
     };
 };
 

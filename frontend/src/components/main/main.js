@@ -9,6 +9,8 @@ class MainPage extends React.Component {
 
 componentDidMount(){
   this.props.fetchAllCrawls();
+  this.props.fetchAllVenues();
+
 }
 
   render() {

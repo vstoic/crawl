@@ -10,22 +10,15 @@ class MainPageItem extends React.Component  {
    }
    
    render(){
-    // debugger
         const { crawl, venueReducer, title, time, distance, venues, cost, votecount, description } = this.props;
     //    const crawlVenues = venues.split(", ");
        const renderName = (id) => {
-           // console.log("Data(renderName before)========>", props.venueReducer?.venues);
-           let text = venueReducer?.venues?.find((x) => x._id == id)?.name;
+           console.log("victorsData(renderName before)========>", this.props);
+           let text = this.props.venueReducer[id];
            return text;
        };
-       
-
-       const renderImageSrc = (id) => {
-           let img = venueReducer?.venues?.find((x) => x._id == id)?.image;
-           return img;
-       };
-
         return(
+            
             <div className="each-crawl-container">
                     <Link to={`/crawl/${crawl._id}`}>{title}</Link>
                 <div className="each-crawl">
