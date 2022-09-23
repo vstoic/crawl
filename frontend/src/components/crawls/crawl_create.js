@@ -15,7 +15,6 @@ class CrawlForm extends React.Component {
             venue:[],
             venues: []
         };
-
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addVenue = this.addVenue.bind(this);
         // this.clearedErrors = false;
@@ -38,7 +37,6 @@ class CrawlForm extends React.Component {
 
    
     handleSubmit = async (e) => {
-        // debugger
         e.preventDefault();
         const { history, createCrawl } = this.props;
         const crawl = Object.assign({}, this.state);
@@ -48,8 +46,6 @@ class CrawlForm extends React.Component {
           history.push(`/crawl/${response.crawl.data._id}`);
         }
     });
-
-
     //    if(crawl.id){
     //     history.push(`/crawl/{crawl.id}`)
     //    } 
@@ -66,11 +62,7 @@ class CrawlForm extends React.Component {
         // );
             // history.push(`/crawl/{crawl.id}`);
         // }
-
-       
     }
-
-
     addVenue = (e) => {
         e.preventDefault();
         const newVenues = Object.assign([], this.state.venues)
@@ -79,9 +71,7 @@ class CrawlForm extends React.Component {
             newVenues.push(venue_id)
         }
         this.setState({ venues: newVenues })
-        // console.log(this.state.venues)
     }
-
     removeVenue = (idx) => {
         const newVenues = Object.assign([], this.state.venues)
         newVenues.splice(idx, 1)
@@ -90,20 +80,13 @@ class CrawlForm extends React.Component {
     //   return this.state.venues.remove(venue_id)
     //    this.state.venues.splice(idx, 1)
     }
-    
-
-  
-
     render() {
-        // debugger
         const { errors } = this.props;
-
         const renderName = (id) => {
             // console.log("Data(renderName before)========>", props.venueReducer?.venues);
             let text = this.props.allVenues?.find((x) => x._id == id)?.name;
             return text;
           };
-
         return (
             <div className="session-background">
                 <div className="session-image-container">
@@ -119,8 +102,7 @@ class CrawlForm extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <div>
                             <select className="username-input"
-                                    onChange={this.update("category")}
-                            >
+                                    onChange={this.update("category")}>
                                 <option value="defaultValue" selected="true" disabled="disabled">Select a Category</option>
                                 <option value={"Food and Drinks"}>Food and Drinks</option>
                                 <option value={"Active Life"}>Active Life</option>
@@ -139,7 +121,6 @@ class CrawlForm extends React.Component {
                                 placeholder="Description: What's your crawl all about?."
                             />
                             <div className="errors">{errors.description}</div>
-
                             <select className="username-input"
                                     onChange={this.update("cost")}
                                 >
@@ -150,7 +131,6 @@ class CrawlForm extends React.Component {
                                 <option value={"$$$$"}>$$$$</option>
                                 <option value={"$$$$$"}>$$$$$</option>
                             </select>
-
                             <div className="errors">{errors.cost}</div>
                             <input
                                 className="username-input"
@@ -168,7 +148,6 @@ class CrawlForm extends React.Component {
                                 placeholder="Time: How long will this crawl take?"
                             />
                             <div className="errors">{errors.time}</div>
-
                             <input
                                 className="username-input"
                                 type="distance"
@@ -177,7 +156,6 @@ class CrawlForm extends React.Component {
                                 placeholder="Distance: How much traveling between venues?"
                             />
                             <div className="errors">{errors.distance}</div>
-
                             <div>
                                 <p>Venues</p>
                                 <ul className='selected-venues'>
@@ -193,7 +171,6 @@ class CrawlForm extends React.Component {
                                             </li>
                                         )}
                                 </ul>
-
                                     {/* {
                                         this.props.allVenues.map(venue => (
                                             <VenueListItem
@@ -203,7 +180,6 @@ class CrawlForm extends React.Component {
                                            />
                                             ))
                                     } */}
-
                                 <select 
                                     onChange={this.update("venue")}
                                     className="username-input"
@@ -225,7 +201,6 @@ class CrawlForm extends React.Component {
                                     <button onClick={this.addVenue}>Add Venue</button>
                                 </div>
                             </div>
-
                             <br />
                             <input 
                                 className="submit-signup" 

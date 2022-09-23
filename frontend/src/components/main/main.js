@@ -6,11 +6,9 @@ import MainPageItem from "./main_page_item";
 
 
 class MainPage extends React.Component {
-
 componentDidMount(){
   this.props.fetchAllCrawls();
   this.props.fetchAllVenues();
-
 }
 
   render() {
@@ -85,7 +83,6 @@ componentDidMount(){
               <a href="https://github.com/legertom" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
             </div>
-
             </div>
         </div>
         <div className="main-crawl-container">
