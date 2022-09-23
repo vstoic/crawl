@@ -14,7 +14,6 @@ class NavBar extends React.Component {
     console.log(this.props.history);
     window.history.pushState({ urlPath: "/#/" }, "", "/#/");
   }
-
   getLinks() {
     if (this.props.loggedIn) {
       return (
@@ -35,13 +34,9 @@ class NavBar extends React.Component {
             <div></div>
           </div>
           <div className="nav-right">
-
-           
-
             {/* <Link to={"/venueCreate"} className="nav-other-button">
               Create a Venue
             </Link> */}
-
             <Link to={"/venues"} className="nav-other-button">Venues</Link>
             <Link to={`/users/${this.props.currentUser.id}`}
               className="nav-other-button">Profile</Link>

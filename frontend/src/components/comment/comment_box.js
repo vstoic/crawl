@@ -10,13 +10,9 @@ class CommentBox extends React.Component {
         let text = this.props.users?.data?.find((x) => x._id == user_id)?.username;
         return text;
     };
-
-
         
     render() {
         const { comments, text } = this.props
-       
-
         return (
             <>
                 <div>
