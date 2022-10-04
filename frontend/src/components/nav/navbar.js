@@ -37,9 +37,10 @@ class NavBar extends React.Component {
             {/* <Link to={"/venueCreate"} className="nav-other-button">
               Create a Venue
             </Link> */}
-            <Link to={"/venues"} className="nav-other-button">Venues</Link>
+           <Link to={"/venues"} className="nav-other-button">Venues</Link>
             <Link to={`/users/${this.props.currentUser.id}`}
               className="nav-other-button">Profile</Link>
+ 
             {/* <Link to={"/crawls"} className="nav-other-button">
               Crawls
             </Link> */}
