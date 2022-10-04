@@ -20,7 +20,27 @@ class VenueEditForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.clearedErrors = false;
   }
+  getImageUrl = async(image) => {
 
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "uqb0krjs");
+    data.append("cloud_name", "dhudcmiwm");
+    
+    fetch("  https://api.cloudinary.com/v1_1/dhudcmiwm/image/upload", {
+      method: "post",
+      body: data,
+  })
+  
+  .then((resp) => resp.json())
+  .then((data) => {
+    this.setState({"image":data.url})
+    
+     
+    // setUrl(data.url);
+  })
+  .catch((err) => console.log(err));
+  }
   update(field) {
     return (e) =>
       this.setState({
@@ -109,16 +129,16 @@ class VenueEditForm extends React.Component {
               
               />
               <div className="errors">{errors.address}</div>
-
-              <input
+              <img className="profile-img" src={this.state.image} alt='<img className="personal-link-photo"/>'/>
+              {/* <input
                 className="username-input"
                 type="text"
                 value={this.state.image}
                 onChange={this.update("image")}
                 placeholder="Image url"
               
-              />
-              
+              /> */}
+               <input type="file" accept="images/*" onChange={(e) => this.getImageUrl(e.target.files[0])}/>
 
               <input
                 className="username-input"

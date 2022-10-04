@@ -10,8 +10,8 @@ class VenueForm extends React.Component {
       description: "",
       cost: "",
       address: "",
-      latitude: "",
-      longitude: "",
+      latitude: 0,
+      longitude: 0,
       image:"",
       website: "",
     };
@@ -19,7 +19,27 @@ class VenueForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.clearedErrors = false;
   }
+  getImageUrl = async(image) => {
 
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "uqb0krjs");
+    data.append("cloud_name", "dhudcmiwm");
+    
+    fetch("  https://api.cloudinary.com/v1_1/dhudcmiwm/image/upload", {
+      method: "post",
+      body: data,
+  })
+  
+  .then((resp) => resp.json())
+  .then((data) => {
+    this.setState({"image":data.url})
+    
+     
+    // setUrl(data.url);
+  })
+  .catch((err) => console.log(err));
+  }
   update(field) {
     return (e) =>
       this.setState({
@@ -40,7 +60,7 @@ class VenueForm extends React.Component {
   }
 
   render() {
-    
+    console.log("State======>",this.state)
     const { errors } = this.props;
     return (
       <div className="session-background">
@@ -99,15 +119,15 @@ class VenueForm extends React.Component {
               />
               <div className="errors">{errors.address}</div>
 
-              <input
+              {/* <input
                 className="username-input"
                 type="text"
                 value={this.state.image}
                 onChange={this.update("image")}
                 placeholder="Image url"
               
-              />
-              
+              /> */}
+               <input type="file" accept="images/*" onChange={(e) => this.getImageUrl(e.target.files[0])}/>
 
               <input
                 className="username-input"

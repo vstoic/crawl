@@ -15,7 +15,9 @@ export const fetchAllVenues = () => {
 export const fetchVenue = (id) => {
   return axios.get(`/api/venues/${id}`);
 };
-
+export const deleteVenue = (id) => {
+  return axios.delete(`/api/venues/${id}`);
+};
 export const updateVenue = (venue) => {
     return axios.patch(`/api/venues/${venue.id}`, venue);
 }
