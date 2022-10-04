@@ -13,11 +13,11 @@ class VenueShow extends React.Component {
         venue: "",
         venueb: this.props.venue
       }
-      this.handlelink = this.handlelink.bind(this)
+      // this.handlelink = this.handlelink.bind(this)
     }
 
     // need to fix on refresh edit venue link
-    handlelink() {
+    handlelink = () => {
       console.log("data=========qw====>",this.state.venueb)
       if (this.state.venueb === undefined) {
       if (this.state.venue.creator_id === this.props.currentUser.id) {
@@ -70,7 +70,7 @@ alert("Delete Error")
     }
   };
     render () {
-      console.log("VenueData=====>",this.state.venueb)
+      console.log("VenueData=====>1",this.state.venueb)
       if (this.state.venueb === undefined) {
       return(
         <div className="venue-show-main">
@@ -105,14 +105,12 @@ alert("Delete Error")
       )} 
       else {
         return(
+          <>
           <div className="venue-show-main">
               <div className="left-column">
                  <div className="venue-show-image-container">
                    <img src={this.state.venueb.image} className="venue-show-image" />
-                   <div  className="venue-show-image">
-                   <GoogleMap venueLat={this.state.venueb.latitude} venueLong={this.state.venueb.longitude} />
-
-                   </div>
+                 
                  </div>
                  {/* <div className="venue-show-map-container"> */}
                    {/* <div className="map-container"> */}
@@ -136,7 +134,13 @@ alert("Delete Error")
                  {this.handlelinkDelete(this.state.venue._id)}
                  </div>
                </div>
+               
+                 
+
+                
              </div>
+               <GoogleMap venueLat={this.state.venueb.latitude} venueLong={this.state.venueb.longitude} />
+               </>
         )
       }
     }

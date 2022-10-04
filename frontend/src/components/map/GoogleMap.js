@@ -59,12 +59,13 @@ class MapContainer extends React.Component {
 
 
     render() {
+        console.log("eeeeeeeeeeeeeeeee",this.props.google)
         // debugger
         return (
-            // <div className='map-container'>
+            
                 
 
-            <Map google={this.props.google}
+            <Map google={this.props.google}   style={{ width: "36%", height: "51%" }}
                 initialCenter={{
                     lat: this.state.mapCenter.lat,
                     lng: this.state.mapCenter.lng
@@ -90,7 +91,7 @@ class MapContainer extends React.Component {
                 </InfoWindow> */}
             </Map>
             
-            // </div>
+            
         )
     }
 }
