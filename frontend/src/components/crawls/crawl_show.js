@@ -57,7 +57,9 @@ crawlVenues.map((item)=>{
   
 })
 },[props.venue])
+console.log("PropsCheck=======>",props.comments)
   const voteBot = async () => {
+    console.log("ButtonClick")
       var check =  usersData?.find((x) => x?.user_id == props.session.user.id)
    
     if(check == undefined){
@@ -113,7 +115,26 @@ crawlVenues.map((item)=>{
      <div className="main-crawl-show-container">
        <div className="crawl-show-left">
          <div className="data-container">
-           <div className="crawl-votes"> {crawlVotes}</div>
+           <div className="crawl-votes"> {crawlVotes}
+           {props?.session?.user?.id && (
+           <button
+             className="button"
+             id="vote-button"
+             onClick={() => voteBot()}
+             style={{
+               backgroundColor:
+                 errorBot == 1 ? "green" : errorBot == 2 ? "red" : "grey",
+             }}
+           >
+             {buttonText}
+           </button>
+         )}
+           </div>
+           {errorBot == 1 ? (
+           <p>You successfully voted</p>
+         ) : errorBot == 2 ? (
+           <p>You already voted</p>
+         ) : null}
            <div className="crawl-title">{crawlTitle}</div>
            <div className="crawl-details-important">
              <div className="crawl-cost">{crawlCost}</div>
@@ -170,25 +191,9 @@ crawlVenues.map((item)=>{
           
 
          </div>
-         {props?.session?.user?.id && (
-           <button
-             className="button"
-             id="vote-button"
-             onClick={() => voteBot()}
-             style={{
-               backgroundColor:
-                 errorBot == 1 ? "green" : errorBot == 2 ? "red" : "grey",
-             }}
-           >
-             {buttonText}
-           </button>
-         )}
+         
 
-         {errorBot == 1 ? (
-           <p>You successfully voted</p>
-         ) : errorBot == 2 ? (
-           <p>You already voted</p>
-         ) : null}
+        
        </div>
      </div>
      

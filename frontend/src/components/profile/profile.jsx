@@ -106,7 +106,8 @@ class Profile extends React.Component {
                   <div className="profile-crawl-header">
                     <Link to={`/crawl/${item._id}`}>{item.title}</Link>
                     <div className="edit-crawl-container"><Link to={`/crawlEdit/${item._id}`}><img className="edit-icon" src="https://i.postimg.cc/mkny8198/edit-icon.png" alt="" /></Link></div>
-                  </div>
+                    <div className="edit-crawl-container"><Link  onClick={()=>this.removeCrawl(item._id)}><img className="edit-icon" src="https://i.postimg.cc/mkny8198/delete-icon.png" alt="" /></Link></div>
+                    </div>
                   <div className="each-crawl">
                     <div className="each-desc">
                       <div className="each-sub-desc">

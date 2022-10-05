@@ -8,13 +8,17 @@ class CommentCompose extends React.Component {
         this.state = {
             body: "",
             crawl_id: this.props.crawlId,
-            user_id: this.props.currentUser.id,
-            newComment: ""
+            user_id: this.props.currentUser?.id,
+            newComment: "",
+            commentsReader:[]
         };
 
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-
+  
+    componentDidMount(){
+        this.setState({commentsReader:this.props.comments})
+    }
    
 
     handleSubmit(e) {
@@ -22,18 +26,28 @@ class CommentCompose extends React.Component {
         const comment = {
             body: this.state.body,
             crawl_id: this.props.crawlId,
-            user_id: this.props.currentUser.id,
+            user_id: this.props.currentUser?.id,
         };
         
 
         this.props.composeComment(comment);
+       
         this.setState({ body: ''})
     }
 
     update() {
         return e => this.setState({ body: e.currentTarget.value });
     }
+    componentDidUpdate(prevProps){
+        
 
+        if(prevProps.newComment != this.props.newComment){
+            
+            this.setState({          
+                newComment: this.props.newComment
+            });
+        }
+    }
     render() {
         return (
             <div>
@@ -43,19 +57,24 @@ class CommentCompose extends React.Component {
                             value={this.state.body}
                             onChange={this.update()}
                             placeholder="Add your comment.."
+                            required
                         />
                         <input type="submit" value="Submit" />
                     </div>
                 </form>
                 <br />
-                <CommentBox 
-                    body={this.state.newComment}
+              
+                
+                    <CommentBox 
+                    body={this.props.newComment }
                     comments={this.props.comments} 
-                    crawlId={this.props.match.params.id}
+                    crawlId={this.props.match.params?.id}
                     fetchUsers={this.props.fetchUsers}
                     users={this.props.users}
                     currentUser={this.props.currentUser}
                 />
+              
+                
             </div>
         )
     }

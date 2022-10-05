@@ -21,6 +21,11 @@ export const writeComment = data => {
     return axios.post('/api/comments/', data)
 }
 
+export const updateComment = (comment) => {
+
+    return axios.patch(`/api/comments/${comment.id}`, comment);
+};
+
 
 // export const fetchAllComments = () => {
 //     return axios.get("/api/comments/");
