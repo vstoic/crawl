@@ -8,7 +8,6 @@ const mapStateToProps = (state) => {
         newComment: state.entities.comments.new
     };
 };
-
 const mapDispatchToProps = (dispatch) => {
     return {
         composeComment: data => dispatch(composeComment(data))
