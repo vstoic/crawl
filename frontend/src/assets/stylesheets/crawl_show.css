@@ -1,5 +1,5 @@
 .main-crawl-show-container {
-  height: 90.1vh;
+  height: 110vh;
   width: 99vw;
   /* background: linear-gradient(to top, #e6e6e677 0%, #ececec11 100%); */
   display: flex;
@@ -12,7 +12,7 @@
 .crawl-show-left {
   width: 60%;
   height: 95%;
-  /* background-color: rgba(125, 125, 125, 0.755); */
+  /* background-color: #f1f2f3; */
   /* margin-left: -4%; */
   /* padding-right: -10%; */
   display: flex;
@@ -25,26 +25,41 @@
 }
 
 .data-container {
-  border: 1px solid rgba(134, 134, 134, 0.516);
+  /* border: 1px solid rgba(134, 134, 134, 0.516); */
   width: 90%;
   height: 90%;
-  overflow: scroll;
-  overflow: hidden;
+  background-color: #f1f2f3;
+  border-radius: 15px;
+  /* overflow: scroll; */
+  /* overflow: hidden; */
 }
 
 .crawl-title {
   font-size: 310%;
   margin: 0%;
+  display: flex;
+  gap: 1vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.vote-button {
+  border: 2px solid #f1f2f3;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
 }
 .crawl-details-important {
   display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     vertical-align: center;
     flex-direction: row;
     gap: 12%;
-    font-size: 140%;
-}
+    font-size: 130%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
 
 .crawls-venues-container {
   /* border: 1px solid black; */
@@ -62,7 +77,7 @@
 
 .crawl-show-right {
   width: 40%;
-  height: 95%;
+  height: 100%;
   /* background-color: rgba(125, 125, 125, 0.755); */
   /* margin-left: -4%; */
   /* padding-right: -10%; */
@@ -86,7 +101,7 @@
 .crawl-show-map {
   color: #4e4e4ecd;
   font-size: 20px;
-  background-color: rgba(134, 134, 134, 0.208);
+  /* backgrouxnd-color: rgba(134, 134, 134, 0.208); */
   height: 100%;
   max-height: 85%;
   width: 100%;
@@ -95,17 +110,70 @@
 
 .crawl-comments-container {
   /* border: 1px solid black; */
-  background-color: rgba(128, 128, 128, 0.263);
+  background-color: #f1f2f3;
+  border-radius: 15px;
   /* max-height: 30%; */
-  /* width: 90%; */
-  /* height: %; */
+  margin-top: -18vh;
+  width: 90%;
+  /* height: 28%; */
+  /* overflow: scroll; */
   /* width: 89%; */
   /* display: flex; */
   align-items: center;
   justify-content: center;
   align-content: center;
+  z-index: 200;
 }
 
-.crawl-venue-image {
-  height: 14vh;
+.main-create-comment-container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
+
+.main-comment-container {
+max-height: 24vh;
+overflow: scroll;
+overflow-x: hidden;
+}
+
+  .main-comment-container::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .main-comment-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(187, 187, 187, 0.3);
+    border-radius: 10px;
+  }
+
+  .main-comment-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(186, 186, 186, 0.5);
+  }
+
+.each-comment {
+width: 32vw;
+padding: 3px; ;
+margin-bottom: 2vh;
+  background-color: #f19900;
+  /* width: 90%; */
+  border-radius: 10px;
+  font-size: 1.2vw;
+  color: white;
+}
+
+.create-comment-container textarea {
+  margin-top: 1.5vh;
+  max-width: 30vw;
+  min-width: 30vw; 
+  max-height: 10vh;
+  min-height: 6vh;
+  width: 30vw;
+  height: 5vh;
+}
+.crawl-venue-image {
+  height: 12vh;
+}
+

@@ -5,7 +5,8 @@ class CommentBox extends React.Component {
      constructor(props){
         super(props)
         this.state={
-            isEdit:false,id:null,
+            isEdit:false,
+            id:null,
             bodyText:''
         }
      }
@@ -15,11 +16,12 @@ class CommentBox extends React.Component {
 
     renderName = (user_id) => {
         let text = this.props.users?.data?.find((x) => x._id == user_id)?.username;
+        text += ": "
         return text;
     };
-        
+
  handleInputChange = async(e,id,crawl_id,index)=>{
-     console.log( e.target.value ,index );
+    //  console.log( e.target.value ,index );
      this.setState({indexCheck:index})
      var obj = {
         id:id,
@@ -31,46 +33,41 @@ class CommentBox extends React.Component {
 
     await updateComment(obj)
   this.props.comments[index].body = e.target.value
-    // your awesome stuffs goes here
 }
     render() {
-        const { comments, text } = this.props
-       console.log("PropsComments=====>",this.props)
+        const {comments, text, body, crawlId} = this.props
+        // console.log("PropsComments=====>",this.props)
         return (
-            <>
-            {this.props?.body && this.props.crawlId == this.props.body.crawl_id && (
-                <div>
-                    {this.renderName(this.props.body.user_id)}:
-                    {this.props.body.body}
+            <div className='main-comment-container'>
+                {body && crawlId == body.crawl_id && (
+                <div className='comment-contianer'>
+                    {this.renderName(body.user_id)}: 
+                    {body.body}
                 </div>
-            )}
-                
-                <div>
+                )}
+                <div className='comment-container'>
                 {(comments || []).map((item,index) => (
-                    <div key={item._id}>
+                    <div key={item._id} classname="each-comment">
                         {this.state.isEdit && item._id == this.state.id  ?
-                         <input type = 'text' onChange={(e)=>this.handleInputChange(e,item._id,item.crawl_id,index)} defaultValue = {item.body}/>
-                    : 
-                    (
-                        <>
+                         <input type = 'text' onChange={(e)=>this.handleInputChange(e,item._id,item.crawl_id,index)} defaultValue = {item.body}/>: 
+                    (<div className='each-comment'>
                         {this.renderName(item.user_id)}
-                       { item.body}
-                        </>
+                        {item.body}
+                        </div>
                     )
-                   
                     }
-                    
-                   {item.user_id == this.props.currentUser.id && this.state.indexCheck != index   && (
- <Link onClick={()=>this.setState({isEdit:!this.state.isEdit,id:item._id})} ><img className="edit-icon" src="https://i.postimg.cc/mkny8198/edit-icon.png" alt="" /></Link>
+                   {/* {item.user_id == this.props.currentUser.id && this.state.indexCheck != index   && (
+                    <Link onClick={()=>this.setState({isEdit:!this.state.isEdit,id:item._id})} >
+                    <img className="edit-icon" src="https://i.postimg.cc/mkny8198/edit-icon.png" alt="" /></Link>
                    )}
                     
                     {item.user_id == this.props.currentUser.id && this.state.indexCheck == index   && (
- <Link onClick={()=>this.setState({isEdit:!this.state.isEdit,id:item._id,indexCheck:null})} >Done</Link>
-                   )}
-            </div>
-          ))}
+                    <Link onClick={()=>this.setState({isEdit:!this.state.isEdit,id:item._id,indexCheck:null})} >Done</Link>
+                   )} */}
                 </div>
-            </>
+            ))}
+            </div>
+        </div>
         );
     }
 }

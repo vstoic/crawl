@@ -12,7 +12,6 @@ const mapStateToProps = (state) => {
         newCrawl: state.entities.crawls.byId.data
     };
 };
-
 const mapDispatchToProps = (dispatch) => {
     return {
         createCrawl: (crawl) => dispatch(createCrawl(crawl)),
@@ -20,5 +19,4 @@ const mapDispatchToProps = (dispatch) => {
         clearErrors: () => dispatch(clearCrawlErrors())
     };
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(CrawlForm);
