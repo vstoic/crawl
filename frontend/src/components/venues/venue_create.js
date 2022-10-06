@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-
+import GooglePlacesAutocomplete ,{geocodeByAddress,getLatLng} from 'react-google-places-autocomplete';
 class VenueForm extends React.Component {
   constructor(props) {
     super(props);
@@ -58,7 +58,18 @@ class VenueForm extends React.Component {
       }
   });
   }
-
+   handleAddress = (e)=>{
+    console.log("Location======>",e)
+  //   setSelectedAddress(e);
+    geocodeByAddress(e)
+   .then(results => getLatLng(results[0]))
+  .then(({ lat, lng }) => {
+  this.setState({latitude:lat.toFixed(5),longitude:lng.toFixed(5),address:e})
+  }
+    
+    
+  )
+   }
   render() {
     console.log("State======>",this.state)
     const { errors } = this.props;
@@ -109,14 +120,25 @@ class VenueForm extends React.Component {
               </select>
 
               <div className="errors">{errors.cost}</div>
-              <input
+              <GooglePlacesAutocomplete
+      apiKey="AIzaSyD4-hpbaKGHFJ1Qz4U4apvb-kH6UeRg9-I"
+      selectProps={{
+        placeholder: 'Address *',
+        name:"address",
+        // inputValue:inputField['address'],
+        // onInputChange : (e)=>{setInputField({...inputField, ['address']: e})},
+        onChange:(place) => {this.handleAddress(place.label)}
+        }}
+    />
+       
+              {/* <input
                 className="username-input"
                 type="address"
                 value={this.state.address}
                 onChange={this.update("address")}
                 placeholder="Address: 90 5th Ave, New York, NY 10011"
               
-              />
+              /> */}
               <div className="errors">{errors.address}</div>
 
               {/* <input
