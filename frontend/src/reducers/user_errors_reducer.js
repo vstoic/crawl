@@ -6,7 +6,7 @@ const UserErrorsReducer = (state = defaultState, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_USER_ERRORS:
-            console.log('arrival')
+            // console.log('arrival')
             return action.errors;
         case RECEIVE_USER:
             return defaultState;

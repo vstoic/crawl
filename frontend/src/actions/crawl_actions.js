@@ -45,7 +45,6 @@ export const clearCrawlErrors = () => ({
 });
 
 const receiveCrawlByMo = (crawl) => {
-  // console.log(crawl)
   return {
     type: RECEIVE_CRAWL_BY_MO,
     crawl: crawl

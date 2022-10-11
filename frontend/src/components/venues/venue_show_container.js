@@ -3,7 +3,7 @@ import VenueShow from "./venue_show";
 import { fetchVenue } from "../../actions/venue_actions";
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("VenueData=====>",state.entities.venues)
+  // console.log("VenueData=====>",state.entities.venues)
   return {
     currentUser: state.session.user,
     venue: state.entities.venues[ownProps.match.params.id],

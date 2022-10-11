@@ -127,9 +127,9 @@
 
 .main-create-comment-container div {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   align-content: center;
 }
 
@@ -157,6 +157,16 @@ overflow-x: hidden;
 width: 32vw;
 padding: 3px; ;
 margin-bottom: 2vh;
+  background-color: #f19900;
+  /* width: 90%; */
+  border-radius: 10px;
+  font-size: 1.2vw;
+  color: white;
+}
+
+.comment-container {
+  width: 32vw;
+padding: 5px; ;
   background-color: #f19900;
   /* width: 90%; */
   border-radius: 10px;

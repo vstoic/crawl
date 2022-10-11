@@ -18,7 +18,7 @@ class VenueShow extends React.Component {
 
     // need to fix on refresh edit venue link
     handlelink = () => {
-      console.log("data=========qw====>",this.state.venueb)
+      // console.log("data=========qw====>",this.state.venueb)
       if (this.state.venueb === undefined) {
       if (this.state.venue.creator_id === this.props.currentUser.id) {
         return  <Link to={"/venueEdit"} className="create-button">
@@ -44,7 +44,7 @@ class VenueShow extends React.Component {
       })
     }
    deleteVenueCheck = (id) => {
-console.log("DaleteVenue======>",id)
+// console.log("DaleteVenue======>",id)
 deleteVenue(id).then(res=>{
 this.props.history.push('/venues')
 }).catch(err => {
@@ -52,7 +52,7 @@ alert("Delete Error")
 })
    }
    handlelinkDelete(id) {
-    console.log("data=========qw====>",this.state.venueb)
+    // console.log("data=========qw====>",this.state.venueb)
     if (this.state.venueb === undefined) {
     if (this.state.venue.creator_id === this.props.currentUser.id) {
       return  <Link onClick={()=>this.deleteVenueCheck(id)} className="create-button">
@@ -70,7 +70,7 @@ alert("Delete Error")
     }
   };
     render () {
-      console.log("VenueData=====>1",this.state.venueb)
+      // console.log("VenueData=====>1",this.state.venueb)
       if (this.state.venueb === undefined) {
       return(
         <div className="venue-show-main">
@@ -78,10 +78,9 @@ alert("Delete Error")
                  <div className="venue-show-image-container">
                    <img src={this.state.venue.image} className="venue-show-image" />
                  </div>
-                 <div className="venue-show-map-container">
                    <div className="map-container">
                      <GoogleMap venueLat={this.state.venue.latitude} venueLong={this.state.venue.longitude} />
-                   </div>
+                  
                  </div>
                </div>
                <div className="right-column">
@@ -112,10 +111,9 @@ alert("Delete Error")
                    <img src={this.state.venueb.image} className="venue-show-image" />
                  
                  </div>
-                 {/* <div className="venue-show-map-container"> */}
-                   {/* <div className="map-container"> */}
-                   {/* </div> */}
-                 {/* </div> */}
+                 <div className="map-container">
+               <GoogleMap venueLat={this.state.venueb.latitude} venueLong={this.state.venueb.longitude} />
+               </div>
                </div>
                <div className="right-column">
                  <div className="business-details">
@@ -139,7 +137,6 @@ alert("Delete Error")
 
                 
              </div>
-               <GoogleMap venueLat={this.state.venueb.latitude} venueLong={this.state.venueb.longitude} />
                </>
         )
       }

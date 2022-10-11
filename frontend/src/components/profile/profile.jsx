@@ -102,11 +102,11 @@ class Profile extends React.Component {
               <div className="profile-right-crawls">No Crawls Created</div>
             )}
             {(this.props.crawlsReducer?.crawlByUser?.data || []).map((item) => (
-                <div className="each-crawl-container">
+                <div key={item._id} className="each-crawl-container">
                   <div className="profile-crawl-header">
                     <Link to={`/crawl/${item._id}`}>{item.title}</Link>
-                    <div className="edit-crawl-container"><Link to={`/crawlEdit/${item._id}`}><img className="edit-icon" src="https://i.postimg.cc/mkny8198/edit-icon.png" alt="" /></Link></div>
-                    <div className="edit-crawl-container"><Link  onClick={()=>this.removeCrawl(item._id)}><img className="edit-icon" src="https://i.postimg.cc/mkny8198/delete-icon.png" alt="" /></Link></div>
+                    <Link to={`/crawlEdit/${item._id}`}><div className="edit-crawl-container"><img className="edit-icon" src="https://i.postimg.cc/mkny8198/edit-icon.png" alt="" /><div className="profile-edit-delete">Edit</div></div></Link>
+                    <div onClick={()=>this.removeCrawl(item._id)} className="delete-crawl-container"><div><img className="edit-icon" src="https://i.postimg.cc/mkny8198/delete-icon.png" alt="" /></div><div className="profile-edit-delete">Delete</div></div>
                     </div>
                   <div className="each-crawl">
                     <div className="each-desc">

@@ -31,7 +31,8 @@ const crawlsReducer = (oldState = _nullState, action) => {
             const crawls = action.crawls
             crawls.forEach(crawl => {
                 nextState.byMo[crawl._id] = crawl
-            });
+            })
+            return nextState;
         case RECEIVE_CRAWL_BY_MO:
             nextState.byMo[action.crawl._id] = action.crawl
             return nextState;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const VenueIndexItem = ({ venue }) => {
-    console.log("test", venue)
+    // console.log("test", venue)
     return (
         <div className='each-venue-idx'>
             
