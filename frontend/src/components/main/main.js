@@ -7,8 +7,9 @@ import MainPageItem from "./main_page_item";
 
 class MainPage extends React.Component {
 componentDidMount(){
-  this.props.fetchAllCrawls();
   this.props.fetchAllVenues();
+  this.props.fetchAllCrawls();
+  
 }
 
   render() {
@@ -90,7 +91,7 @@ componentDidMount(){
             {
               this.props.crawls.map(crawl => (
                 <MainPageItem
-                key={crawl.id}
+                key={crawl._id}
                 crawl={crawl}
                 title={crawl.title}
                 time={crawl.time}
@@ -98,7 +99,7 @@ componentDidMount(){
                 cost={crawl.cost}
                 votecount={crawl.votecount}
                 description={crawl.description}
-                venues={crawl.venues}
+                crawlVenues={crawl.venues}
                 venueReducer={this.props.venueReducer}
                 fetchAllVenues={this.props.fetchAllVenues}
                 />

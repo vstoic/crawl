@@ -59,7 +59,7 @@ class VenueForm extends React.Component {
   });
   }
    handleAddress = (e)=>{
-    console.log("Location======>",e)
+    // console.log("Location======>",e)
   //   setSelectedAddress(e);
     geocodeByAddress(e)
    .then(results => getLatLng(results[0]))
@@ -71,7 +71,7 @@ class VenueForm extends React.Component {
   )
    }
   render() {
-    console.log("State======>",this.state)
+    // console.log("State======>",this.state)
     const { errors } = this.props;
     return (
       <div className="session-background">

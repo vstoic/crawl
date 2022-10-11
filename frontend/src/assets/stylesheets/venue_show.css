@@ -1,12 +1,13 @@
 .venue-show-main {
     height: 90.1vh;
     width: 99vw;
-    background: linear-gradient(to top, #e6e6e677 0%, #ececec11 100%);    
+    /* background: linear-gradient(to top, #e6e6e677 0%, #ececec11 100%);     */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     font-family: 'Quicksand';
+    background-color: #f1f2f3;
     /* gap: 4%; */
 }
 
@@ -66,14 +67,14 @@
     transition: .5s ease; */
 }
 
-.venue-show-map-container {
+/* .venue-show-map-container {
     height: 43%;
     width: 100%;
      display: flex;
     align-items: center;
    
     align-content: center; 
-}
+} */
 
 .venue-show-map {
     color: #4e4e4ecd;
@@ -83,6 +84,16 @@
     max-height: 85%;
     width: 90%;
     max-width: 90%;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    background-color: #f1f2f3;
+    height: 600px;
+    width: 100vw;
 }
 
 .business-details {

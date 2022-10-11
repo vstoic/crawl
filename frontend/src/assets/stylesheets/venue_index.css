@@ -1,13 +1,13 @@
 .venue-index-main {
-    height: 88vh;
-    width: 99vw;
+    /* height: 88vh;
+    width: 99vw; */
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    padding-top: 30vh;
+    /* padding-top: 30vh; */
     /* gap: 6%; */
 }
 

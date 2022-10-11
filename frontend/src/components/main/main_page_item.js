@@ -5,18 +5,18 @@ import "../../assets/stylesheets/main.css";
 
 
 class MainPageItem extends React.Component  {
-   componentDidMount(){
-    this.props.fetchAllVenues()
-   }
+//    componentDidMount(){
+//     this.props.fetchAllVenues()
+//    }
    
    render(){
-        const { crawl, venueReducer, title, time, distance, venues, cost, votecount, description } = this.props;
+        const { crawl, venueReducer, title, time, distance, crawlVenues, cost, votecount, description } = this.props;
     //    const crawlVenues = venues.split(", ");
-       const renderName = (id) => {
-        //    console.log("victorsData(renderName before)========>", this.props);
-           let text = this.props.venueReducer[id];
-           return text;
-       };
+    //    const renderName = (id) => {
+    //     //    console.log("victorsData(renderName before)========>", this.props);
+    //        let text = this.props.venueReducer[id];
+    //        return text;
+    //    };
         return(
             
             <div className="each-crawl-container">
@@ -35,9 +35,11 @@ class MainPageItem extends React.Component  {
                     {/* <h2>Website</h2> */}
                     <div className="crawl-venue-container">
                         <div>
-                         {venues?.map((item) => (
-                            <div key={renderName(item?._id)} className="each-crawl-venue-details">
-                                <li><Link to={`/venueShow/${item}`}>{renderName(item?.name)}</Link></li>
+                         {crawlVenues?.map((item) => (
+                            <div key={item} className="each-crawl-venue-details">
+                                {(this.props.venueReducer[item])? 
+                                  <li key={item}><Link key={item} to={`/venueShow/${item}`}>{this.props.venueReducer[item].name}</Link></li> : null
+                                }
                                 {/* <div className="mp-image-container">
                                     <img src={renderImageSrc(item)} className="main-page-images" />
                                 </div> */}

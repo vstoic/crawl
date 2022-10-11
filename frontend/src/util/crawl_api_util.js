@@ -24,7 +24,7 @@ export const updateCrawl = (crawl) => {
 export const createCrawl = async (crawlData) => {
 
   let create_crawl = await axios.post("/api/crawls", crawlData);
-  console.log("create_crawl",create_crawl)
+  // console.log("create_crawl",create_crawl)
   return create_crawl
 };
 export const getCrawlsByUser = async(userId) => {

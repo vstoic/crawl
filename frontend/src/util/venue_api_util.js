@@ -25,12 +25,12 @@ export const updateVenue = (venue) => {
 export const createVenue = async (venueData) => {
 
   let create_venue = await axios.post("/api/venues", venueData);
-  console.log("create_venue",create_venue)
+  // console.log("create_venue",create_venue)
   return create_venue
 };
 export const getVenuesByUser = async(userId) => {
   let getvenue = await axios.get(`/api/venues/users/${userId}`);
-  console.log("Data=========>",getvenue)
+  // console.log("Data=========>",getvenue)
   return getvenue;
 };
 

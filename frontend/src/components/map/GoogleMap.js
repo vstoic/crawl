@@ -59,7 +59,7 @@ class MapContainer extends React.Component {
 
 
     render() {
-        console.log("eeeeeeeeeeeeeeeee",this.props.google)
+        // console.log("eeeeeeeeeeeeeeeee",this.props.google)
         // debugger
         return (
             

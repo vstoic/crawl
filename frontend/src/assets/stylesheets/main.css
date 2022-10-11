@@ -73,7 +73,7 @@
         align-items: center;
         justify-content: center;
         /* gap: 2vw; */
-        
+        min-width: 180px;
 
     }
 

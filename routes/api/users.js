@@ -44,7 +44,7 @@ router.get('/:id', (req, res) => {
 router.post("/register", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  console.log("SignUp========>",req)
+  // console.log("SignUp========>",req)
     const { errors, isValid } = validateRegisterInput(req.body);
   
     if (!isValid) {

@@ -40,14 +40,14 @@ class CommentBox extends React.Component {
         return (
             <div className='main-comment-container'>
                 {body && crawlId == body.crawl_id && (
-                <div className='comment-contianer'>
+                <div className='comment-container'>
                     {this.renderName(body.user_id)}: 
                     {body.body}
                 </div>
                 )}
                 <div className='comment-container'>
                 {(comments || []).map((item,index) => (
-                    <div key={item._id} classname="each-comment">
+                    <div key={item._id} className="each-comment">
                         {this.state.isEdit && item._id == this.state.id  ?
                          <input type = 'text' onChange={(e)=>this.handleInputChange(e,item._id,item.crawl_id,index)} defaultValue = {item.body}/>: 
                     (<div className='each-comment'>

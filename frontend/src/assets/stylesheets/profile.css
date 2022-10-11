@@ -65,14 +65,46 @@
 }
 .edit-crawl-container {
   display: flex;
-  height: 10vh;
   justify-content: center;
   align-content: center;
   align-items: center;
+  flex-direction: row;
+  border-radius: 8px;
+  padding: 3px;
 }
+
+
+.edit-crawl-container:hover {
+  cursor: pointer;
+  background-color: orange;
+}
+
+.delete-crawl-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 8px;
+  padding: 3px;
+}
+
+
+.delete-crawl-container:hover {
+  cursor: pointer;
+  background-color: orange;
+}
+
 .edit-icon {
   display: flex;
   width: 1.4vw;
   height: auto;
   filter: opacity(50%);
+}
+
+.profile-edit-delete {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

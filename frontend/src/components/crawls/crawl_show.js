@@ -120,7 +120,8 @@ function CrawlShow(props) {
             <div className="crawl-description">{crawlDescription}</div>
             <div className="crawls-venues-container">
               {crawlVenues?.map((item) => (
-                <div key={item._id} className="each-venue">
+               
+                <div key={item} className="each-venue">
                   <div className="">
                     <Link to={`/venueShow/${item}`}>
                       {renderForVenues(item).name}

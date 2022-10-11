@@ -13,7 +13,7 @@ const venuesReducer = (oldState = {}, action) => {
       return nextState;
       // return action.venues;
     case RECEIVE_VENUE:
-      console.log(action)
+      // console.log(action)
       nextState[action.venue._id] = action.venue
       return nextState;
     default:
