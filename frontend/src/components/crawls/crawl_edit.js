@@ -132,7 +132,7 @@ class CrawlEdit extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <div>
                             {/* <p>Category</p> */}
-                            <select className="username-input"
+                            <select className="venue-input-cost"
                                     onChange={this.update("category")}
                             >
                                 <option value="defaultValue">{this.state.category}</option>
@@ -149,7 +149,7 @@ class CrawlEdit extends React.Component {
 
                             {/* <p>Description</p> */}
                             <textarea
-                                className="username-input"
+                                className="venue-input"
                                 type="description"
                                 value={this.state.description}
                                 onChange={this.update("description")}
@@ -161,7 +161,7 @@ class CrawlEdit extends React.Component {
 
                             
                             {/* <p>Cost</p> */}
-                            <select className="username-input"
+                            <select className="venue-input-cost"
                                     onChange={this.update("cost")}
                             >
                                 <option value="defaultValue">{this.state.cost}</option>
@@ -176,7 +176,7 @@ class CrawlEdit extends React.Component {
 
                             {/* <p>Title</p> */}
                             <input
-                                className="username-input"
+                                className="venue-input"
                                 type="text"
                                 value={this.state.title}
                                 onChange={this.update("title")}
@@ -188,7 +188,7 @@ class CrawlEdit extends React.Component {
        
                             {/* <p>Time</p> */}
                             <input
-                                className="username-input"
+                                className="venue-input"
                                 type="text"
                                 value={this.state.time}
                                 onChange={this.update("time")}
@@ -199,7 +199,7 @@ class CrawlEdit extends React.Component {
                             <div className="errors">{errors.time}</div>
                             {/* <p>Distance</p> */}
                             <input
-                                className="username-input"
+                                className="venue-input"
                                 type="distance"
                                 value={this.state.distance}
                                 onChange={this.update("distance")}
@@ -209,7 +209,7 @@ class CrawlEdit extends React.Component {
                             <div className="errors">{errors.distance}</div>
 
                             <div>
-                                <p>Venues</p>
+                                <span>Venues</span>
                                 <ul className='selected-venues'>
                                      {
                                         this.state.venues.map((venue_id, idx) => 
@@ -224,7 +224,7 @@ class CrawlEdit extends React.Component {
 
                                 <select 
                                     onChange={this.update("venue")}
-                                    className="username-input"
+                                    className="venue-input-cost"
                                 >
                                     <option value="defaultValue">Select a Venue</option>
                                     {

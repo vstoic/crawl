@@ -91,7 +91,7 @@ class VenueEditForm extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div>
               <input
-                className="username-input"
+                className="venue-input"
                 type="name"
                 value={this.state.name}
                 onChange={this.update("name")}
@@ -100,7 +100,7 @@ class VenueEditForm extends React.Component {
               />
               <div className="errors">{errors.name}</div>
               <input
-                className="username-input"
+                className="venue-input"
                 type="description"
                 value={this.state.description}
                 onChange={this.update("description")}
@@ -108,7 +108,7 @@ class VenueEditForm extends React.Component {
               />
 
             {/* the option should be pre-selected need to work on */}
-              <select className="username-input"
+              <select className="venue-input-cost"
                       onChange={this.update("cost")}
               >
                   <option value="defaultValue" selected="true" disabled="disabled">Select a Cost</option>
@@ -121,7 +121,7 @@ class VenueEditForm extends React.Component {
 
               <div className="errors">{errors.cost}</div>
               <input
-                className="username-input"
+                className="venue-input"
                 type="address"
                 value={this.state.address}
                 onChange={this.update("address")}
@@ -131,7 +131,7 @@ class VenueEditForm extends React.Component {
               <div className="errors">{errors.address}</div>
               <img className="profile-img" src={this.state.image} alt='<img className="personal-link-photo"/>'/>
               {/* <input
-                className="username-input"
+                className="venue-input"
                 type="text"
                 value={this.state.image}
                 onChange={this.update("image")}
@@ -141,7 +141,7 @@ class VenueEditForm extends React.Component {
                <input type="file" accept="images/*" onChange={(e) => this.getImageUrl(e.target.files[0])}/>
 
               <input
-                className="username-input"
+                className="venue-input"
                 type="website"
                 value={this.state.website}
                 onChange={this.update("website")}
@@ -151,7 +151,7 @@ class VenueEditForm extends React.Component {
           
 
               <input
-                className="username-input"
+                className="venue-input"
                 type="latitude"
                 value={this.state.latitude}
                 onChange={this.update("latitude")}
@@ -161,7 +161,7 @@ class VenueEditForm extends React.Component {
               <div className="errors">{errors.latitude}</div>
 
               <input
-                className="username-input"
+                className="venue-input"
                 type="longitude"
                 value={this.state.longitude}
                 onChange={this.update("longitude")}

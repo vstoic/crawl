@@ -20,6 +20,27 @@ componentDidMount(){
     // debugger
     return (
       <div className="main-page-container">
+        <div className="main-crawl-container">
+          <div className="crawl-container">
+            {
+              this.props.crawls.map(crawl => (
+                <MainPageItem
+                key={crawl._id}
+                crawl={crawl}
+                title={crawl.title}
+                time={crawl.time}
+                distance={crawl.distance}
+                cost={crawl.cost}
+                votecount={crawl.votecount}
+                description={crawl.description}
+                crawlVenues={crawl.venues}
+                venueReducer={this.props.venueReducer}
+                fetchAllVenues={this.props.fetchAllVenues}
+                />
+              ))
+            }
+          </div>
+        </div>
         <div className="main-left-container">
           {/* <div className="category-container">
             category-container</div> */}
@@ -85,27 +106,6 @@ componentDidMount(){
                 src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
             </div>
             </div>
-        </div>
-        <div className="main-crawl-container">
-          <div className="crawl-container">
-            {
-              this.props.crawls.map(crawl => (
-                <MainPageItem
-                key={crawl._id}
-                crawl={crawl}
-                title={crawl.title}
-                time={crawl.time}
-                distance={crawl.distance}
-                cost={crawl.cost}
-                votecount={crawl.votecount}
-                description={crawl.description}
-                crawlVenues={crawl.venues}
-                venueReducer={this.props.venueReducer}
-                fetchAllVenues={this.props.fetchAllVenues}
-                />
-              ))
-            }
-          </div>
         </div>
       </div>
     );

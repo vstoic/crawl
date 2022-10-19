@@ -101,7 +101,7 @@ class CrawlForm extends React.Component {
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <div>
-                            <select className="username-input"
+                            <select className="venue-input-cost"
                                     onChange={this.update("category")}>
                                 <option value="defaultValue" selected="true" disabled="disabled">Select a Category</option>
                                 <option value={"Food and Drinks"}>Food and Drinks</option>
@@ -114,14 +114,14 @@ class CrawlForm extends React.Component {
                             </select>
                             <div className="errors">{errors.category}</div>
                             <textarea
-                                className="username-input"
+                                className="venue-input"
                                 type="description"
                                 value={this.state.description}
                                 onChange={this.update("description")}
                                 placeholder="Description: What's your crawl all about?."
                             />
                             <div className="errors">{errors.description}</div>
-                            <select className="username-input"
+                            <select className="venue-input-cost"
                                     onChange={this.update("cost")}
                                 >
                                 <option value="defaultValue" selected="true" disabled="disabled">Select a Cost</option>
@@ -133,7 +133,7 @@ class CrawlForm extends React.Component {
                             </select>
                             <div className="errors">{errors.cost}</div>
                             <input
-                                className="username-input"
+                                className="venue-input"
                                 type="text"
                                 value={this.state.title}
                                 onChange={this.update("title")}
@@ -141,7 +141,7 @@ class CrawlForm extends React.Component {
                             />
                             <div className="errors">{errors.title}</div>
                             <input
-                                className="username-input"
+                                className="venue-input"
                                 type="text"
                                 value={this.state.time}
                                 onChange={this.update("time")}
@@ -149,7 +149,7 @@ class CrawlForm extends React.Component {
                             />
                             <div className="errors">{errors.time}</div>
                             <input
-                                className="username-input"
+                                className="venue-input"
                                 type="distance"
                                 value={this.state.distance}
                                 onChange={this.update("distance")}
@@ -157,7 +157,7 @@ class CrawlForm extends React.Component {
                             />
                             <div className="errors">{errors.distance}</div>
                             <div>
-                                <p>Venues</p>
+                                <span id="venues-span">Venues</span>
                                 <ul className='selected-venues'>
                                      {
                                         this.state.venues.map((venue_id, idx) => 
@@ -182,7 +182,7 @@ class CrawlForm extends React.Component {
                                     } */}
                                 <select 
                                     onChange={this.update("venue")}
-                                    className="username-input"
+                                    className="venue-input-cost"
                                 >
                                     <option value="defaultValue" selected="true" disabled="disabled">Select a Venue</option>
                                     {
