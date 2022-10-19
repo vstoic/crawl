@@ -90,9 +90,9 @@ class VenueForm extends React.Component {
             <h1 className="signup-text1">Add a Venue</h1>
           </div>
           <form onSubmit={this.handleSubmit}>
-            <div>
+            <div className="venue-create-form">
               <input
-                className="username-input"
+                className="venue-input"
                 type="name"
                 value={this.state.name}
                 onChange={this.update("name")}
@@ -101,14 +101,14 @@ class VenueForm extends React.Component {
               />
               <div className="errors">{errors.name}</div>
               <input
-                className="username-input"
+                className="venue-input"
                 type="description"
                 value={this.state.description}
                 onChange={this.update("description")}
                 placeholder="Description"
               />
 
-              <select className="username-input"
+              <select className="venue-input-cost"
                       onChange={this.update("cost")}
               >
                   <option value="defaultValue" selected="true" disabled="disabled">Select a Cost</option>
@@ -120,6 +120,7 @@ class VenueForm extends React.Component {
               </select>
 
               <div className="errors">{errors.cost}</div>
+              <div className="venue-addy">
               <GooglePlacesAutocomplete
       apiKey="AIzaSyD4-hpbaKGHFJ1Qz4U4apvb-kH6UeRg9-I"
       selectProps={{
@@ -130,7 +131,7 @@ class VenueForm extends React.Component {
         onChange:(place) => {this.handleAddress(place.label)}
         }}
     />
-       
+       </div>
               {/* <input
                 className="username-input"
                 type="address"
@@ -149,10 +150,11 @@ class VenueForm extends React.Component {
                 placeholder="Image url"
               
               /> */}
+              <span id="add-image">Add Image   </span>
                <input type="file" accept="images/*" onChange={(e) => this.getImageUrl(e.target.files[0])}/>
 
               <input
-                className="username-input"
+                className="venue-input"
                 type="website"
                 value={this.state.website}
                 onChange={this.update("website")}
@@ -162,7 +164,7 @@ class VenueForm extends React.Component {
           
 
               <input
-                className="username-input"
+                className="venue-input"
                 type="latitude"
                 value={this.state.latitude}
                 onChange={this.update("latitude")}
@@ -172,7 +174,7 @@ class VenueForm extends React.Component {
               <div className="errors">{errors.latitude}</div>
 
               <input
-                className="username-input"
+                className="venue-input"
                 type="longitude"
                 value={this.state.longitude}
                 onChange={this.update("longitude")}

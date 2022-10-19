@@ -122,16 +122,18 @@ function CrawlShow(props) {
               {crawlVenues?.map((item) => (
                
                 <div key={item} className="each-venue">
-                  <div className="">
+                  <div className="crawl-venue-left">
                     <Link to={`/venueShow/${item}`}>
                       {renderForVenues(item).name}
                     </Link>
                     <div>{renderForVenues(item).cost}</div>
                     <div>-{renderForVenues(item).description}</div>
                   </div>
+                  <div className="crawl-img-container">
                   <img
                     className="crawl-venue-image"
                     src={renderForVenues(item).image}/>
+                    </div>
                 </div>
               ))}
             </div>
