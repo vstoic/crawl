@@ -29,7 +29,7 @@ class VenueIndex extends Component {
               />
             ))
           }
-          {
+          {/* {
             this.props.venues.forEach(venue => {
               if(venue.creator_id === this.props.currentUser.id) {
                 // <Link to={"/crawlCreate/"} className="create-button">
@@ -48,7 +48,7 @@ class VenueIndex extends Component {
                 return <span>It works!</span>
               }
             })
-          }
+          } */}
         </div>
       </div>
     );
