@@ -193,10 +193,19 @@
     margin-top: 5px;
     margin-bottom: 5px;
     max-width: 330px;
-    margin-left: 60px;
+    flex: 1;
+    width: 100%;
 }
 
-#add-image {
-    margin-left: 75px;
+
+.venue-create-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.venue-addy1 {
+    width: 100%;
+    flex: 1;
+}

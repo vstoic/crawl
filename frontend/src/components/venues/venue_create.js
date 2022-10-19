@@ -86,11 +86,13 @@ class VenueForm extends React.Component {
           />
         </div>
         <div className="signup-container">
-          <div className="signup-text">
+          
+          <form onSubmit={this.handleSubmit}>
+            
+            <div className="venue-create-form">
+            <div className="signup-text">
             <h1 className="signup-text1">Add a Venue</h1>
           </div>
-          <form onSubmit={this.handleSubmit}>
-            <div className="venue-create-form">
               <input
                 className="venue-input"
                 type="name"
@@ -121,7 +123,7 @@ class VenueForm extends React.Component {
 
               <div className="errors">{errors.cost}</div>
               <div className="venue-addy">
-              <GooglePlacesAutocomplete
+              <GooglePlacesAutocomplete className="venue-addy1"
       apiKey="AIzaSyD4-hpbaKGHFJ1Qz4U4apvb-kH6UeRg9-I"
       selectProps={{
         placeholder: 'Address *',
@@ -150,7 +152,7 @@ class VenueForm extends React.Component {
                 placeholder="Image url"
               
               /> */}
-              <span id="add-image">Add Image   </span>
+              <div><span>Add Image</span></div>
                <input type="file" accept="images/*" onChange={(e) => this.getImageUrl(e.target.files[0])}/>
 
               <input
