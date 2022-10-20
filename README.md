@@ -8,11 +8,17 @@ with the venues they chose to add to it.
 ## Technologies Used
 
  React
+ 
  Redux
+ 
  MongoDB
+ 
  Express.js
+ 
  Axios
- Google Places Api
+ 
+ Google Places Api 
+ 
 
 ## Functionality and Features
 
