@@ -89,7 +89,7 @@ class VenueEditForm extends React.Component {
             <h1 className="signup-text1">Edit Venue</h1>
           </div>
           <form onSubmit={this.handleSubmit}>
-            <div>
+            <div className="venue-create-form">
               <input
                 className="venue-input"
                 type="name"
