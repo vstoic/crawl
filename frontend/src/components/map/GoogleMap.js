@@ -61,6 +61,9 @@ class MapContainer extends React.Component {
     render() {
         // console.log("eeeeeeeeeeeeeeeee",this.props.google)
         // debugger
+        // console.log(ENV["GKEY"])
+        // console.log("NEXT")
+        // console.log(ENV[GKEY])
         return (
             
                 
@@ -97,5 +100,5 @@ class MapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: GKEY ? GKEY : process.env.GKEY
+    apiKey: GKEY 
 })(MapContainer)
