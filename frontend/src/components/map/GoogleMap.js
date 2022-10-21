@@ -1,6 +1,6 @@
 import React from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import { GKEY } from '../../googlekey.js';
+import { GKEY } from '../../googlekey';
 import "../../assets/stylesheets/map.css";
 // import  { 
 //     geocodeByAddress,
@@ -97,5 +97,5 @@ class MapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: GKEY
+    apiKey: GKEY ? GKEY : process.env.GKEY
 })(MapContainer)
