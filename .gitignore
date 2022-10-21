@@ -3,6 +3,7 @@
 /frontend/node_modules
 .env
 /config/keys_dev.js
+/config/googlekey_dev.js
 # /frontend/src/googlekey.js
 /frontend/src/googlekey_dev.js
 /frontend/src/yelp-api/yelpkey_dev.js
