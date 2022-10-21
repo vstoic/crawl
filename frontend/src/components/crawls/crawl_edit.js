@@ -130,7 +130,7 @@ class CrawlEdit extends React.Component {
                         <h1 className="signup-text1">Edit Crawl</h1>
                     </div>
                     <form onSubmit={this.handleSubmit}>
-                        <div>
+                        <div className="venue-create-form">
                             {/* <p>Category</p> */}
                             <select className="venue-input-cost"
                                     onChange={this.update("category")}
@@ -214,7 +214,7 @@ class CrawlEdit extends React.Component {
                                      {
                                         this.state.venues.map((venue_id, idx) => 
                                             <li className="selected-exercises-individuals">
-                                                    <p>{renderName(venue_id)}</p>
+                                                    <div>{renderName(venue_id)}</div>
                                                     <button className="button" id="remove-from-list" onClick={() => this.removeVenue(idx)}>Remove Venue</button>  
                                             </li>
                                         )}
