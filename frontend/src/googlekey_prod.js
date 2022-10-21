@@ -1,3 +1,3 @@
 module.exports = {
-    GKEY: ENV["GKEY"]
+    GKEY: process.env.GKEY
 }
