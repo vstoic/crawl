@@ -138,8 +138,9 @@ alert("Delete Error")
                    </div>
                    <p className="vd-show">Details: {this.state.venueb.description}</p>
                    <p className="va-show">Address: {this.state.venueb.address}</p>
+                   {loggedIn? this.handlelink(): null}
                  </div>
-                 {loggedIn? this.handlelink(): null}
+         
                  <div>
                  {/* {loggedIn? this.handlelinkDelete(this.state.venue._id): null} */}
                  </div>
