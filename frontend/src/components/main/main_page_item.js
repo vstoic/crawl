@@ -20,7 +20,7 @@ class MainPageItem extends React.Component  {
         return(
             
             <div className="each-crawl-container">
-                    <Link to={`/crawl/${crawl._id}`}>{title}</Link>
+                    <Link className="crawl-links" to={`/crawl/${crawl._id}`}>{title}</Link>
                 <div className="each-crawl">
                     <div className="each-desc">
                         {/* <Link to={`/crawl/${item._id}`}>{item.title} </Link> */}

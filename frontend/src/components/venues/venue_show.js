@@ -21,16 +21,16 @@ class VenueShow extends React.Component {
       // console.log("data=========qw====>",this.state.venueb)
       if (this.state.venueb === undefined) {
       if (this.state.venue.creator_id === this.props.currentUser.id) {
-        return  <Link to={"/venueEdit"} className="create-button">
+        return  <div className="venue-edit-container"><Link  to={"/venueEdit"} className="venue-edit-button1">
                 Edit Venue
-              </Link>
+              </Link></div>
       }
     }
       else {
         if (this.state.venueb.creator_id === this.props.currentUser.id) {
-          return  <Link to={"/venueEdit"} className="create-button">
+          return  <div className="venue-edit-container"><Link  to={"/venueEdit"} className="venue-edit-button1">
                   Edit Venue
-                </Link>
+                </Link></div>
         }
       }
     };
@@ -55,17 +55,17 @@ alert("Delete Error")
     // console.log("data=========qw====>",this.state.venueb)
     if (this.state.venueb === undefined) {
     if (this.state.venue.creator_id === this.props.currentUser.id) {
-      return  <Link onClick={()=>this.deleteVenueCheck(id)} className="create-button">
+      return  <div className="venue-edit-container"><Link onClick={()=>this.deleteVenueCheck(id)} className="create-button">
              Delete Venue
-            </Link>
+            </Link></div>
     }
   }
     else {
       if (this.state.venueb.creator_id === this.props.currentUser.id) {
-      return  <Link onClick={()=>this.deleteVenueCheck(id)} className="create-button">
+      return  <div className="venue-edit-container"><Link onClick={()=>this.deleteVenueCheck(id)} className="create-button">
      
                 Delete Venue
-              </Link>
+              </Link></div>
       }
     }
   };
@@ -79,7 +79,7 @@ alert("Delete Error")
           <div className="venue-show-top">
               <div className="left-column">
               <div className="map-container">
-                     <GoogleMap venueLat={this.state.venue.latitude} venueLong={this.state.venue.longitude} />
+                    {this.state.venue && <GoogleMap venueLat={this.state.venue.latitude} venueLong={this.state.venue.longitude} />}
                   
                  </div>
                
@@ -96,10 +96,11 @@ alert("Delete Error")
                    </div>
                    <p className="vd-show">Details: {this.state.venue.description}</p>
                    <p className="va-show">Address: {this.state.venue.address}</p>
-                 </div>
                  {loggedIn? this.handlelink(): null}
+
+                 </div>
                  <div>
-                 {loggedIn? this.handlelinkDelete(this.state.venue._id): null}
+                 {/* {loggedIn? this.handlelinkDelete(this.state.venue._id): null} */}
                  </div>
                </div>
                </div>
@@ -108,7 +109,7 @@ alert("Delete Error")
 
 
                <div className="venue-show-image-container">
-                   <img src={this.state.venue.image} className="venue-show-image" />
+                   { this.state.venue.image && <img src={this.state.venue.image} className="venue-show-image" />}
                  </div>
              </div>
 
@@ -121,7 +122,7 @@ alert("Delete Error")
           <div className="venue-show-top">
               <div className="left-column">
               <div className="map-container">
-               <GoogleMap venueLat={this.state.venueb.latitude} venueLong={this.state.venueb.longitude} />
+               {this.state.venueb.latitude && <GoogleMap venueLat={this.state.venueb.latitude} venueLong={this.state.venueb.longitude} />}
                </div>
                 
                  
@@ -140,13 +141,13 @@ alert("Delete Error")
                  </div>
                  {loggedIn? this.handlelink(): null}
                  <div>
-                 {loggedIn? this.handlelinkDelete(this.state.venue._id): null}
+                 {/* {loggedIn? this.handlelinkDelete(this.state.venue._id): null} */}
                  </div>
                </div>
                </div>
                  
                <div className="venue-show-image-container">
-                   <img src={this.state.venueb.image} className="venue-show-image" />
+              { this.state.venueb.image &&  <img src={this.state.venueb.image} className="venue-show-image" />}
                  </div>
                 
              </div>

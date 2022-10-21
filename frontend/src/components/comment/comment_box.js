@@ -39,10 +39,13 @@ class CommentBox extends React.Component {
         // console.log("PropsComments=====>",this.props)
         return (
             <div className='main-comment-container'>
+                
                 {body && crawlId == body.crawl_id && (
-                <div className='comment-container'>
+                    <div className='comment-container2'>
+                <div className='each-comment'>
                     {this.renderName(body.user_id)}: 
                     {body.body}
+                </div>
                 </div>
                 )}
                 <div className='comment-container'>
@@ -50,7 +53,7 @@ class CommentBox extends React.Component {
                     <div key={item._id} className="each-comment">
                         {this.state.isEdit && item._id == this.state.id  ?
                          <input type = 'text' onChange={(e)=>this.handleInputChange(e,item._id,item.crawl_id,index)} defaultValue = {item.body}/>: 
-                    (<div className='each-comment'>
+                    (<div className='each-comment-inside'>
                         {this.renderName(item.user_id)}
                         {item.body}
                         </div>
