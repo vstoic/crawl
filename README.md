@@ -10,18 +10,19 @@ with the venues they chose to add to it.
 
 ## Technologies Used
 
- React
- 
- Redux
- 
- MongoDB
- 
- Express.js
- 
- Axios
- 
- Google Places Api 
- 
+  * Javascript
+  * CSS 3
+  * HTML 5
+  * MongoDb
+  * Express.Js
+  * Axios
+  * React
+  * Redux
+  * Node.Js
+  * NPM/Webpack/Babel
+  * Cloudinary
+  * Heroku
+
 
 ## Functionality and Features
 
