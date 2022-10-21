@@ -7,3 +7,5 @@
 # /frontend/src/googlekey.js
 /frontend/src/googlekey_dev.js
 /frontend/src/yelp-api/yelpkey_dev.js
+
+/frontend/privateenv/google

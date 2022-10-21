@@ -1,3 +1,3 @@
 module.exports = {
-    GKEY: process.env.GKEY
+    GKEY: process.env.REACT_APP_GKEY
 }

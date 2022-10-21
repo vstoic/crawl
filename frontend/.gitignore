@@ -26,3 +26,5 @@ yarn-error.log*
 src/googlekey_dev.js
 
 src/yelp-api/yelpkey_dev.js
+
+privateenv/google.env
