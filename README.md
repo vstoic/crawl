@@ -21,7 +21,8 @@ with the venues they chose to add to it.
   * Redux
   * Node.Js
   * NPM/Webpack/Babel
-  * Cloudinary
+  * Cloudinary Upload API
+  * Google Maps API
   * Heroku
 
 
