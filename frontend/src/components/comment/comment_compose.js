@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import CommentBox from "./comment_box_container";
+import "../../assets/stylesheets/comment.css";
+
 
 class CommentCompose extends React.Component {
     constructor(props) {
@@ -82,7 +84,7 @@ class CommentCompose extends React.Component {
                     currentUser={this.props.currentUser}
                     forceRender={this.forceRender}
                 />
-                <form onSubmit={this.handleSubmit} className="create-comment-container">
+                {this.props.currentUser ?<form onSubmit={this.handleSubmit} className="create-comment-container">
                     <textarea
                         value={this.state.body}
                         onChange={this.update()}
@@ -91,7 +93,7 @@ class CommentCompose extends React.Component {
                     />
                     <br/>
                     <input className="comment-submit" type="submit" value="Submit" />
-                </form>
+                </form>: <div className="comment-no-user"></div>}
             </div>
         )
     }

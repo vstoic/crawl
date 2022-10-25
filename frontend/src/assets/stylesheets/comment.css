@@ -23,3 +23,8 @@
     border-radius: 8px;
     padding: 2px;
 }
+
+.comment-no-user{
+    flex: 1;
+    padding: 10px;
+}
