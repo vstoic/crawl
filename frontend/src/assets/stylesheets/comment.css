@@ -1,0 +1,25 @@
+.each-comment-inside {
+    flex: 1;
+}
+
+.comment-edit-input{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    border: none;
+    text-align: center;
+}
+
+.comment-edit {
+    padding: 2px;
+    margin-left: 3px;
+}
+
+.comment-edit:hover {
+    cursor: pointer;
+    background-color: orange;
+    border-radius: 8px;
+    padding: 2px;
+}

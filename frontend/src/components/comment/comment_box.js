@@ -1,13 +1,17 @@
 import React from 'react';
-import { updateComment } from '../../util/comment_api_util';
+import { updateComment, deleteComment, getCrawlComments } from '../../util/comment_api_util';
+import "../../assets/stylesheets/comment.css";
+
 class CommentBox extends React.Component {
      constructor(props){
         super(props)
         this.state={
             isEdit:false,
             id:null,
-            bodyText:''
+            bodyText:'',
+            comments: this.props.comments
         }
+        this.handleDelete = this.handleDelete.bind(this);
      }
     componentDidMount() {
         this.props.fetchUsers()
@@ -18,6 +22,15 @@ class CommentBox extends React.Component {
         text += ": "
         return text;
     };
+
+handleDelete = async(id)=> {
+    await deleteComment(id)
+    .then(()=> this.setState({
+        commentdeleted: true
+    }))
+    .then(()=>getCrawlComments(this.props.crawlId));
+
+}
 
  handleInputChange = async(e,id,crawl_id,index)=>{
     //  console.log( e.target.value ,index );
@@ -35,7 +48,7 @@ class CommentBox extends React.Component {
 }
     render() {
         const {comments, body, crawlId} = this.props
-        // console.log("PropsComments=====>",this.props)
+        // console.log("PropsComments=====>",this.props.crawlId)
         return (
             <div className='main-comment-container'>
                 
@@ -49,23 +62,29 @@ class CommentBox extends React.Component {
                 )}
                 <div className='comment-container'>
                 {(comments || []).map((item,index) => (
-                    <div key={item._id} className="each-comment">
+                    <div key={item._id} className="each-comment" style={{display: "flex", flexDirection: "row", justifyContent: "flex-start"}}>
                         {this.state.isEdit && item._id === this.state.id  ?
-                         <input type = 'text' onChange={(e)=>this.handleInputChange(e,item._id,item.crawl_id,index)} defaultValue = {item.body}/>: 
+                         <input className='comment-edit-input' type = 'text' onChange={(e)=>this.handleInputChange(e,item._id,item.crawl_id,index)} defaultValue = {item.body}/>: 
                     (<div className='each-comment-inside'>
                         {this.renderName(item.user_id)}
                         {item.body}
                         </div>
                     )
                     }
-                   {/* {item.user_id == this.props.currentUser.id && this.state.indexCheck != index   && (
-                    <Link onClick={()=>this.setState({isEdit:!this.state.isEdit,id:item._id})} >
-                    <img className="edit-icon" src="https://i.postimg.cc/mkny8198/edit-icon.png" alt="" /></Link>
+                   {item.user_id == this.props.currentUser.id && this.state.indexCheck != index   && (
+                    <div className='comment-edit' onClick={()=>this.setState({isEdit:!this.state.isEdit,id:item._id})} >
+                    <img className="edit-icon" src="https://i.postimg.cc/mkny8198/edit-icon.png" alt="" />Edit</div>
                    )}
+
+                    {item.user_id == this.props.currentUser.id && this.state.indexCheck != index   && (
+                    <div className='comment-edit' onClick={()=>this.handleDelete(item._id)} >
+                    <img className="edit-icon" src="https://i.postimg.cc/mkny8198/edit-icon.png" alt="" />Delete</div>
+                   )}
+                   
                     
                     {item.user_id == this.props.currentUser.id && this.state.indexCheck == index   && (
-                    <Link onClick={()=>this.setState({isEdit:!this.state.isEdit,id:item._id,indexCheck:null})} >Done</Link>
-                   )} */}
+                    <div className='comment-edit' onClick={()=>this.setState({isEdit:!this.state.isEdit,id:item._id,indexCheck:null})} >Done</div>
+                   )}
                 </div>
             ))}
             </div>
