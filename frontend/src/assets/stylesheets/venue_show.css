@@ -7,21 +7,23 @@
     justify-content: flex-start;
     text-align: center;
     font-family: 'Quicksand';
-    background-color: rgba(2, 9, 85, 0.6);
+    /* background-color: rgba(2, 9, 85, 0.6); */
     flex-direction: column;
     /* gap: 4%; */
-    min-height: 780px;
+    min-height: fit-content;
 }
 
 .left-column {
-    width: 50vw;
+    /* width: 50vw; */
     /* height: 90%; */
+    margin-right: 4%;
+    margin-left: 4%;
 }
 
 
 .right-column {
-    width: 55%;
-    height: 90%;
+    /* width: 55%; */
+    /* height: 90%; */
     /* background-color: rgba(125, 125, 125, 0.755); */
     /* margin-left: -4%; */
     /* padding-right: -10%; */
@@ -29,19 +31,13 @@
     align-items: center;
     vertical-align: center;
     flex-direction: column;
+    margin-left: 4%;
+    margin-right: 4%;
 }
 
-/* .venue-show-image-container {
-    height: 60%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    background-color: rgba(2, 9, 85, 0.6);
-    margin-top: -100px;
-    height: 800px;
-} */
+.venue-show-image-container {
+   padding: 10px;
+}
 /* .venue-show-image {
     width: 100%;
     overflow: hidden;
@@ -219,9 +215,17 @@
 
 .venue-show-top {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    margin-top: 75px;
+    /* margin-top: 75px; */
+    /* width: 100vw; */
+    /* width: 100vw; */
+    height: 100vh;
+    width: 95vw;
+    min-width: fit-content;
+    min-height: fit-content;
+    padding: 50px;
+    background-color: rgba(2, 9, 85, 0.6);
 }
 
 
@@ -244,7 +248,8 @@ z-index: -50;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .venue-edit-button1 {
