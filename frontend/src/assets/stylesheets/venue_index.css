@@ -9,11 +9,16 @@
     flex-direction: column;
     /* padding-top: 30vh; */
     /* gap: 6%; */
+  /* background-color: rgba(2, 9, 85, 0.6); */
   background-color: rgba(2, 9, 85, 0.6);
+  width: fit-content;
+  min-width: 100vw;
 }
 
 .venue-index-title {
     display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Quicksand';
     font-size: 5.5vh;
     font-weight: 600;
@@ -29,7 +34,13 @@
     justify-content: center;
     /* padding-top: 55vh; */
     gap: 5vw;
+    padding: 10px;
     margin-bottom: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+  /* background-color: rgba(2, 9, 85, 0.6);
+  width: fit-content; */
+
 }
 
 .venue-show-image {

@@ -31,7 +31,7 @@ class CommentCompose extends React.Component {
         return e => this.setState({ body: e.currentTarget.value });
     }
     componentDidUpdate(prevProps){
-        if(prevProps.newComment != this.props.newComment){
+        if(prevProps.newComment !== this.props.newComment){
             
             this.setState({          
                 newComment: this.props.newComment

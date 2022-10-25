@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import crawlShow from "./crawl_show"
 import { fetchCrawl, updateCrawl} from "../../actions/crawl_actions";
 import { fetchAllVenues } from "../../actions/venue_actions";
-import { composeComment, fetchCrawlComments } from "../../actions/comment_actions";
+import { fetchCrawlComments } from "../../actions/comment_actions";
 import { fetchUsers } from "../../actions/user_actions";
 
 const mapStateToProps = (state) => {

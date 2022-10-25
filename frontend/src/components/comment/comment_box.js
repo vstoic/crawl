@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, withRouter } from "react-router-dom";
 import { updateComment } from '../../util/comment_api_util';
 class CommentBox extends React.Component {
      constructor(props){
@@ -15,7 +14,7 @@ class CommentBox extends React.Component {
     }
 
     renderName = (user_id) => {
-        let text = this.props.users?.data?.find((x) => x._id == user_id)?.username;
+        let text = this.props.users?.data?.find((x) => x._id === user_id)?.username;
         text += ": "
         return text;
     };
@@ -35,12 +34,12 @@ class CommentBox extends React.Component {
   this.props.comments[index].body = e.target.value
 }
     render() {
-        const {comments, text, body, crawlId} = this.props
+        const {comments, body, crawlId} = this.props
         // console.log("PropsComments=====>",this.props)
         return (
             <div className='main-comment-container'>
                 
-                {body && crawlId == body.crawl_id && (
+                {body && crawlId === body.crawl_id && (
                     <div className='comment-container2'>
                 <div className='each-comment'>
                     {this.renderName(body.user_id)}: 
@@ -51,7 +50,7 @@ class CommentBox extends React.Component {
                 <div className='comment-container'>
                 {(comments || []).map((item,index) => (
                     <div key={item._id} className="each-comment">
-                        {this.state.isEdit && item._id == this.state.id  ?
+                        {this.state.isEdit && item._id === this.state.id  ?
                          <input type = 'text' onChange={(e)=>this.handleInputChange(e,item._id,item.crawl_id,index)} defaultValue = {item.body}/>: 
                     (<div className='each-comment-inside'>
                         {this.renderName(item.user_id)}
