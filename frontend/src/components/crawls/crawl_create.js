@@ -106,8 +106,9 @@ class CrawlForm extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <div>
                             <select className="venue-input-cost"
-                                    onChange={this.update("category")}>
-                                <option value="defaultValue" selected="true" disabled="disabled">Select a Category</option>
+                                    onChange={this.update("category")}
+                                    >
+                                <option value="defaultValue" selected={true} disabled="disabled">Select a Category</option>
                                 <option value={"Food and Drinks"}>Food and Drinks</option>
                                 <option value={"Active Life"}>Active Life</option>
                                 <option value={"Arts and Entertainment"}>Arts and Entertainment</option>
@@ -128,7 +129,7 @@ class CrawlForm extends React.Component {
                             <select className="venue-input-cost"
                                     onChange={this.update("cost")}
                                 >
-                                <option value="defaultValue" selected="true" disabled="disabled">Select a Cost</option>
+                                <option value="defaultValue" selected={true} disabled="disabled">Select a Cost</option>
                                 <option value={"$"}>$</option>
                                 <option value={"$$"}>$$</option>
                                 <option value={"$$$"}>$$$</option>
@@ -188,7 +189,7 @@ class CrawlForm extends React.Component {
                                     onChange={this.update("venue")}
                                     className="venue-input-cost"
                                 >
-                                    <option value="defaultValue" selected="true" disabled="disabled">Select a Venue</option>
+                                    <option value="defaultValue" selected={true} disabled="disabled">Select a Venue</option>
                                     {
                                         this.props.allVenues.map(venue => (
                                             <option

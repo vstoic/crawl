@@ -1,10 +1,12 @@
-import { getComments, getCrawlComments, writeComment } from '../util/comment_api_util';
+import { getComments, getCrawlComments, writeComment, updateComment, deleteComment } from '../util/comment_api_util';
 
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 export const RECEIVE_CRAWL_COMMENTS = "RECEIVE_CRAWL_COMMENTS";
 export const RECEIVE_NEW_COMMENT = "RECEIVE_NEW_COMMENT";
 export const RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS";
 export const CLEAR_COMMENT_ERRORS = "CLEAR_COMMENT_ERRORS"; 
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+
 
 export const receiveComments = comments => ({
     type: RECEIVE_COMMENTS,
@@ -31,6 +33,12 @@ export const clearCommentErrors = () => ({
 });
 
 
+const removeComment = (commentId) => ({
+    type: REMOVE_COMMENT,
+    commentId,
+  });
+  
+
 
 
 export const fetchComments = () => dispatch => (
@@ -51,6 +59,16 @@ export const composeComment = data => dispatch => (
         .catch(err => dispatch(receiveCommentErrors(err.response.data)))
 );
 
+export const editComment = data => dispatch => (
+    updateComment(data)
+        .then(comment => dispatch(receiveNewComment(comment)))
+        .catch(err => dispatch(receiveCommentErrors(err.response.data)))
+);
+
+export const deleteCommentFromCrawl = (commentId) => dispatch => (
+    deleteComment(commentId)
+      .then(() => dispatch(removeComment(commentId)))
+  );
 
 
 

@@ -114,7 +114,7 @@ class VenueForm extends React.Component {
               <select className="venue-input-cost"
                       onChange={this.update("cost")}
               >
-                  <option value="defaultValue" selected="true" disabled="disabled">Select a Cost</option>
+                  <option value="defaultValue" selected={true} disabled="disabled">Select a Cost</option>
                   <option value={"$"}>$</option>
                   <option value={"$$"}>$$</option>
                   <option value={"$$$"}>$$$</option>

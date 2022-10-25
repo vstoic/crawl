@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { composeComment } from "../../actions/comment_actions";
+import { composeComment, fetchCrawlComments } from "../../actions/comment_actions";
 import CommentCompose from "./comment_compose";
 
 const mapStateToProps = (state) => {
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        composeComment: data => dispatch(composeComment(data))
+        composeComment: data => dispatch(composeComment(data)),
+        fetchCrawlComments: (crawlId) => dispatch(fetchCrawlComments(crawlId)),
     };
 };
 
