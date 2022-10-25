@@ -38,7 +38,7 @@ class MainPageItem extends React.Component  {
                          {crawlVenues?.map((item) => (
                             <div key={item} className="each-crawl-venue-details">
                                 {(this.props.venueReducer[item])? 
-                                  <li key={item}><Link key={item} to={`/venueShow/${item}`}>{this.props.venueReducer[item].name}</Link></li> : null
+                                  <div className="c-v-list" key={item}><Link key={item} to={`/venueShow/${item}`}>{this.props.venueReducer[item].name}</Link></div> : null
                                 }
                                 {/* <div className="mp-image-container">
                                     <img src={renderImageSrc(item)} className="main-page-images" />

@@ -53,6 +53,20 @@ componentDidMount(){
               </Link>
             </div>
           <div className="developers-container">
+
+          <div className="devs"> 
+              <img className="personal-link-photo"
+                src="https://i.postimg.cc/PJsW99sN/moh.png" />
+              <br />
+              Mohammad 
+              <br />
+              Rizwan
+              <br />
+              <a href="https://www.linkedin.com/in/mohammad-h-rizwan-a83a31246/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+                src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
+              <a href="https://github.com/mrizwan83" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+                src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
+            </div>
             <div className="devs"> 
               <img className="personal-link-photo"
                 src="https://i.postimg.cc/0jsScSDw/Linkedin.jpg" />
@@ -74,24 +88,12 @@ componentDidMount(){
               <br />
               Oliver 
               <br />
-              <a href="https://www.linkedin.com/in/victorcheng3/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+              <a href="https://www.linkedin.com/in/tara-oliver/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
-              <a href="https://github.com/vstoic" target="_blank" rel="noopener noreferrer"><img className="personal-link"
+              <a href="https://github.com/Tara-Oliver" target="_blank" rel="noopener noreferrer"><img className="personal-link"
                 src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
             </div>
-            <div className="devs"> 
-              <img className="personal-link-photo"
-                src="https://i.postimg.cc/PJsW99sN/moh.png" />
-              <br />
-              Mohammad 
-              <br />
-              Rizwan
-              <br />
-              <a href="https://www.linkedin.com/in/mohammad-h-rizwan-a83a31246/" target="_blank" rel="noopener noreferrer"><img className="personal-link"
-                src="https://i.postimg.cc/jjHFWSqP/thin-white-linkedin.png" /></a>
-              <a href="https://github.com/mrizwan83" target="_blank" rel="noopener noreferrer"><img className="personal-link"
-                src="https://i.postimg.cc/BbLbgyV5/github-white.png" /></a>
-            </div>
+          
             <div className="devs">
               <img className="personal-link-photo"
                 src="https://avatars.githubusercontent.com/u/104274719?v=4" />

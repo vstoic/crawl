@@ -90,27 +90,29 @@ alert("Delete Error")
                    <h1 className="venue-name">{this.state.venue.name}</h1>
                    <div className="cost-website">
                      <p id="vc-show">{this.state.venue.cost}</p>
-                     <a href={this.state.venue.website} target="_blank" rel="noopener">
+                     {this.state.venue.website && <a href={this.state.venue.website} target="_blank" rel="noreferrer">
                        Website
-                     </a>
+                     </a>}
                    </div>
                    <p className="vd-show">Details: {this.state.venue.description}</p>
                    <p className="va-show">Address: {this.state.venue.address}</p>
                  {loggedIn? this.handlelink(): null}
 
+                 <div className="venue-show-image-container">
+                   { this.state.venue.image && <img src={this.state.venue.image} className="venue-show-image" alt="" />}
+                 </div>
                  </div>
                  <div>
                  {/* {loggedIn? this.handlelinkDelete(this.state.venue._id): null} */}
                  </div>
+                 
+               
                </div>
                </div>
 
 
 
 
-               <div className="venue-show-image-container">
-                   { this.state.venue.image && <img src={this.state.venue.image} className="venue-show-image" />}
-                 </div>
              </div>
 
       )} 
@@ -132,24 +134,26 @@ alert("Delete Error")
                    <h1 className="venue-name" >{this.state.venueb.name}</h1>
                    <div className="cost-website">
                      <p id="vc-show">{this.state.venueb.cost}</p>
-                     <a href={this.state.venueb.website} target="_blank" rel="noopener">
+                     {this.state.venueb.website && <a href={this.state.venueb.website} target="_blank" rel="noreferrer">
                        Website
-                     </a>
+                     </a>}
                    </div>
                    <p className="vd-show">Details: {this.state.venueb.description}</p>
                    <p className="va-show">Address: {this.state.venueb.address}</p>
                    {loggedIn? this.handlelink(): null}
+
+                   <div className="venue-show-image-container">
+              { this.state.venueb.image &&  <img src={this.state.venueb.image} className="venue-show-image" alt=""/>}
                  </div>
-         
+                 </div>
+               
                  <div>
                  {/* {loggedIn? this.handlelinkDelete(this.state.venue._id): null} */}
                  </div>
                </div>
                </div>
                  
-               <div className="venue-show-image-container">
-              { this.state.venueb.image &&  <img src={this.state.venueb.image} className="venue-show-image" />}
-                 </div>
+               
                 
              </div>
                </>

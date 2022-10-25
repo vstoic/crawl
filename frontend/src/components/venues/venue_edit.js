@@ -62,6 +62,8 @@ class VenueEditForm extends React.Component {
   });
   }
 
+
+
 //   .then((res) => { 
 //     if(res.type === "RECEIVE_CRAWL_ERRORS"){
 //         return
@@ -73,15 +75,12 @@ class VenueEditForm extends React.Component {
     // console.log(this.props.venue.data);
     const { errors } = this.props;
     return (
-      <div className="session-background">
+      <div className="crawl-create-background">
         <div className="session-image-container">
-          {/* <img
-            className="logo-image"
-            src="https://i.postimg.cc/tRWyZch1/snail-logo.png"
-          /> */}
           <img
             className="google-image"
             src="https://i.postimg.cc/05ZwPz18/Shining-bright-idea-light-bulb-with-cogs-on-transparent-background-PNG.png"
+            alt="Not-Found"
           />
         </div>
         <div className="signup-container">
@@ -129,7 +128,7 @@ class VenueEditForm extends React.Component {
               
               />
               <div className="errors">{errors.address}</div>
-              <img className="profile-img" src={this.state.image} alt='<img className="personal-link-photo"/>'/>
+              <img className="profile-img" src={this.state.image} alt='Venue->'/>
               {/* <input
                 className="venue-input"
                 type="text"

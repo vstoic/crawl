@@ -6,24 +6,30 @@ import "../../assets/stylesheets/venue_index.css";
 class VenueIndex extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      venues: []
+    }
   }
   
   componentDidMount() {
-    this.props.fetchAllVenues();
+    this.props.fetchAllVenues()
+    .then((response) => this.setState({
+      venues: response
+    }))
   }
 
   render() {
     // this.props.fetchAllVenues()
-  
+    // console.log(this.state.venues.venues)
     return (
       <div className="venue-index-main">
           <h1 className="venue-index-title">All Venues</h1>
         <div className="venue-index-container">
           {
-            this.props.venues.map(venue => (
+           this.state.venues.venues && Object.values(this.state.venues.venues).map(venue => (
               // console.log(this.props.currentUser.id)
               <VenueIndexItem
-              key={venue._id}
+              key={venue.name}
               venue={venue}
               currentUser={this.props.currentUser}
               />

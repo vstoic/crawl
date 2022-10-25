@@ -1,7 +1,7 @@
 .venue-index-main {
     /* height: 88vh;
     width: 99vw; */
-    background-color: white;
+    /* background-color: white; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,6 +9,7 @@
     flex-direction: column;
     /* padding-top: 30vh; */
     /* gap: 6%; */
+  background-color: rgba(2, 9, 85, 0.6);
 }
 
 .venue-index-title {
@@ -16,7 +17,8 @@
     font-family: 'Quicksand';
     font-size: 5.5vh;
     font-weight: 600;
-    color: rgb(74, 74, 74);
+    color: black;
+    padding: 15px;
 }
 
 .venue-index-container {
@@ -27,13 +29,17 @@
     justify-content: center;
     /* padding-top: 55vh; */
     gap: 5vw;
+    margin-bottom: 50px;
 }
 
 .venue-show-image {
-    height: 20vh;
+    height: 33vh;
     width: auto;
+    max-height: 400px;
+    max-width: 400px;
     border-radius: 3px;
     border: 1px solid rgb(134, 134, 134);
+    margin-bottom: 50px;
 }
 
 .each-venue-idx a{
@@ -44,6 +50,7 @@
     font-family: 'Quicksand';
     font-size: 2.3vh;
     text-decoration: none;
-    color: rgb(94, 94, 94);
+    color: black;
     padding: -10px;
+    font-weight: 600;
 }

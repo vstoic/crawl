@@ -59,7 +59,7 @@ class MapContainer extends React.Component {
     return (
       <div className="map-container">
         <Map
-          style={{ width: "36%", height: "51%" }}
+          style={{ width: "35vw", height: "51vh" }}
           google={this.props.google}
           initialCenter={{
             lat: this.state.mapCenter.lat,
@@ -69,7 +69,7 @@ class MapContainer extends React.Component {
             lat: this.state.mapCenter.lat,
             lng: this.state.mapCenter.lng,
           }}
-          zoom={16}
+          zoom={15}
         >
           {this.props.LatLong.map((item, idx) => (
             <Marker

@@ -58,7 +58,7 @@ class CommentCompose extends React.Component {
                         required
                     />
                     <br/>
-                    <input type="submit" value="Submit" />
+                    <input className="comment-submit" type="submit" value="Submit" />
                 </form>
             </div>
         )

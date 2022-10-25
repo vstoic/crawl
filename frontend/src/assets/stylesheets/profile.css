@@ -1,12 +1,14 @@
 .profile-container {
-  height: 88vh;
+  height: 100%;
   width: 99vw;
   background-color: white;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   text-align: center;
   gap: 6%;
+  background-color: rgba(2, 9, 85, 0.6);
+  min-height: 100vh;
 }
 
 .profile-left {
@@ -17,6 +19,12 @@
     position: fixed;
     right: 62vw;
     top: 18vh;
+}
+
+.profile-title {
+  color: black;
+  font-size: 46px;
+  padding: 15px;
 }
 
   .profile-img {
@@ -32,11 +40,12 @@
     justify-content: center;
     height: 90%;
     width: 40%;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     /* border: .1px solid rgb(215, 215, 215); */
     border-radius: 8px;
     font-family: 'Quicksand';
     padding-left: 25vw;
+    margin-top: 2%;
 }
 
 .profile-crawl-container {

@@ -23,33 +23,45 @@ function CrawlShow(props) {
   let crawlDescription = props.crawlsReducer?.byId?.data?.description || '';
   let crawlCost = props.crawlsReducer?.byId?.data?.cost || '';
   let crawlTime = props.crawlsReducer?.byId?.data?.time || '';
+
   let crawlVenues = props.crawlsReducer?.byId?.data?.venues || [];
+
+  // console.log("crawlVenue====>",crawlVenues)
   let crawlVotes = props.crawlsReducer?.byId?.data?.votecount || 0;
   let crawlId = props.crawlsReducer?.byId?.data?._id || '';
-  let usersData = props.crawlsReducer?.byId?.data?.users || []
-  let venuesMap = props.venue
+  let usersData = props.crawlsReducer?.byId?.data?.users || [];
   //   const { title, category, description, time } =
   //     props.crawlsReducer?.byId?.data;
   const renderForVenues = (id) => {
     let text = props.venueReducer[id]
     return text;
   };
+
+
+
   useEffect(()=>{
+
+    ///this is what u want to do when compenent did mount
     crawlVenues.map((item)=>{
-      let key=item._id
-      let getVenue = renderForVenues(item)
+      let getVenue = renderForVenues(item);
       let obj = {
         "latitude":getVenue.latitude,
         "longitude":getVenue.longitude
-      }
-      setLatLng(prev=>[...prev,obj])
-    })
-  },[props.venue])
-// console.log("PropsCheck=======>",props.comments)
+      };
+      setLatLng(prev => {
+        return [...prev, obj];
+      });
+    }); 
+    /////this is component will unmount has to be functon
+    return()=>{
+      setLatLng(()=>[]);
+    };
+  },[props.venue]);
+
   const voteBot = async () => {
     // console.log("ButtonClick")
-      var check =  usersData?.find((x) => x?.user_id == props.session.user.id)
-    if(check == undefined){
+      var check =  usersData?.find((x) => x?.user_id === props.session.user.id)
+    if(check === undefined){
       let updateVoteCount = crawlVotes + 1;
       let userObj = {user_id:props.session.user.id}
       let crwlArray = usersData
@@ -70,7 +82,7 @@ function CrawlShow(props) {
     else {   
       let updateVoteCount = crawlVotes - 1;
       let removeUser = await usersData.filter(
-        (item) => item.user_id != props.session.user.id
+        (item) => item.user_id !== props.session.user.id
       );
        var crawlObj = {
          ...props.crawlsReducer?.byId?.data,
@@ -85,13 +97,15 @@ function CrawlShow(props) {
     }
   };
   useEffect(() => {
-    var check = usersData?.find((x) => x?.user_id == props?.session?.user?.id);
-    if (check == undefined) {
+    var check = usersData?.find((x) => x?.user_id === props?.session?.user?.id);
+    if (check === undefined) {
       setButtonText("Vote");
     } else {
       setButtonText("UnVote");
     }
   }, [props.crawlsReducer?.byId?.data]);
+
+
     return (
       <div className="main-crawl-show-container">
         <div className="crawl-show-left">
@@ -105,7 +119,7 @@ function CrawlShow(props) {
                   onClick={() => voteBot()}
                   style={{
                     backgroundColor:
-                      errorBot == 1 ? "orange" : errorBot == 2 ? "white" : "white",
+                      errorBot === 1 ? "orange" : errorBot === 2 ? "white" : "white",
                   }}>
                   {buttonText}</button>
               )}{crawlTitle}</div>
@@ -123,16 +137,17 @@ function CrawlShow(props) {
                
                 <div key={item} className="each-venue">
                   <div className="crawl-venue-left">
-                    <Link to={`/venueShow/${item}`}>
+                    <Link className="inside-crawl-venues-info" to={`/venueShow/${item}`}>
                       {renderForVenues(item).name}
                     </Link>
-                    <div>{renderForVenues(item).cost}</div>
-                    <div>-{renderForVenues(item).description}</div>
+                    <div className="inside-crawl-venues-info">{renderForVenues(item).cost}</div>
+                    <div className="inside-crawl-venues-info">-{renderForVenues(item).description}</div>
                   </div>
                   <div className="crawl-img-container">
                   <img
                     className="crawl-venue-image"
-                    src={renderForVenues(item).image}/>
+                    src={renderForVenues(item).image}
+                    alt="Crawl-Venue-I"/>
                     </div>
                 </div>
               ))}
@@ -140,6 +155,7 @@ function CrawlShow(props) {
           </div>
           
         </div>
+
         <div className="crawl-show-right">
           <div className="crawl-show-map-container">
             <div className="crawl-show-map">

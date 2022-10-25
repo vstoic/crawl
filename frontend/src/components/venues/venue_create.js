@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import GooglePlacesAutocomplete ,{geocodeByAddress,getLatLng} from 'react-google-places-autocomplete';
 class VenueForm extends React.Component {
   constructor(props) {
@@ -74,7 +74,7 @@ class VenueForm extends React.Component {
     // console.log("State======>",this.state)
     const { errors } = this.props;
     return (
-      <div className="session-background">
+      <div className="crawl-create-background">
         <div className="session-image-container">
           {/* <img
             className="logo-image"
@@ -83,6 +83,7 @@ class VenueForm extends React.Component {
           <img
             className="google-image"
             src="https://i.postimg.cc/05ZwPz18/Shining-bright-idea-light-bulb-with-cogs-on-transparent-background-PNG.png"
+            alt="Not Found"
           />
         </div>
         <div className="signup-container">

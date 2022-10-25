@@ -38,7 +38,7 @@ class CrawlEdit extends React.Component {
   
     handleSubmit(e) {
         e.preventDefault();
-        const { updateCrawl, history, errors } = this.props;
+        const { updateCrawl, history } = this.props;
         const crawl = Object.assign({}, this.state);
         // console.log(crawl)
         updateCrawl(crawl)
@@ -113,16 +113,17 @@ class CrawlEdit extends React.Component {
 
         
         const renderName = (id) => {
-            let text = this.props.allVenues?.find((x) => x._id == id)?.name;
+            let text = this.props.allVenues?.find((x) => x._id === id)?.name;
             return text;
           };
 
         return (
-            <div className="session-background">
+            <div className="crawl-create-background">
                 <div className="session-image-container">
                     <img
                         className="google-image"
                         src="https://i.postimg.cc/05ZwPz18/Shining-bright-idea-light-bulb-with-cogs-on-transparent-background-PNG.png"
+                        alt="GI-NF"
                     />
                 </div>
                 <div className="signup-container">

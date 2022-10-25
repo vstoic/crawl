@@ -1,8 +1,8 @@
-import axios from "axios";
+
 import React from "react";
 import "../../assets/stylesheets/profile.css";
 import { Link, withRouter } from "react-router-dom";
-import equal from 'fast-deep-equal';
+
 
 
 class Profile extends React.Component {
@@ -54,7 +54,7 @@ class Profile extends React.Component {
   }
 
   removeCrawl = async (crawlId) => {
-    const {deleteCrawl, currentUser, history} = this.props
+    const {deleteCrawl, history} = this.props
     await deleteCrawl(crawlId);
       history.push("/");
     // const newCrawls = Object.assign([], this.state.crawls)
@@ -77,7 +77,7 @@ class Profile extends React.Component {
       // console.log("ImageData========>", this.props);
         this.props.crawlsReducer?.crawlByUser?.data?.sort((a,b) => (b.votecount) -  (a.votecount))
         let profileImage =
-        this.props.userFetch?.currentUser != undefined
+        this.props.userFetch?.currentUser !== undefined
           ? this.props.userFetch?.currentUser?.data?.profileImage
           : this.props.viewedUser?.profileImage;
     if (this.props.viewedUser) return (
@@ -91,14 +91,14 @@ class Profile extends React.Component {
              />'
             />
           )} */}
-          <img className="profile-img" src={profileImage} alt='<img className="personal-link-photo"/>'/>
+          <img className="profile-img" src={profileImage} alt='Profile-Picture'/>
           <input type="file" accept="images/*" onChange={(e) => this.getImageUrl(e.target.files[0])}/>
-          <h1> {this.props.viewedUser.username}'s Page</h1>
+          <h1 className="profile-title"> {this.props.viewedUser.username}'s Page</h1>
         </div>
 
         <div className="profile-right">
           <div className="profile-crawl-container">
-            {this.props.crawlsReducer?.crawlByUser?.data?.length == 0 && (
+            {this.props.crawlsReducer?.crawlByUser?.data?.length === 0 && (
               <div className="profile-right-crawls">No Crawls Created</div>
             )}
             {(this.props.crawlsReducer?.crawlByUser?.data || []).map((item) => (

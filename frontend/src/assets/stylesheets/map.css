@@ -10,29 +10,32 @@
 
 
 .map-container div {
-    display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* align-content: center; */
-    /* color: #4e4e4ecd; */
-    /* border: 1px solid ; */
-    font-size: 20px;
-    height: 30%;
-    width: 55%;
-    /* margin-top: -60px; */
-    /* margin-left: 30px; */
-
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border-radius: 15px;
+    position: absolute;
 }
 .map-container-crawl div {
-    display: flex;
+    /* display: flex; */
     /* align-items: center; */
     /* justify-content: center; */
     /* align-content: center; */
     /* color: #4e4e4ecd; */
     /* border: 1px solid ; */
-    font-size: 20px;
+    /* font-size: 20px; */
     
     /* margin-top: -60px; */
     /* margin-left: 30px; */
+    position: relative;
+    width: 300px;
+    height: 51vw;
+}
 
+
+
+.actual-map {
+    width: 35vw;
+    height: 51vh;
 }

@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import "../../assets/stylesheets/crawl_create.css";
+
 
 class CrawlForm extends React.Component {
     constructor(props) {
@@ -84,17 +86,19 @@ class CrawlForm extends React.Component {
         const { errors } = this.props;
         const renderName = (id) => {
             // console.log("Data(renderName before)========>", props.venueReducer?.venues);
-            let text = this.props.allVenues?.find((x) => x._id == id)?.name;
+            let text = this.props.allVenues?.find((x) => x._id === id)?.name;
             return text;
           };
         return (
-            <div className="session-background">
+            <div className="crawl-create-background">
                 <div className="session-image-container">
                     <img
                         className="google-image"
                         src="https://i.postimg.cc/05ZwPz18/Shining-bright-idea-light-bulb-with-cogs-on-transparent-background-PNG.png"
+                        alt="GI-NF"
                     />
                 </div>
+                <div className="create-crawl-wrapper">
                 <div className="signup-container">
                     <div className="signup-text">
                         <h1 className="signup-text1">Create a Crawl</h1>
@@ -161,7 +165,7 @@ class CrawlForm extends React.Component {
                                 <ul className='selected-venues'>
                                      {
                                         this.state.venues.map((venue_id, idx) => 
-                                            <li key={idx} className="venues-list">
+                                            <li key={venue_id} className="venues-list">
                                                     <p>{renderName(venue_id)}</p>
                                                     <button 
                                                         className="button" 
@@ -209,6 +213,7 @@ class CrawlForm extends React.Component {
                             />
                         </div>
                     </form>
+                </div>
                 </div>
             </div>
         );

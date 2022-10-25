@@ -1,11 +1,12 @@
 .session-background {
     display: flex;
-    height: 90vh;
-    width: 98vw;
+    height: 100vh;
     vertical-align: center;
     align-items: center;
     justify-content: flex-end;
     /* background: linear-gradient(to top, #e6e6e677 0%, #ececec11 100%); */
+  background-color: rgba(2, 9, 85, 0.6);
+
 }
 
 .session-image-container {
@@ -15,6 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .logo-image {
@@ -39,30 +41,33 @@
 }
 
 .login-container {
-    min-width: 340px;
     flex-direction: column;
     text-align: center;
     display: flex;
     /* background-color: #f17e2621; */
     /* border: 1px solid rgb(20, 20, 20); */
-    width: 40%;
-    height: 99.9vh;
+    /* width: 40%;
+    height: 50%; */
     justify-content: center;
-    margin-right: 215px;
+    margin-right: 20%;
     font-family: 'Quicksand';
-    
+    background-color: #f1f2f3;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
 }
 
 .login-text1 {
     align-items: center;
     vertical-align: center;
     justify-content: center;
-    color: #4e4e4ecd;
-    font-size: 46px;
+    color: black;
+    font-size: 56px;
     font-weight: 840;
     margin-bottom: 10px;
     letter-spacing: -1.6px;
     /* color: #F17F26; */
+    padding: 20px;
 }
 
 .signup-redirect-main {
@@ -89,7 +94,7 @@
 .username-input {
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 50%;
+    width: 94%;
     height: 35px;
     background-color: white;
     border-radius: 4px;
@@ -101,7 +106,7 @@
 .email-input {
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 50%;
+    width: 94%;
     height: 35px;
     background-color: white;
     border-radius: 4px;
@@ -113,7 +118,7 @@
 .password-input {
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 50%;
+    width: 94%;
     height: 35px;
     background-color: white;
     border-radius: 4px;
@@ -126,7 +131,7 @@
     cursor: pointer;
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 55%;
+    width: 100%;
     height: 40px;
     color: white;
     /* background-color: #1877f2; */
@@ -146,7 +151,7 @@
     /* background: #F17F26; */
     background-color: #F17F26;
     border: 1px solid #F17F26;
-    width: 55%;
+    width: 100%;
     height: 40px;
     border-radius: 4px;
     font-size: 14px;
@@ -154,13 +159,16 @@
 }
 
 .signup-redirect {
-    justify-content: flex-end;
-    text-align: right;
-    margin-right: 30%;
+    text-align: center;
     font-family: Helvetica, sans-serif;
     font-size: 12px;
     font-weight: 200;
-    color: rgb(129, 129, 129);
+    color: black;
+    padding: 5px;
+}
+
+.linkfont {
+    color: #f17f27;
 }
 
 .link-font:visited {
@@ -170,31 +178,59 @@
 }
 /* ---------------------------- */
 
-.signup-container {
+/* .signup-container {
     min-width: 340px;
     flex-direction: column;
     text-align: center;
     display: flex;
-    /* background-color: #f17e2621; */
-    /* border: 1px solid rgb(20, 20, 20); */
+    background-color: #f17e2621;
+    border: 1px solid rgb(20, 20, 20);
     width: 40%;
-    /* height: 99.9vh; */
+    height: 99.9vh;
     justify-content: center;
-    margin-right: 215px;
+    margin-right: 20%;
     font-family: 'Quicksand';
 
+} */
+
+.signup-container {
+    flex-direction: column;
+    text-align: center;
+    display: flex;
+    min-width: 400px;
+    /* background-color: #f17e2621; */
+    /* border: 1px solid rgb(20, 20, 20); */
+    /* width: 40%;
+    height: 50%; */
+    justify-content: center;
+    margin-right: 20%;
+    font-family: 'Quicksand';
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
 }
 
 .signup-text1 {
+    /* align-items: center;
+    vertical-align: center;
+    justify-content: center;
+    color: black;
+    font-size: 46px;
+    font-weight: 840;
+    margin-bottom: 10px;
+    letter-spacing: -1.6px; */
+    /* color: #F17F26; */
     align-items: center;
     vertical-align: center;
     justify-content: center;
-    color: #4e4e4ecd;
-    font-size: 46px;
+    color: black;
+    font-size: 56px;
     font-weight: 840;
     margin-bottom: 10px;
     letter-spacing: -1.6px;
     /* color: #F17F26; */
+    padding: 20px
 }
 
 .login-redirect-main {
@@ -233,13 +269,13 @@
 
 .submit-signup {
     cursor: pointer;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     margin-bottom: 5px;
     color: #fff;
     /* background: #F17F26; */
     background-color: #F17F26;
     border: 1px solid #F17F26;
-    width: 55%;
+    width: 100%;
     height: 40px;
     border-radius: 4px;
     font-size: 14px;
@@ -247,16 +283,27 @@
 }
 
 .login-redirect {
-    justify-content: flex-end;
+    /* justify-content: flex-end;
     text-align: right;
     margin-right: 30%;
     font-family: Helvetica, sans-serif;
     font-size: 12px;
     font-weight: 200;
-    color: rgb(129, 129, 129);
+    color: black; */
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 200;
+    color: black;
+    padding: 5px;
+}
+
+.login-redirect a {
+    color: #f17f27;
 }
 
 .errors {
     font-size: 75%;
-    font-weight: 100px;
+    font-weight: 600;
+    color: rgb(125, 1, 1);
 }
