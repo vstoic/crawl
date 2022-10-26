@@ -35,7 +35,7 @@ User authentication: login, logout, signup, and errors
 
 
 ### Crawls
-![](https://media.giphy.com/media/XLi8eqY0o4IK3KSLMN/giphy.gif)
+![](https://media.giphy.com/media/ApdjfRYf2qduEzQZk0/giphy.gif)
 
 Users can create edit and delete crawls 
 
