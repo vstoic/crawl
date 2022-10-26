@@ -29,7 +29,7 @@ with the venues they chose to add to it.
 ## Functionality and Features
 
 ### User Auth 
-![](https://media.giphy.com/media/7LgU8flq3LralP47uM/giphy.gif)
+![](https://media.giphy.com/media/Ay8z5ihXSyQetr41DM/giphy.gif)
 
 User authentication: login, logout, signup, and errors
 
