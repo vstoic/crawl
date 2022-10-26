@@ -7,7 +7,7 @@ venue isn't on the site, the user can add it. A crawl is basically like a bar cr
 with the venues they chose to add to it.
 
 ## Demo
-![](https://media.giphy.com/media/GmkscfadwdZH3k3VO4/giphy.gif)
+![](https://media.giphy.com/media/SM1kjjui4VTOESPbMn/giphy.gif)
 
 ## Technologies Used
 
