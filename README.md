@@ -24,6 +24,7 @@ with the venues they chose to add to it.
   * Cloudinary Upload API
   * Google Maps API
   * Heroku
+  * Render
 
 
 ## Functionality and Features
@@ -52,11 +53,11 @@ Users can upload profile pictures and view their crawls on their profile
 
 
 ### Comments
-![](https://media.giphy.com/media/40VHUEzEI6GUmPz8cX/giphy.gif)
+![](https://media.giphy.com/media/eFb1EjqpbkFm64O3YX/giphy.gif)
 
-Users can comment on crawls
+Users can comment on crawls, with ability to edit and delete the comment.
 
 ### Votes
-![](https://media.giphy.com/media/eG4d01EtD5rPTh2sr2/giphy.gif)
+![](https://media.giphy.com/media/2M2vGcOGXmlVJgirud/giphy.gif)
 
-Users can vote on crawls
+Users can vote and unvote on crawls
