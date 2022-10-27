@@ -40,13 +40,13 @@ User authentication: login, logout, signup, and errors
 Users can create edit and delete crawls 
 
 ### Venues
-![](https://media.giphy.com/media/Zr3aslyy6lSe8xWT6E/giphy.gif)
+![](https://media.giphy.com/media/4TU5UUO0gKDZcf4SlH/giphy.gif)
 
 Users can create and edit venues
 
 
 ### Profiles
-![](https://media.giphy.com/media/zPw0SjwjoX6EalTxwi/giphy.gif)
+![](https://media.giphy.com/media/p3mKY6HvZ2yqOCTHTT/giphy.gif)
 
 Users can upload profile pictures and view their crawls on their profile
 
