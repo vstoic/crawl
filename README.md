@@ -1,4 +1,3 @@
-# [Crawl](https://crawl-w52w.onrender.com) Render Live Link
 # [Crawl](https://socialcrawl.herokuapp.com/#/) Heroku Live Link
 ## Background 
 
