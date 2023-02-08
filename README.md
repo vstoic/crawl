@@ -1,5 +1,5 @@
 # [Crawl](https://crawl-w52w.onrender.com) Render Live Link
-# [Crawl](https://socialcrawl.herokuapp.com) Heroku Live Link
+# [Crawl](https://socialcrawl.herokuapp.com/#/) Heroku Live Link
 ## Background 
 
 [Crawl](https://socialcrawl.herokuapp.com) is a MERN stack web application that allows users to signup and create crawls with their favorite venues and if their
