@@ -5,6 +5,14 @@
 venue isn't on the site, the user can add it. A crawl is basically like a bar crawl but not specifically for bars. In Crawl users can create their own unique crawls 
 with the venues they chose to add to it.
 
+Introducing "Crawl", the ultimate app for anyone who loves exploring new places and trying different cuisines! With Crawl, you can easily create a custom itinerary of venues for yourself and your friends to follow.
+
+To get started, simply create a "crawl," and start adding venues to it. You can create or choose from a wide range of restaurants, cafes, bars, and other hotspots in your area, and organize them in the order you want to visit them. You can also add descriptions, photos, and other details to each venue, so that your friends know what to expect.
+
+Once you've created your crawl, you can share it with your friends. They can then view your itinerary, and even map it out. The crawls with the most votes will be featured on the main page, so that other users can discover and try them out for themselves. In addition to creating your own crawls, you can also browse other users' crawls to get inspiration for your next adventure.
+
+With Crawl Creator, the possibilities are endless! Whether you're a foodie, a bar hopper, or just love exploring new places, this app is the perfect tool for planning your next adventure. So why wait? Try Crawl today, and start exploring your city like never before!
+
 ## Demo
 ![](https://media.giphy.com/media/SM1kjjui4VTOESPbMn/giphy.gif)
 
