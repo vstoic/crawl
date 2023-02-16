@@ -1,11 +1,7 @@
 # [Crawl](https://socialcrawl.herokuapp.com/#/) Heroku Live Link
 ## Background 
 
-[Crawl](https://socialcrawl.herokuapp.com) is a MERN stack web application that allows users to signup and create crawls with their favorite venues and if their
-venue isn't on the site, the user can add it. A crawl is basically like a bar crawl but not specifically for bars. In Crawl users can create their own unique crawls 
-with the venues they chose to add to it.
-
-Introducing "Crawl", the ultimate app for anyone who loves exploring new places and trying different cuisines! With Crawl, you can easily create a custom itinerary of venues for yourself and your friends to follow.
+Introducing "[Crawl](https://socialcrawl.herokuapp.com)", the ultimate app for anyone who loves exploring new places and trying different cuisines! With Crawl, you can easily create a custom itinerary of venues for yourself and your friends to follow.
 
 To get started, simply create a "crawl," and start adding venues to it. You can create or choose from a wide range of restaurants, cafes, bars, and other hotspots in your area, and organize them in the order you want to visit them. You can also add descriptions, photos, and other details to each venue, so that your friends know what to expect.
 
@@ -17,7 +13,7 @@ With Crawl Creator, the possibilities are endless! Whether you're a foodie, a ba
 ![](https://media.giphy.com/media/SM1kjjui4VTOESPbMn/giphy.gif)
 
 ## Technologies Used
-
+  * MERN STACK
   * Javascript
   * CSS 3
   * HTML 5
